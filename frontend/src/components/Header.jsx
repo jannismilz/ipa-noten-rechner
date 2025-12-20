@@ -28,7 +28,7 @@ export default function Header() {
                 <UserCircle size={18} />
                 <span>{user?.first_name || 'Benutzer'} {user?.last_name || ''}</span>
               </div>
-              <button onClick={() => navigate('/onboarding')} className="btn-secondary-small">
+              <button onClick={() => navigate('/profile')} className="btn-secondary-small">
                 Profil
               </button>
               <button onClick={handleLogout} className="btn-secondary-small">

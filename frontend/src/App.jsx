@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import Header from './components/Header';
 import Login from './pages/Login';
 import Onboarding from './pages/Onboarding';
+import Profile from './pages/Profile';
 import Criteria from './pages/Criteria';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
               <Route path="/" element={<Criteria />} />
               <Route path="/login" element={<Login />} />
               <Route path="/onboarding" element={<Onboarding />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
         </div>
