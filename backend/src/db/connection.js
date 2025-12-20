@@ -1,11 +1,13 @@
-import postgres from 'postgres';
+import { sql } from 'bun';
 
-const sql = postgres({
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'ipa_noten_rechner',
-  username: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
+const DB_USER = process.env.DB_USER || 'postgres'
+const DB_PASSWORD = process.env.DB_PASSWORD || 'postgres'
+const DB_HOST = process.env.DB_HOST || 'localhost'
+const DB_PORT = process.env.DB_PORT || 5432
+const DB_NAME = process.env.DB_NAME || 'ipa_noten_rechner'
+
+const db = sql({
+  url: `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
 });
 
-export default sql;
+export default db;
