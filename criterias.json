@@ -3,17 +3,20 @@
         {
             "id": "hkb",
             "name": "Handlungskompetenzen",
-            "weight": 0.5
+            "weight": 0.5,
+            "part": "Teil 1"
         },
         {
             "id": "dok",
             "name": "Dokumentation",
-            "weight": 0.2
+            "weight": 0.2,
+            "part": "Teil 1"
         },
         {
             "id": "fpd",
             "name": "Fachgespräch und Präsentation (inkl. Demo)",
-            "weight": 0.3
+            "weight": 0.3,
+            "part": "Teil 2"
         }
     ],
     "criterias": [

@@ -20,7 +20,8 @@ Die Voraussetzungen für dieses Projekt sind zum Teil in [Projektbeschreibung](P
         {
             "id": "hkb", // Eindeutige ID
             "name": "Handlungskompetenzen",
-            "weight": 0.5 // 50% Gewichtung
+            "weight": 0.5, // 50% Gewichtung
+            "part": "Teil 1" // Teil 1 oder 2 für die Notenberechnung
         },
     ],
     "criterias": [
