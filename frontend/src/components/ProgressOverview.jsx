@@ -29,14 +29,17 @@ export default function ProgressOverview({ categories, criterias, evaluations, o
       <div className="overview-grid">
         <div className="overview-card primary">
           <div className="card-label">Gesamtnote</div>
-          <div className="card-value large">{finalGrade.toFixed(1)}</div>
-          <div className="card-detail">von 6.0</div>
+          <div className="card-value large">{finalGrade.toFixed(2)}</div>
+          <div className="card-detail">von 6.00</div>
         </div>
 
         {Object.entries(categoryScores).map(([id, data]) => (
           <div key={id} className="overview-card">
             <div className="card-label">{data.name}</div>
-            <div className="card-value">{data.grade.toFixed(1)}</div>
+            <div className="card-value">{data.grade.toFixed(2)}</div>
+            <div className="card-detail">
+              {data.totalPoints} / {data.totalPossiblePoints} Punkte
+            </div>
             <div className="card-detail">
               Gewichtet: {data.weightedGrade.toFixed(2)} ({Math.round(data.weight * 100)}%)
             </div>

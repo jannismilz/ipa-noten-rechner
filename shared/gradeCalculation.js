@@ -39,29 +39,29 @@ export function calculateGrade(criteria, tickedRequirements) {
 
 export function calculateCategoryScores(categories, criterias, evaluations) {
   const categoryScores = {};
+  const maxPointsPerCriteria = 3;
 
   categories.forEach(category => {
     const categoryCriterias = criterias.filter(c => c.category === category.id);
     let totalPoints = 0;
-    let count = 0;
+    let totalPossiblePoints = categoryCriterias.length * maxPointsPerCriteria;
 
     categoryCriterias.forEach(criteria => {
       const ticked = evaluations[criteria.id]?.tickedRequirements || [];
       const points = calculateGrade(criteria, ticked);
       if (points !== null) {
         totalPoints += points;
-        count++;
       }
     });
 
-    const averagePoints = count > 0 ? totalPoints / count : 0;
-    const grade = convertPointsToGrade(averagePoints);
+    const grade = convertPointsToGrade(totalPoints, totalPossiblePoints);
     const weightedGrade = grade * category.weight;
     
     categoryScores[category.id] = {
       name: category.name,
       weight: category.weight,
-      points: averagePoints,
+      totalPoints: totalPoints,
+      totalPossiblePoints: totalPossiblePoints,
       grade: grade,
       weightedGrade: weightedGrade,
       progress: calculateCategoryProgress(categoryCriterias, evaluations)
@@ -71,12 +71,9 @@ export function calculateCategoryScores(categories, criterias, evaluations) {
   return categoryScores;
 }
 
-function convertPointsToGrade(points) {
-  if (points >= 3) return 6.0;
-  if (points >= 2) return 5.0;
-  if (points >= 1) return 4.0;
-  if (points > 0) return 3.0;
-  return 1.0;
+function convertPointsToGrade(points, maxPoints) {
+  const grade = (points / maxPoints) * 5 + 1;
+  return Math.round(grade * 100) / 100;
 }
 
 function calculateCategoryProgress(categoryCriterias, evaluations) {
@@ -94,5 +91,5 @@ function calculateCategoryProgress(categoryCriterias, evaluations) {
 
 export function calculateFinalGrade(categoryScores) {
   const totalWeightedGrade = Object.values(categoryScores).reduce((sum, cat) => sum + cat.weightedGrade, 0);
-  return Math.round(totalWeightedGrade * 10) / 10;
+  return Math.round(totalWeightedGrade * 100) / 100;
 }
