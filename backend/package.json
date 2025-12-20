@@ -8,7 +8,8 @@
     "dev": "bun --watch src/index.js",
     "migrate": "bun run src/db/migrate.js",
     "seed": "bun run src/db/seed.js",
-    "create-user": "bun run src/cli/create-user.js"
+    "create-user": "bun run src/cli/create-user.js",
+    "test": "bun test"
   },
   "dependencies": {
     "express": "^4.18.2",

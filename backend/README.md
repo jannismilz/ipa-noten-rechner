@@ -54,6 +54,13 @@ bun run create-user
 ```
 Interactive CLI to create a new user.
 
+### Testing
+```bash
+bun test              # Run all tests
+bun test --watch      # Run tests in watch mode
+```
+See [TESTING.md](./TESTING.md) for detailed testing documentation.
+
 ## Docker
 
 Start the backend with PostgreSQL:
