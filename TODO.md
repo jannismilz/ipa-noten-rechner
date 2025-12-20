@@ -2,13 +2,13 @@
 
 ## Organisation und Zusammenarbeit im Team
 
-- [ ] Sie arbeiten im Team mit einem Partner
+- [x] Sie arbeiten im Team mit einem Partner
 - [x] Sie nutzen ein Git-Repository und checken die Software regelmässig nach jedem Arbeitsschritt ein
-- [ ] Jeder im Team hat jeder Zeit Zugriff auf den aktuellen Stand der Dokumente des Teams (Arbeitplanung, Software, Tests, etc.)
-- [ ] Sie kommunizieren effizient, transparent über Ihr Vorgehen, geplante Arbeiten und Erledigtes
-- [ ] Jeder im Team ist fähig über alles im Projekt kompetent Auskunft zu geben
-- [ ] Ihr Projekt muss sich von den Projekten anderer Teams deutlich unterscheiden
-- [ ] Sie entwickeln das Projekt kontinuierlich stetig weiter. Kleine Schritte, die abgeschlossen sind. Agiles Vorgehen
+- [x] Jeder im Team hat jeder Zeit Zugriff auf den aktuellen Stand der Dokumente des Teams (Arbeitplanung, Software, Tests, etc.)
+- [x] Sie kommunizieren effizient, transparent über Ihr Vorgehen, geplante Arbeiten und Erledigtes
+- [x] Jeder im Team ist fähig über alles im Projekt kompetent Auskunft zu geben
+- [x] Ihr Projekt muss sich von den Projekten anderer Teams deutlich unterscheiden
+- [x] Sie entwickeln das Projekt kontinuierlich stetig weiter. Kleine Schritte, die abgeschlossen sind. Agiles Vorgehen
 
 ## Dev-Ops (Modul 324)
 
