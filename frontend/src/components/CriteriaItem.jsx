@@ -40,7 +40,7 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
         </div>
         <div className="criteria-meta">
           {points !== null && (
-            <span className={`grade-badge ${gradeClass}`}>{points} Punkte</span>
+            <span className={`grade-badge ${gradeClass}`}>{points} {points === 1 ? "Punkt" : "Punkte"}</span>
           )}
           <span className="criteria-progress">
             {tickedRequirements.length}/{criteria.requirements.length}
