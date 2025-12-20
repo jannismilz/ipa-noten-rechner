@@ -7,7 +7,7 @@
     "start": "bun run src/index.js",
     "dev": "bun --watch src/index.js",
     "migrate": "bun run src/db/migrate.js",
-    "migrate-fresh": "bun run src/db/migrate-fresh.js",
+    "reset": "bun run src/db/reset.js",
     "seed": "bun run src/db/seed.js",
     "create-user": "bun run src/cli/create-user.js",
     "test": "bun test"
