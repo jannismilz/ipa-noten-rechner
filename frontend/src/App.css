@@ -36,6 +36,10 @@ body {
   flex-direction: column;
 }
 
+#root {
+  width: 100%;
+}
+
 .main-content {
   flex: 1;
   padding: 2rem;
@@ -51,10 +55,11 @@ body {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  width: 100%;
 }
 
 .header-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
@@ -233,7 +238,7 @@ button {
   border: 1px solid var(--border);
   border-radius: 1rem;
   padding: 3rem;
-  max-width: 450px;
+  max-width: 550px;
   width: 100%;
   position: relative;
 }
@@ -390,6 +395,18 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .overview-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .overview-card {
@@ -761,7 +778,12 @@ button {
     gap: 0.5rem;
   }
 
-  .login-card, .onboarding-card {
+  .login-card, .onboarding-card, .profile-card {
     padding: 2rem;
+    width: 95%;
+  }
+  
+  .login-container, .onboarding-container, .profile-container {
+    padding: 1rem;
   }
 }
