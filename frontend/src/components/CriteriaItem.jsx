@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { calculateGrade } from '../utils/gradeCalculation';
 
 export default function CriteriaItem({ criteria, tickedRequirements, note, onUpdate }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,58 +25,8 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
     onUpdate({ tickedRequirements, note: localNote });
   };
 
-  const calculateGrade = () => {
-    if (criteria.selection === 'single') {
-      if (tickedRequirements.length === 0) return null;
-      const selectedIndex = criteria.requirements.indexOf(tickedRequirements[0]);
-      if (selectedIndex === -1) return null;
-
-      for (const grade of ['3', '2', '1', '0']) {
-        const condition = criteria.stages[grade];
-        if (!condition) continue;
-        if (condition.must !== undefined && condition.must === selectedIndex + 1) {
-          return parseInt(grade);
-        }
-      }
-      return null;
-    }
-
-    const tickedCount = tickedRequirements.length;
-    const totalRequirements = criteria.requirements.length;
-
-    for (const grade of ['3', '2', '1', '0']) {
-      const condition = criteria.stages[grade];
-      if (!condition) continue;
-
-      if (condition.all && tickedCount === totalRequirements) {
-        return parseInt(grade);
-      }
-      if (condition.count !== undefined && tickedCount >= condition.count) {
-        return parseInt(grade);
-      }
-      if (condition.counts && condition.counts.includes(tickedCount)) {
-        return parseInt(grade);
-      }
-      if (condition.count_less_than !== undefined && tickedCount < condition.count_less_than) {
-        return parseInt(grade);
-      }
-      if (condition.must !== undefined) {
-        const mustRequirement = criteria.requirements[condition.must - 1];
-        if (tickedRequirements.includes(mustRequirement)) {
-          if (condition.count !== undefined && tickedCount >= condition.count) {
-            return parseInt(grade);
-          } else if (condition.count === undefined) {
-            return parseInt(grade);
-          }
-        }
-      }
-    }
-
-    return 0;
-  };
-
-  const grade = calculateGrade();
-  const gradeClass = grade !== null ? `grade-${grade}` : 'grade-none';
+  const points = calculateGrade(criteria, tickedRequirements);
+  const gradeClass = points !== null ? `grade-${points}` : 'grade-none';
 
   return (
     <div className="criteria-item">
@@ -88,8 +39,8 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
           </div>
         </div>
         <div className="criteria-meta">
-          {grade !== null && (
-            <span className={`grade-badge ${gradeClass}`}>Note: {grade}</span>
+          {points !== null && (
+            <span className={`grade-badge ${gradeClass}`}>{points} Punkte</span>
           )}
           <span className="criteria-progress">
             {tickedRequirements.length}/{criteria.requirements.length}

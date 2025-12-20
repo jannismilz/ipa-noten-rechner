@@ -4,6 +4,7 @@ import { authMiddleware, optionalAuth } from '../middleware/auth.js';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { calculateCategoryScores, calculateFinalGrade } from '../utils/gradeCalculation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -108,111 +109,30 @@ router.get('/calculate', authMiddleware, async (req, res) => {
       SELECT criteria_id, requirement FROM ticked_requirements WHERE user_id = ${req.userId}
     `;
 
-    const criteriaNotes = await sql`
-      SELECT criteria_id, note FROM criteria_notes WHERE user_id = ${req.userId}
-    `;
-
-    const categoryScores = {};
-    
-    criteriasData.categories_with_weigth.forEach(category => {
-      const categoryCriterias = criteriasData.criterias.filter(c => c.category === category.id);
-      let totalScore = 0;
-      let count = 0;
-
-      categoryCriterias.forEach(criteria => {
-        const requirements = tickedRequirements
-          .filter(tr => tr.criteria_id === criteria.id)
-          .map(tr => tr.requirement);
-        
-        const grade = calculateGrade(criteria, requirements);
-        if (grade !== null) {
-          totalScore += grade;
-          count++;
-        }
-      });
-
-      const averageScore = count > 0 ? totalScore / count : 0;
-      categoryScores[category.id] = {
-        name: category.name,
-        weight: category.weight,
-        score: averageScore,
-        weightedScore: averageScore * category.weight
-      };
+    const evaluations = {};
+    tickedRequirements.forEach(tr => {
+      if (!evaluations[tr.criteria_id]) {
+        evaluations[tr.criteria_id] = { tickedRequirements: [] };
+      }
+      evaluations[tr.criteria_id].tickedRequirements.push(tr.requirement);
     });
 
-    const totalScore = Object.values(categoryScores).reduce((sum, cat) => sum + cat.weightedScore, 0);
+    const categoryScores = calculateCategoryScores(
+      criteriasData.categories_with_weigth,
+      criteriasData.criterias,
+      evaluations
+    );
+
+    const finalGrade = calculateFinalGrade(categoryScores);
 
     res.json({
       categoryScores,
-      totalScore,
-      finalGrade: Math.round(totalScore * 10) / 10
+      finalGrade
     });
   } catch (error) {
     console.error('Calculation error:', error);
     res.status(500).json({ error: 'Failed to calculate scores' });
   }
 });
-
-function calculateGrade(criteria, tickedRequirements) {
-  if (criteria.selection === 'single') {
-    if (tickedRequirements.length === 0) {
-      return null;
-    }
-    const selectedRequirement = tickedRequirements[0];
-    const selectedIndex = criteria.requirements.indexOf(selectedRequirement);
-    if (selectedIndex === -1) {
-      return null;
-    }
-
-    const stages = criteria.stages;
-    for (const grade of ['3', '2', '1', '0']) {
-      const condition = stages[grade];
-      if (!condition) continue;
-      
-      if (condition.must !== undefined && condition.must === selectedIndex + 1) {
-        return parseInt(grade);
-      }
-    }
-    return null;
-  }
-
-  const tickedCount = tickedRequirements.length;
-  const totalRequirements = criteria.requirements.length;
-
-  const stages = criteria.stages;
-  for (const grade of ['3', '2', '1', '0']) {
-    const condition = stages[grade];
-    if (!condition) continue;
-
-    if (condition.all && tickedCount === totalRequirements) {
-      return parseInt(grade);
-    }
-    
-    if (condition.count !== undefined && tickedCount >= condition.count) {
-      return parseInt(grade);
-    }
-    
-    if (condition.counts && condition.counts.includes(tickedCount)) {
-      return parseInt(grade);
-    }
-    
-    if (condition.count_less_than !== undefined && tickedCount < condition.count_less_than) {
-      return parseInt(grade);
-    }
-    
-    if (condition.must !== undefined) {
-      const mustRequirement = criteria.requirements[condition.must - 1];
-      if (tickedRequirements.includes(mustRequirement)) {
-        if (condition.count !== undefined && tickedCount >= condition.count) {
-          return parseInt(grade);
-        } else if (condition.count === undefined) {
-          return parseInt(grade);
-        }
-      }
-    }
-  }
-
-  return 0;
-}
 
 export default router;
