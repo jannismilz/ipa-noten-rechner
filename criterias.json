@@ -479,7 +479,7 @@
         },
         {
             "id": "Doc01",
-            "category": "doc",
+            "category": "dok",
             "title": "Gliederung",
             "subtitle": "Wie ist die Dokumentation gegliedert?",
             "selection": "multiple",
@@ -505,7 +505,7 @@
         },
         {
             "id": "Doc02",
-            "category": "doc",
+            "category": "dok",
             "title": "Gestaltung der Dokumentation",
             "subtitle": "Wie ist die Dokumentation gestaltet?",
             "selection": "multiple",
