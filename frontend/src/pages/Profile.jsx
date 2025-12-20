@@ -116,7 +116,7 @@ export default function Profile() {
               id="submissionDate"
               name="submissionDate"
               type="date"
-              value={formData.submissionDate}
+              value={formData.submissionDate.split("T")[0]}
               onChange={handleChange}
               required
             />
