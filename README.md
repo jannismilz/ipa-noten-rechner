@@ -11,3 +11,49 @@ Die Voraussetzungen für dieses Projekt sind zum Teil in [Projektbeschreibung](P
 - Jedes Kriterium und jede Kategorie soll zusammenklappbar sein
 - Am Anfang dieses Formulars soll eine kleine Übersicht sein, die den Fortschritt anzeigt und den Fortschritt in die Kategorien aufteilt
 - Es soll möglich sein, die Noten live anzusehen in der Übersicht am Anfang
+
+## Kriterienkatalog Spezifikation
+
+```json
+{
+    "categories_with_weigth": [
+        {
+            "id": "hkb", // Eindeutige ID
+            "name": "Handlungskompetenzen",
+            "weight": 0.5 // 50% Gewichtung
+        },
+    ],
+    "criterias": [
+        {
+            "id": "A01", // Eindeutige ID
+            // id aus categories_with_weigth
+            "category": "hkb",
+            "title": "Auftragsanalyse und Wahl einer Projektmethode",
+            "subtitle": "Wie erfolgt die Auftragsanalyse? Welche Projektmethode kommtzum Einsatz?",
+            // Selbe Reihenfolge wie im Kriterienkatalog
+            "requirements": [
+                "Der Projektauftrag wurde analysiert und die Erkenntnisse mittels geeigneter Darstellungsmethoden (z. B. Zielstruktur, Use-Case- oder Kontextdiagramm, Anforderungstabelle) schriftlich dokumentiert.",
+                "Dokumentation aus Punkt 1 liefert die Grundlage, um die Projektziele konsequent zu verfolgen.",
+                "Eine zur Aufgabe passende Projektmethode wurde ausgewählt.",
+                "Die Wahl der Projektmethode ist nachvollziehbar und schriftlich begründet."
+            ],
+            "stages": {
+                // Gütestufe 3
+                "3": {
+                    // Alle Felder sind optional, aber es muss mindestens ein Feld definiert sein
+                    "all": true, // Alle Bedingungen erfüllt
+                    "count": 1, // 1 Bedingung erfüllt
+                    "counts": [2, 3], // 2 oder 3 Bedingungen erfüllt
+                    "count_less_than": 2, // Weniger als 2 Bedingungen erfüllt
+                    "must": 4 // Genau Bedingung 4 erfüllt
+                },
+                // ...
+                "0": {
+                    // ...
+                }
+            }
+        }
+        // ...
+    ]
+}
+```
