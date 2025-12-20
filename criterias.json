@@ -22,6 +22,7 @@
             "category": "hkb",
             "title": "Auftragsanalyse und Wahl einer Projektmethode",
             "subtitle": "Wie erfolgt die Auftragsanalyse? Welche Projektmethode kommtzum Einsatz?",
+            "selection": "multiple",
             "requirements": [
                 "Der Projektauftrag wurde analysiert und die Erkenntnisse mittels geeigneter Darstellungsmethoden (z. B. Zielstruktur, Use-Case- oder Kontextdiagramm, Anforderungstabelle) schriftlich dokumentiert.",
                 "Dokumentation aus Punkt 1 liefert die Grundlage, um die Projektziele konsequent zu verfolgen.",
@@ -48,6 +49,7 @@
             "category": "hkb",
             "title": "Informations-Recherche",
             "subtitle": "Wie werden Informationen recherchiert?",
+            "selection": "multiple",
             "requirements": [
                 "Fehlende und für die IPA relevante Informationen wurden identifiziert und systematisch recherchiert.",
                 "Es wurde darauf verzichtet, allgemein bekannte Sachverhalte ausführlich wiederzugeben.",
@@ -74,6 +76,7 @@
             "category": "hkb",
             "title": "Firewall aufsetzen",
             "subtitle": "Wie wird eine Firewall aufgesetzt?",
+            "selection": "multiple",
             "requirements": [
                 "Die Zugriffskontrolle ist klar geregelt. Dies beinhaltet unter anderem die Festlegung erlaubter und verbotener Verbindungen.",
                 "Filterregeln wurden korrekt implementiert, um den Zugriff auf Anwendungen und Dienste zu kontrollieren.",
@@ -104,6 +107,7 @@
             "category": "hkb",
             "title": "Installation des Betriebssystems",
             "subtitle": "Wie erfolgt die Installation eines Betriebssystems?",
+            "selection": "multiple",
             "requirements": [
                 "Das Betriebssystem wurde gemäss den Unternehmensstandards und -richtlinien aufgesetzt, einschliesslich der erforderlichen Treiber und Konfigurationsoptionen.",
                 "Nach Abschluss der Installation wurde eine Überprüfung durchgeführt, um sicherzustellen, dass das Betriebssystem ordnungsgemäss funktioniert und alle erforderlichen Komponenten erkannt wurden.",
@@ -130,6 +134,7 @@
             "category": "hkb",
             "title": "Daten sichten unter Einsatz des 4V-Modells",
             "subtitle": "Wie wird das 4V-Modell bei Big Data angewandt?",
+            "selection": "multiple",
             "requirements": [
                 "Es wurde deklariert, aus welchen Quellen die Daten stammen, um ihre Herkunft nachvollziehbar zu machen.",
                 "Menge/Volume korrekt beschrieben.",
@@ -160,6 +165,7 @@
             "category": "hkb",
             "title": "Datenmodelle entwickeln",
             "subtitle": "Wie wird ein Datenmodell entwickelt?",
+            "selection": "multiple",
             "requirements": [
                 "Es wurde eine geeignete Datenmodellierungsmethodik (bspw. relational, objektorientierte, ER-Modellierung) gewählt, die Wahl wurde sinnvoll begründet.",
                 "In der Umsetzung des Datenmodells wurden die spezifischen Geschäftsanforderungen korrekt widerspiegelt.",
@@ -194,6 +200,7 @@
             "category": "hkb",
             "title": "Analyse",
             "subtitle": "Wie wurden Prozesse und Informationen aufbereitet?",
+            "selection": "multiple",
             "requirements": [
                 "Bedürfnisse und Rahmenbedingung wurden auftragsbezogen definiert und beschrieben.",
                 "Aus der Analyse sind Optimierungen oder fehlende Elemente nachvollziehbar beschrieben.",
@@ -219,6 +226,7 @@
             "category": "hkb",
             "title": "Standardisierung, Optimierung und Automatisierung",
             "subtitle": "Wie wurden Arbeiten und Prozesse standardisiert, automatisiert und/oder optimiert?",
+            "selection": "multiple",
             "requirements": [
                 "Prozesse und Vorgänge zur Automatisierung und/oder Optimierung wurden identifiziert.",
                 "Prozesse und Vorgänge zur Automatisierung und/oder Optimierung wurdenbeschrieben.",
@@ -245,6 +253,7 @@
             "category": "hkb",
             "title": "Netzwerkplanung",
             "subtitle": "Was ist bei der Planung eines Netzwerks zu beachten?",
+            "selection": "multiple",
             "requirements": [
                 "Die betrieblichen Anforderungen an das Netzwerk sind umfassend erhoben. Es geht hier z.B. um die Bandbreite, die Anzahl Benutzer, die betroffenen Standorte und nötige Sicherheitsmassnahmen.",
                 "Basierend auf den Anforderungen wurde eine passende Netzwerkarchitektur abgeleitet, die eine optimale Leistung, Skalierbarkeit, Verfügbarkeit und Sicherheit gewährleistet.",
@@ -270,6 +279,7 @@
             "category": "hkb",
             "title": "Netzwerk dokumentieren und visualisieren",
             "subtitle": "Wie ist ein Netzwerk zu dokumentieren und visualisieren?",
+            "selection": "multiple",
             "requirements": [
                 "Die Netzwerkumgebung ist visuell dargestellt, die Darstellung ist umfassend.",
                 "Die Objekte der visuellen Darstellung sind identifizierbar in ihrer Art und Funktion.",
@@ -295,6 +305,7 @@
             "category": "hkb",
             "title": "Anforderungserhebung der Server-Infrastruktur und -Dienste",
             "subtitle": "Welche Kriterien müssen bei der Anforderungserhebung für Server-Infrastruktur und -Dienste erfüllt werden?",
+            "selection": "multiple",
             "requirements": [
                 "Betriebliche Gegebenheiten wurden berücksichtigt.",
                 "Die dem Auftrag angemessenen Leistungsmerkmale (bspw. Rechenleistung, Speicherkapazität, Netzwerkbandbreite) wurden festgelegt.",
@@ -329,6 +340,7 @@
             "category": "hkb",
             "title": "Konfiguration der Server-Infrastruktur",
             "subtitle": "Wie ist bei der Konfiguration der Server-Infrastruktur vorzugehen?",
+            "selection": "multiple",
             "requirements": [
                 "Das Betriebssystem wurde nachvollziehbar ausgewählt und korrekt aufgesetzt.",
                 "Die physische Server-Hardware wurde konfiguriert; bspw. Prozessor, Speicher, Festplatten, Netzwerkkarten oder RAID-Arrays.",
@@ -359,6 +371,7 @@
             "category": "hkb",
             "title": "Dokumentation fachlicher und technischer Anforderungen",
             "subtitle": "Wie wurden die fachlichen und technischen Anforderungen erfasst und dokumentiert?",
+            "selection": "multiple",
             "requirements": [
                 "Die fachlichen und technischen Anforderungen sind vollständig, verständlich und nachvollziehbar dokumentiert.",
                 "Die Anforderungen sind lösungsneutral beschrieben und entsprechend ihrer Relevanz oder Priorität gekennzeichnet.",
@@ -385,6 +398,7 @@
             "category": "hkb",
             "title": "Validierung und Abstimmung von Anforderungen mit Stakeholdern",
             "subtitle": "Wie wurden die Anforderungen mit den Stakeholdern abgestimmtund validiert?",
+            "selection": "multiple",
             "requirements": [
                 "Die Anforderungen wurden in Zusammenarbeit mit allen relevanten Stakeholdern (inklusive Endnutzern) überprüft und validiert.",
                 "Rückmeldungen und Änderungswünsche der Beteiligten wurden aufgenommen, dokumentiert und berücksichtigt.",
@@ -411,6 +425,7 @@
             "category": "hkb",
             "title": "Komponenten-Abhängigkeiten und deren Auswahl",
             "subtitle": "Wie werden Abhängigkeiten zwischen Komponenten analysiert?",
+            "selection": "multiple",
             "requirements": [
                 "Alle relevanten Abhängigkeiten zwischen Komponenten (z. B. Mikroservices, bestehende Software, Schnittstellen/APIs) wurden identifiziert.",
                 "Potenzielle Risiken und Einschränkungen durch Abhängigkeiten wurden analysiert und dokumentiert.",
@@ -437,6 +452,7 @@
             "category": "hkb",
             "title": "Plattformwahl",
             "subtitle": "Wie erfolgt die Wahl einer geeigneten Plattform?",
+            "selection": "multiple",
             "requirements": [
                 "Die Plattform (z. B. lokale Installation, serverbasiert, webbasiert, containerbasiert)wurde auf Basis der technischen Anforderungen und Abhängigkeiten der Applikation ausgewählt.",
                 "Die Plattformwahl berücksichtigt technische Umsetzbarkeit, z. B. Unterstützung derbenötigten Services, Schnittstellen und Komponenten.",
@@ -463,6 +479,7 @@
             "category": "doc",
             "title": "Gliederung",
             "subtitle": "Wie ist die Dokumentation gegliedert?",
+            "selection": "multiple",
             "requirements": [
                 "Der IPA-Bericht gliedert sich in Teil 1 und 2 sowie allfällige Anhänge: Teil 1 umfasst die durch die Prüfungsorganisation zusätzlich geforderten Inhalte, während Teil 2 die Umsetzungsdokumentation beinhaltet. Etwaiger Quellcode oder weitere Ergänzungen wie Richtlinien sind Bestandteil des Anhangs.",
                 "Die Kapitelstruktur richtet sich nach den relevanten Schwerpunkten. Sie ist klar gegliedert, um eine einfache Navigation und Verständlichkeit für den Leser zu gewährleisten.",
@@ -488,6 +505,7 @@
             "category": "doc",
             "title": "Gestaltung der Dokumentation",
             "subtitle": "Wie ist die Dokumentation gestaltet?",
+            "selection": "multiple",
             "requirements": [
                 "Es wird ein einheitlicher Formatsatz angewandt, der Konsistenz gewährleistet und demLeser eine klare Orientierung bietet.",
                 "Es kommen ausgewogene Abstände zwischen Texten und Elementen zur Anwendung.",
@@ -518,6 +536,7 @@
             "category": "fpd",
             "title": "Präsentation: Struktur und Zeitmanagement",
             "subtitle": "Wie ist die Präsentation zu strukturieren und welcher Zeitrahmen ist einzuhalten?",
+            "selection": "multiple",
             "requirements": [
                 "Die Präsentation umfasst eine Einführung, einen Hauptteil und schliesst mit einer kritischen Reflexion ab.",
                 "Die Präsentation setzt relevante Schwerpunkte.",

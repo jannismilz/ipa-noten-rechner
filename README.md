@@ -30,6 +30,7 @@ Die Voraussetzungen für dieses Projekt sind zum Teil in [Projektbeschreibung](P
             "category": "hkb",
             "title": "Auftragsanalyse und Wahl einer Projektmethode",
             "subtitle": "Wie erfolgt die Auftragsanalyse? Welche Projektmethode kommtzum Einsatz?",
+            "selection": "multiple", // multiple (checkbox), single (radio)
             // Selbe Reihenfolge wie im Kriterienkatalog
             "requirements": [
                 "Der Projektauftrag wurde analysiert und die Erkenntnisse mittels geeigneter Darstellungsmethoden (z. B. Zielstruktur, Use-Case- oder Kontextdiagramm, Anforderungstabelle) schriftlich dokumentiert.",
