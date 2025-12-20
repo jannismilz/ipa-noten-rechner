@@ -4,6 +4,7 @@ import { api } from '../services/api';
 import { storage } from '../services/storage';
 import ProgressOverview from '../components/ProgressOverview';
 import CategorySection from '../components/CategorySection';
+import ConfirmModal from '../components/ConfirmModal';
 
 export default function Criteria() {
   const { token, isAuthenticated } = useAuth();
@@ -11,6 +12,7 @@ export default function Criteria() {
   const [evaluations, setEvaluations] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showResetModal, setShowResetModal] = useState(false);
 
   useEffect(() => {
     loadData();
@@ -63,6 +65,7 @@ export default function Criteria() {
         await api.saveEvaluation(token, criteriaId, data);
       } catch (err) {
         console.error('Failed to save to server:', err);
+        setError('Fehler beim Speichern auf dem Server');
       }
     } else {
       storage.saveTickedRequirements(criteriaId, data.tickedRequirements);
@@ -71,6 +74,11 @@ export default function Criteria() {
   };
 
   const handleExport = () => {
+    if (isAuthenticated) {
+      alert('Export ist nur im Offline-Modus verfügbar');
+      return;
+    }
+    
     const data = storage.exportData();
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -82,6 +90,11 @@ export default function Criteria() {
   };
 
   const handleImport = () => {
+    if (isAuthenticated) {
+      alert('Import ist nur im Offline-Modus verfügbar');
+      return;
+    }
+
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
@@ -99,6 +112,28 @@ export default function Criteria() {
       }
     };
     input.click();
+  };
+
+  const handleReset = async () => {
+    try {
+      if (isAuthenticated && token) {
+        for (const criteriaId of Object.keys(evaluations)) {
+          await api.saveEvaluation(token, criteriaId, {
+            tickedRequirements: [],
+            note: ''
+          });
+        }
+      } else {
+        storage.clear();
+      }
+      
+      setEvaluations({});
+      loadData();
+      setShowResetModal(false);
+    } catch (err) {
+      console.error('Reset failed:', err);
+      setError('Fehler beim Zurücksetzen der Daten');
+    }
   };
 
   if (loading) {
@@ -138,6 +173,8 @@ export default function Criteria() {
         evaluations={evaluations}
         onExport={handleExport}
         onImport={handleImport}
+        onReset={() => setShowResetModal(true)}
+        isAuthenticated={isAuthenticated}
       />
 
       <div className="categories-container">
@@ -151,6 +188,14 @@ export default function Criteria() {
           />
         ))}
       </div>
+
+      <ConfirmModal
+        isOpen={showResetModal}
+        onClose={() => setShowResetModal(false)}
+        onConfirm={handleReset}
+        title="Alle Daten zurücksetzen?"
+        message="Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Bewertungen und Notizen werden gelöscht."
+      />
     </div>
   );
 }

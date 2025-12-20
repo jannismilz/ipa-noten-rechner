@@ -1,6 +1,6 @@
-import { Download, Upload } from 'lucide-react';
+import { Download, Upload, Trash2 } from 'lucide-react';
 
-export default function ProgressOverview({ categories, criterias, evaluations, onExport, onImport }) {
+export default function ProgressOverview({ categories, criterias, evaluations, onExport, onImport, onReset, isAuthenticated }) {
   const calculateCategoryScores = () => {
     const categoryScores = {};
 
@@ -96,11 +96,18 @@ export default function ProgressOverview({ categories, criterias, evaluations, o
       <div className="overview-header">
         <h2>Übersicht</h2>
         <div className="overview-actions">
-          <button onClick={onExport} className="btn-icon" title="Export">
-            <Download size={18} />
-          </button>
-          <button onClick={onImport} className="btn-icon" title="Import">
-            <Upload size={18} />
+          {!isAuthenticated && (
+            <>
+              <button onClick={onExport} className="btn-icon" title="Export">
+                <Download size={18} />
+              </button>
+              <button onClick={onImport} className="btn-icon" title="Import">
+                <Upload size={18} />
+              </button>
+            </>
+          )}
+          <button onClick={onReset} className="btn-icon btn-danger" title="Alles zurücksetzen">
+            <Trash2 size={18} />
           </button>
         </div>
       </div>
