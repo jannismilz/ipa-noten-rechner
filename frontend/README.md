@@ -1,16 +1,91 @@
-# React + Vite
+# IPA Noten Rechner - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite frontend for the IPA Noten Rechner application.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Public Criteria View** - All criteria are visible without login
+- **Optional Authentication** - Login for data synchronization with backend
+- **Onboarding** - Profile setup after first login
+- **Hybrid Storage** - Data stored in LocalStorage (offline) or Database (when logged in)
+- **Collapsible Sections** - Categories and criteria can be expanded/collapsed
+- **Live Grade Calculation** - Real-time score updates in progress overview
+- **Export/Import** - Download and upload evaluation data as JSON
+- **Responsive Design** - Mobile-friendly dark theme interface
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install dependencies:
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+2. Configure environment:
+```bash
+cp .env.example .env
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Edit `.env` if backend is not running on `http://localhost:3001`
+
+3. Start development server:
+```bash
+npm run dev
+```
+
+## Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Header.jsx       # App header with auth state
+│   ├── ProgressOverview.jsx  # Grade overview & export/import
+│   ├── CategorySection.jsx   # Category with criteria
+│   └── CriteriaItem.jsx      # Individual criterion
+├── context/
+│   └── AuthContext.jsx  # Authentication state management
+├── pages/
+│   ├── Login.jsx        # Login page
+│   ├── Onboarding.jsx   # Profile setup
+│   └── Criteria.jsx     # Main criteria page
+├── services/
+│   ├── api.js          # Backend API calls
+│   └── storage.js      # LocalStorage management
+├── App.jsx             # App routing setup
+└── main.jsx           # React entry point
+```
+
+## Usage
+
+### Without Login
+- View all criteria
+- Check/uncheck requirements
+- Add notes
+- Data saved in browser LocalStorage
+- Export data to JSON file
+
+### With Login
+1. Click "Anmelden" in header
+2. Enter credentials
+3. Complete onboarding (optional)
+4. All changes automatically synced to database
+5. Access data from any device
+
+### Data Management
+- **Export**: Download current state as JSON
+- **Import**: Upload previously exported JSON file
+- **Clear**: Logout clears synchronized data (LocalStorage persists)
+
+## Build
+
+```bash
+npm run build
+```
+
+Outputs to `dist/` directory.
+
+## Technologies
+
+- React 19
+- React Router 7
+- Vite 7
+- Lucide React (icons)
