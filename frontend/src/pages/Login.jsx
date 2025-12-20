@@ -17,8 +17,15 @@ export default function Login() {
     setLoading(true);
 
     try {
-      await login(username, password);
-      navigate('/onboarding');
+      const profile = await login(username, password);
+      
+      const isProfileComplete = profile.first_name && profile.last_name && profile.topic && profile.submission_date;
+      
+      if (isProfileComplete) {
+        navigate('/');
+      } else {
+        navigate('/onboarding');
+      }
     } catch (err) {
       setError(err.message);
     } finally {

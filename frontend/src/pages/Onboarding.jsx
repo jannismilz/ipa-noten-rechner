@@ -17,6 +17,13 @@ export default function Onboarding() {
 
   useEffect(() => {
     if (user) {
+      const isProfileComplete = user.first_name && user.last_name && user.topic && user.submission_date;
+      
+      if (isProfileComplete) {
+        navigate('/');
+        return;
+      }
+
       setFormData({
         firstName: user.first_name || '',
         lastName: user.last_name || '',
@@ -24,7 +31,7 @@ export default function Onboarding() {
         submissionDate: user.submission_date || ''
       });
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -108,18 +115,9 @@ export default function Onboarding() {
             />
           </div>
 
-          <div className="form-actions">
-            <button type="submit" className="btn-primary" disabled={loading}>
-              {loading ? 'Speichern...' : 'Speichern'}
-            </button>
-            <button
-              type="button"
-              className="btn-secondary"
-              onClick={() => navigate('/')}
-            >
-              Überspringen
-            </button>
-          </div>
+          <button type="submit" className="btn-primary" disabled={loading}>
+            {loading ? 'Speichern...' : 'Speichern'}
+          </button>
         </form>
       </div>
     </div>
