@@ -1,5 +1,5 @@
 import { Download, Upload, Trash2 } from 'lucide-react';
-import { calculateCategoryScores, calculateFinalGrade } from '../utils/gradeCalculation';
+import { calculateCategoryScores, calculateFinalGrade } from '../../../shared/gradeCalculation.js';
 
 export default function ProgressOverview({ categories, criterias, evaluations, onExport, onImport, onReset, isAuthenticated }) {
   const categoryScores = calculateCategoryScores(categories, criterias, evaluations);

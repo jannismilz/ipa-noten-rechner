@@ -4,7 +4,7 @@ import { authMiddleware, optionalAuth } from '../middleware/auth.js';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { calculateCategoryScores, calculateFinalGrade } from '../utils/gradeCalculation.js';
+import { calculateCategoryScores, calculateFinalGrade } from '../../../shared/gradeCalculation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

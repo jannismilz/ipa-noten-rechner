@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { calculateGrade } from '../utils/gradeCalculation';
+import { calculateGrade } from '../../../shared/gradeCalculation.js';
 
 export default function CriteriaItem({ criteria, tickedRequirements, note, onUpdate }) {
   const [isOpen, setIsOpen] = useState(false);
