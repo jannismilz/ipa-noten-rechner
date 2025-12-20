@@ -1,0 +1,574 @@
+{
+    "categories_with_weigth": [
+        {
+            "id": "hkb",
+            "name": "Handlungskompetenzen",
+            "weight": 0.5
+        },
+        {
+            "id": "dok",
+            "name": "Dokumentation",
+            "weight": 0.2
+        },
+        {
+            "id": "fpd",
+            "name": "Fachgespräch und Präsentation (inkl. Demo)",
+            "weight": 0.3
+        }
+    ],
+    "criterias": [
+        {
+            "id": "A01",
+            "category": "hkb",
+            "title": "Auftragsanalyse und Wahl einer Projektmethode",
+            "subtitle": "Wie erfolgt die Auftragsanalyse? Welche Projektmethode kommtzum Einsatz?",
+            "requirements": [
+                "Der Projektauftrag wurde analysiert und die Erkenntnisse mittels geeigneter Darstellungsmethoden (z. B. Zielstruktur, Use-Case- oder Kontextdiagramm, Anforderungstabelle) schriftlich dokumentiert.",
+                "Dokumentation aus Punkt 1 liefert die Grundlage, um die Projektziele konsequent zu verfolgen.",
+                "Eine zur Aufgabe passende Projektmethode wurde ausgewählt.",
+                "Die Wahl der Projektmethode ist nachvollziehbar und schriftlich begründet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A02",
+            "category": "hkb",
+            "title": "Informations-Recherche",
+            "subtitle": "Wie werden Informationen recherchiert?",
+            "requirements": [
+                "Fehlende und für die IPA relevante Informationen wurden identifiziert und systematisch recherchiert.",
+                "Es wurde darauf verzichtet, allgemein bekannte Sachverhalte ausführlich wiederzugeben.",
+                "Alle verwendeten Informationen, einschliesslich solcher, die auf den Einsatz von künstlicher Intelligenz oder ähnlichen Technologien zurückzuführen sind, und die nicht auf eigener Leistung beruhen, sind entsprechend deklariert.",
+                "Die recherchierten Informationen sind verlässlich, aktuell und gültig."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "B01",
+            "category": "hkb",
+            "title": "Firewall aufsetzen",
+            "subtitle": "Wie wird eine Firewall aufgesetzt?",
+            "requirements": [
+                "Die Zugriffskontrolle ist klar geregelt. Dies beinhaltet unter anderem die Festlegung erlaubter und verbotener Verbindungen.",
+                "Filterregeln wurden korrekt implementiert, um den Zugriff auf Anwendungen und Dienste zu kontrollieren.",
+                "Es wurden Funktionen zwecks Erkennung und Prävention von Eindringversuchen korrekt aktiviert.",
+                "Der Datenverkehr wird bezüglich verdächtiger Aktivitäten überwacht, potenzielle Bedrohungen werden blockiert.",
+                "Eine Protokollierung wurde sinnvoll konfiguriert und aktiviert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [
+                        3,
+                        4
+                    ]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "B02",
+            "category": "hkb",
+            "title": "Installation des Betriebssystems",
+            "subtitle": "Wie erfolgt die Installation eines Betriebssystems?",
+            "requirements": [
+                "Das Betriebssystem wurde gemäss den Unternehmensstandards und -richtlinien aufgesetzt, einschliesslich der erforderlichen Treiber und Konfigurationsoptionen.",
+                "Nach Abschluss der Installation wurde eine Überprüfung durchgeführt, um sicherzustellen, dass das Betriebssystem ordnungsgemäss funktioniert und alle erforderlichen Komponenten erkannt wurden.",
+                "Es wurde sichergestellt, dass alle erforderlichen Patches und Updates installiert sind, um die Sicherheit und Stabilität des Systems zu gewährleisten.",
+                "Vor der endgültigen Bereitstellung des Systems wurden Benutzertests durchgeführt, um sicherzustellen, dass alle Funktionen ordnungsgemäß funktionieren und die Benutzererwartungen erfüllt werden."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C01",
+            "category": "hkb",
+            "title": "Daten sichten unter Einsatz des 4V-Modells",
+            "subtitle": "Wie wird das 4V-Modell bei Big Data angewandt?",
+            "requirements": [
+                "Es wurde deklariert, aus welchen Quellen die Daten stammen, um ihre Herkunft nachvollziehbar zu machen.",
+                "Menge/Volume korrekt beschrieben.",
+                "Vielfalt/Variety korrekt beschrieben.",
+                "Geschwindigkeit/Velocity korrekt beschrieben.",
+                "Zuverlässigkeit/Veracity korrekt beschrieben."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [
+                        3,
+                        4
+                    ]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C02",
+            "category": "hkb",
+            "title": "Datenmodelle entwickeln",
+            "subtitle": "Wie wird ein Datenmodell entwickelt?",
+            "requirements": [
+                "Es wurde eine geeignete Datenmodellierungsmethodik (bspw. relational, objektorientierte, ER-Modellierung) gewählt, die Wahl wurde sinnvoll begründet.",
+                "In der Umsetzung des Datenmodells wurden die spezifischen Geschäftsanforderungen korrekt widerspiegelt.",
+                "Die Grundsätze der Normalisierung wurden sinnvoll angewandt.",
+                "Das Datenmodell ist flexibel und skalierbar.",
+                "Das Datenmodell ist ausreichend dokumentiert, damit andere Entwickler das Modell verstehen und damit arbeiten können.",
+                "Die Performanceanforderungen sind dokumentiert und es wurde ihnen entsprochen (bspw. via Indexierungen)."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [
+                        4,
+                        5
+                    ]
+                },
+                "1": {
+                    "counts": [
+                        2,
+                        3
+                    ]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "D01",
+            "category": "hkb",
+            "title": "Analyse",
+            "subtitle": "Wie wurden Prozesse und Informationen aufbereitet?",
+            "requirements": [
+                "Bedürfnisse und Rahmenbedingung wurden auftragsbezogen definiert und beschrieben.",
+                "Aus der Analyse sind Optimierungen oder fehlende Elemente nachvollziehbar beschrieben.",
+                "Die Implementierbarkeit ist dokumentiert und beschrieben."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "D02",
+            "category": "hkb",
+            "title": "Standardisierung, Optimierung und Automatisierung",
+            "subtitle": "Wie wurden Arbeiten und Prozesse standardisiert, automatisiert und/oder optimiert?",
+            "requirements": [
+                "Prozesse und Vorgänge zur Automatisierung und/oder Optimierung wurden identifiziert.",
+                "Prozesse und Vorgänge zur Automatisierung und/oder Optimierung wurdenbeschrieben.",
+                "Der Mehrwert aus den definierten Prozessen ist beschrieben und nachvollziehbar.",
+                "Die Umsetzung berücksichtigt geltende Standards oder Best-Practices und ist nachvollziehbar."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "E01",
+            "category": "hkb",
+            "title": "Netzwerkplanung",
+            "subtitle": "Was ist bei der Planung eines Netzwerks zu beachten?",
+            "requirements": [
+                "Die betrieblichen Anforderungen an das Netzwerk sind umfassend erhoben. Es geht hier z.B. um die Bandbreite, die Anzahl Benutzer, die betroffenen Standorte und nötige Sicherheitsmassnahmen.",
+                "Basierend auf den Anforderungen wurde eine passende Netzwerkarchitektur abgeleitet, die eine optimale Leistung, Skalierbarkeit, Verfügbarkeit und Sicherheit gewährleistet.",
+                "Die Netzwerkarchitektur beinhaltet die richtigen Netzwerkkomponenten, die Festlegung von Netzwerksegmentierungen und die Konfiguration von Routing- und Switching-Protokollen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "E02",
+            "category": "hkb",
+            "title": "Netzwerk dokumentieren und visualisieren",
+            "subtitle": "Wie ist ein Netzwerk zu dokumentieren und visualisieren?",
+            "requirements": [
+                "Die Netzwerkumgebung ist visuell dargestellt, die Darstellung ist umfassend.",
+                "Die Objekte der visuellen Darstellung sind identifizierbar in ihrer Art und Funktion.",
+                "Die Dokumentation umfasst eine Aufzeichnung aller Funktionen, Dienste und Spezifikationen der Netzwerkkomponenten, einschliesslich ihrer technischen Details und Funktionalitäten."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "F01",
+            "category": "hkb",
+            "title": "Anforderungserhebung der Server-Infrastruktur und -Dienste",
+            "subtitle": "Welche Kriterien müssen bei der Anforderungserhebung für Server-Infrastruktur und -Dienste erfüllt werden?",
+            "requirements": [
+                "Betriebliche Gegebenheiten wurden berücksichtigt.",
+                "Die dem Auftrag angemessenen Leistungsmerkmale (bspw. Rechenleistung, Speicherkapazität, Netzwerkbandbreite) wurden festgelegt.",
+                "Die Skalierbarkeit wurde berücksichtigt, um das zukünftige Wachstum und steigende Anforderungen zu adressieren.",
+                "Relevante Sicherheitsanforderungen wurden berücksichtigt.",
+                "Die zu erwartenden Kosten wurden ausgewiesen.",
+                "Mindestens eine Lösungsvariante wurde dokumentiert und vorgeschlagen. Der Vorschlag macht Sinn."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [
+                        4,
+                        5
+                    ]
+                },
+                "1": {
+                    "counts": [
+                        2,
+                        3
+                    ]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "F02",
+            "category": "hkb",
+            "title": "Konfiguration der Server-Infrastruktur",
+            "subtitle": "Wie ist bei der Konfiguration der Server-Infrastruktur vorzugehen?",
+            "requirements": [
+                "Das Betriebssystem wurde nachvollziehbar ausgewählt und korrekt aufgesetzt.",
+                "Die physische Server-Hardware wurde konfiguriert; bspw. Prozessor, Speicher, Festplatten, Netzwerkkarten oder RAID-Arrays.",
+                "Die Netzwerkeinstellungen des Servers wurden konfiguriert, einschliesslich IPAdressen, Subnetzmasken, Gateway-Adressen und DNS-Einstellungen.",
+                "Nötige Dienste und Anwendungen wurden installiert, konfiguriert und bereitgestellt.",
+                "Alle Vorgaben aus der Aufgabenstellung wurden implementiert (bspw. Firewall-Regeln, Zugriffskontrollen)."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 4
+                },
+                "1": {
+                    "counts": [
+                        2,
+                        3
+                    ]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G01",
+            "category": "hkb",
+            "title": "Dokumentation fachlicher und technischer Anforderungen",
+            "subtitle": "Wie wurden die fachlichen und technischen Anforderungen erfasst und dokumentiert?",
+            "requirements": [
+                "Die fachlichen und technischen Anforderungen sind vollständig, verständlich und nachvollziehbar dokumentiert.",
+                "Die Anforderungen sind lösungsneutral beschrieben und entsprechend ihrer Relevanz oder Priorität gekennzeichnet.",
+                "Die Anforderungen sind klar formuliert, eindeutig abgegrenzt und bei Bedarf mit Beispielen oder Akzeptanzkriterien ergänzt.",
+                "Die Dokumentation enthält einheitliche Begriffsdefinitionen und eine klare Struktur, sodass die Stakeholder diese problemlos verstehen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G02",
+            "category": "hkb",
+            "title": "Validierung und Abstimmung von Anforderungen mit Stakeholdern",
+            "subtitle": "Wie wurden die Anforderungen mit den Stakeholdern abgestimmtund validiert?",
+            "requirements": [
+                "Die Anforderungen wurden in Zusammenarbeit mit allen relevanten Stakeholdern (inklusive Endnutzern) überprüft und validiert.",
+                "Rückmeldungen und Änderungswünsche der Beteiligten wurden aufgenommen, dokumentiert und berücksichtigt.",
+                "Die endgültigen Anforderungen sind gemeinsam abgestimmt und für alle nachvollziehbar festgehalten.",
+                "Die Dokumentation der Anforderungen ist aktuell, inklusive aller Änderungen während des Entwicklungsprozesses."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H01",
+            "category": "hkb",
+            "title": "Komponenten-Abhängigkeiten und deren Auswahl",
+            "subtitle": "Wie werden Abhängigkeiten zwischen Komponenten analysiert?",
+            "requirements": [
+                "Alle relevanten Abhängigkeiten zwischen Komponenten (z. B. Mikroservices, bestehende Software, Schnittstellen/APIs) wurden identifiziert.",
+                "Potenzielle Risiken und Einschränkungen durch Abhängigkeiten wurden analysiert und dokumentiert.",
+                "Abhängigkeiten wurden bewertet, um die Auswahl geeigneter Plattformen und Technologien zu erleichtern.",
+                "Die Analyse ist nachvollziehbar dokumentiert und für Stakeholder verständlich."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H02",
+            "category": "hkb",
+            "title": "Plattformwahl",
+            "subtitle": "Wie erfolgt die Wahl einer geeigneten Plattform?",
+            "requirements": [
+                "Die Plattform (z. B. lokale Installation, serverbasiert, webbasiert, containerbasiert)wurde auf Basis der technischen Anforderungen und Abhängigkeiten der Applikation ausgewählt.",
+                "Die Plattformwahl berücksichtigt technische Umsetzbarkeit, z. B. Unterstützung derbenötigten Services, Schnittstellen und Komponenten.",
+                "Die Plattform wurde praktisch eingerichtet oder konfiguriert, sodass die Applikation darauf ausgeführt werden kann.",
+                "Sicherheits- und Datenschutzanforderungen wurden identifiziert und die verfügbarenPlattformdienste (z. B. Benutzerrechte, Verschlüsselung, Backups) entsprechend genutzt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "Doc01",
+            "category": "doc",
+            "title": "Gliederung",
+            "subtitle": "Wie ist die Dokumentation gegliedert?",
+            "requirements": [
+                "Der IPA-Bericht gliedert sich in Teil 1 und 2 sowie allfällige Anhänge: Teil 1 umfasst die durch die Prüfungsorganisation zusätzlich geforderten Inhalte, während Teil 2 die Umsetzungsdokumentation beinhaltet. Etwaiger Quellcode oder weitere Ergänzungen wie Richtlinien sind Bestandteil des Anhangs.",
+                "Die Kapitelstruktur richtet sich nach den relevanten Schwerpunkten. Sie ist klar gegliedert, um eine einfache Navigation und Verständlichkeit für den Leser zu gewährleisten.",
+                "Die strukturellen Eigenheiten der gewählten Projektmethode sind in Teil 2 umgesetzt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "Doc02",
+            "category": "doc",
+            "title": "Gestaltung der Dokumentation",
+            "subtitle": "Wie ist die Dokumentation gestaltet?",
+            "requirements": [
+                "Es wird ein einheitlicher Formatsatz angewandt, der Konsistenz gewährleistet und demLeser eine klare Orientierung bietet.",
+                "Es kommen ausgewogene Abstände zwischen Texten und Elementen zur Anwendung.",
+                "Die Gestaltung von Überschriften, Texten und Grafiken erleichtert den Lesefluss und behindert ihn nicht.",
+                "Die Überschriften enthalten relevante Informationen und erleichtern dem Leser dieOrientierung.",
+                "Qualitative Seitenumbrüche stellen sicher, dass keine einzelnstehenden Zeilen am Ende oder am Anfang einer Seite auftreten."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 4
+                },
+                "1": {
+                    "counts": [
+                        2,
+                        3
+                    ]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "F&P01",
+            "category": "fpd",
+            "title": "Präsentation: Struktur und Zeitmanagement",
+            "subtitle": "Wie ist die Präsentation zu strukturieren und welcher Zeitrahmen ist einzuhalten?",
+            "requirements": [
+                "Die Präsentation umfasst eine Einführung, einen Hauptteil und schliesst mit einer kritischen Reflexion ab.",
+                "Die Präsentation setzt relevante Schwerpunkte.",
+                "Die Informationen werden in einer logischen und zusammenhängenden Reihenfolge präsentiert.",
+                "Der Zeitrahmen von 15 bis 20 Minuten wurde eingehalten."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "must": 4,
+                    "count": 3
+                },
+                "1": {
+                    "counts": [
+                        2,
+                        3
+                    ]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "F&P05",
+            "category": "fpd",
+            "title": "Fachgespräch: Themenkomplex 1",
+            "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeitbeantwortet?",
+            "selection": "single",
+            "requirements": [
+                "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen oder mehrere nebensächliche Aspekte ausser Acht, oder ein zentraler Aspekt ist nicht hinreichend differenziert. Die meisten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt meist korrekte Antworten und kann zu Details meist präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen zentralen Aspekt ganz ausser Acht oder ist bezüglich des überwiegenden Teils der zentralen Aspekte nicht hinreichend differenziert. Viele Aussagen sind nicht - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt häufig falsche oder unpräzise Antworten.",
+                "Die Fragen zur Facharbeit können nicht korrekt beantwortet werden."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        }
+    ]
+}
