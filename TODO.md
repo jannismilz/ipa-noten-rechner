@@ -33,3 +33,11 @@
 - [ ] Abdeckung von mindestens 80 % der User-Story-Anforderungen durch Tests
 - [ ] Nutzung von Mocking-Tools oder Stubs, um Abhängigkeiten in Integrationstests zu simulieren
 - [ ] Einhaltung der Clean-Code-Prinzipien, um Tests effizient und wartbar zu gestalten
+
+## Custom
+
+- [ ] Favicon
+- [ ] Kriterienkatalog Spezifikation Checker CLI
+- [ ] Auf VPS hosten unter https://ipa.jannismilz.ch mit Testumgebung
+- [ ] Ganzer Kriterienkatalog von https://www.ict-berufsbildung.ch/resources/Kriterienkatalog_QV_BiVO2021_DE-20251025.pdf in `criteria.json` einfügen
+- [ ] KI Nutzung dokumentieren
