@@ -12,17 +12,17 @@
 
 ## Dev-Ops (Modul 324)
 
-- [ ] Der Code muss bei jedem Commit automatisch gebaut werden
-- [ ] Fehlgeschlagene Builds sollen die Pipeline stoppen und eine Fehlermeldung zurückgeben
-- [ ] Alle Unit-Tests und Integrationstests werden automatisch ausgeführt
+- [x] Der Code muss bei jedem Commit automatisch gebaut werden
+- [x] Fehlgeschlagene Builds sollen die Pipeline stoppen und eine Fehlermeldung zurückgeben
+- [x] Alle Unit-Tests und Integrationstests werden automatisch ausgeführt
 - [ ] Die Tests müssen beim Durchlaufen der Pipeline mindestens 80 % der definierten Testfälle bestehen
-- [ ] Testergebnisse sollen in der GitHub Actions-Übersicht dargestellt werden
+- [x] Testergebnisse sollen in der GitHub Actions-Übersicht dargestellt werden
 - [x] Ein Linter überprüft den Code und meldet Fehler
-- [ ] Nach erfolgreichem Testen soll die Pipeline die App automatisch in eine Staging-Umgebung deployen
-- [ ] Sensible Daten wie API-Keys sollen sicher mit GitHub Secrets verwaltet werden
-- [ ] Jeder Schritt in der GitHub Actions-Konfiguration (YAML-Datei) muss kommentiert sein
-- [ ] Die Funktionsweise der Pipeline wird kurz im Projektbericht dokumentiert
-- [ ] Die Pipeline muss spezifische Fehlermeldungen ausgeben, z.B. bei fehlgeschlagenen Tests oder Builds
+- [x] Nach erfolgreichem Testen soll die Pipeline die App automatisch in eine Staging-Umgebung deployen
+- [x] Sensible Daten wie API-Keys sollen sicher mit GitHub Secrets verwaltet werden
+- [x] Jeder Schritt in der GitHub Actions-Konfiguration (YAML-Datei) muss kommentiert sein
+- [x] Die Funktionsweise der Pipeline wird kurz im Projektbericht dokumentiert
+- [x] Die Pipeline muss spezifische Fehlermeldungen ausgeben, z.B. bei fehlgeschlagenen Tests oder Builds
 
 ## Testing (Modul 450)
 

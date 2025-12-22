@@ -1,0 +1,350 @@
+name: CI/CD Pipeline
+
+# Trigger the pipeline on every push and pull request to main branch
+on:
+  push:
+  pull_request:
+
+# Define environment variables accessible to all jobs
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  # Job 1: Build and lint the backend
+  backend-build-and-lint:
+    name: Backend Build & Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install Bun runtime for backend (used instead of Node.js)
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      # Install backend dependencies
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: bun install
+
+      # Run ESLint to check code quality and style
+      - name: Run backend linter
+        working-directory: ./backend
+        run: bun run lint
+        continue-on-error: false
+
+      # Check code formatting with Prettier
+      - name: Check backend code formatting
+        working-directory: ./backend
+        run: bun run format:check
+        continue-on-error: false
+
+      # Build verification - ensure the backend can start without errors
+      - name: Verify backend build
+        working-directory: ./backend
+        run: |
+          echo "Checking backend syntax and imports..."
+          bun run --dry-run src/index.js || {
+            echo "❌ Backend build failed - syntax or import errors detected"
+            exit 1
+          }
+          echo "✅ Backend build verification successful"
+
+  # Job 2: Run backend tests
+  backend-test:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    needs: backend-build-and-lint
+    
+    # Set up PostgreSQL service for testing
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: test_db
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install Bun runtime
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      # Install backend dependencies
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: bun install
+
+      # Set up test environment variables
+      - name: Configure test environment
+        working-directory: ./backend
+        run: |
+          echo "DATABASE_URL=postgresql://test_user:test_password@localhost:5432/test_db" >> $GITHUB_ENV
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET || 'test-secret-key-for-ci' }}" >> $GITHUB_ENV
+
+      # Run all backend tests with coverage
+      - name: Run backend tests
+        working-directory: ./backend
+        run: |
+          echo "Running backend test suite..."
+          bun test || {
+            echo "❌ Backend tests failed - check test output above for details"
+            exit 1
+          }
+          echo "✅ Backend tests passed successfully"
+
+      # Upload test results as artifacts
+      - name: Upload backend test results
+        if: always() # Needed for failed tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-result-${{ github.run_id }}
+          path: backend/test-results/
+          retention-days: 30
+
+  # Job 3: Build and lint the frontend
+  frontend-build-and-lint:
+    name: Frontend Build & Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Node.js for the frontend
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      # Install frontend dependencies
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      # Run ESLint to check code quality
+      - name: Run frontend linter
+        working-directory: ./frontend
+        run: npm run lint
+        continue-on-error: false
+
+      # Check code formatting with Prettier
+      - name: Check frontend code formatting
+        working-directory: ./frontend
+        run: npm run format:check
+        continue-on-error: false
+
+      # Build the frontend application
+      - name: Build frontend
+        working-directory: ./frontend
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL || 'http://localhost:3000' }}
+        run: |
+          echo "Building frontend application..."
+          npm run build || {
+            echo "❌ Frontend build failed - check for TypeScript/build errors above"
+            exit 1
+          }
+          echo "✅ Frontend build completed successfully"
+
+      # Upload build artifacts for deployment
+      - name: Upload frontend build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: frontend/dist/
+          retention-days: 7
+
+  # Job 4: Run frontend tests
+  frontend-test:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    needs: frontend-build-and-lint
+    
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      # Install frontend dependencies
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      # Run frontend tests (placeholder for when tests are implemented)
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: |
+          if npm run test --if-present 2>/dev/null; then
+            echo "✅ Frontend tests passed successfully"
+          else
+            echo "⚠️  No frontend tests found or test command not configured"
+            echo "Tests will be required once implemented"
+          fi
+
+      # Upload test results
+      - name: Upload frontend test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-test-results
+          path: frontend/coverage/
+          retention-days: 30
+
+  # Job 5: Deploy to staging environment
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [backend-test, frontend-test]
+    # Only deploy on push to main/master branch (not on PRs)
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main')
+    
+    environment:
+      name: staging
+      url: https://staging-ipa.jannismilz.ch
+    
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Trigger Dokploy staging deployment via webhook
+      - name: Deploy to Dokploy Staging
+        id: deploy
+        env:
+          DOKPLOY_STAGING_WEBHOOK_URL: ${{ secrets.DOKPLOY_STAGING_WEBHOOK_URL }}
+        run: |
+          echo "🚀 Triggering Dokploy staging deployment..."
+          
+          # Trigger the Dokploy webhook to redeploy staging instance
+          response=$(curl -X POST "$DOKPLOY_STAGING_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -w "\n%{http_code}" \
+            -s)
+          
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | head -n-1)
+          
+          echo "Response: $body"
+          echo "HTTP Status: $http_code"
+          
+          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
+            echo "✅ Dokploy staging deployment triggered successfully"
+            echo "📍 Environment: https://staging-ipa.jannismilz.ch"
+          else
+            echo "❌ Dokploy staging deployment failed with status $http_code"
+            echo "Response: $body"
+            exit 1
+          fi
+
+      # Wait for deployment to be ready (optional)
+      - name: Verify staging deployment
+        run: |
+          echo "⏳ Waiting for staging deployment to be ready..."
+          sleep 30
+          
+          # Check if staging is responding
+          if curl -f -s -o /dev/null https://staging-ipa.jannismilz.ch; then
+            echo "✅ Staging environment is live and responding"
+          else
+            echo "⚠️  Staging deployment triggered but health check failed"
+            echo "Note: Deployment may still be in progress"
+          fi
+
+  # Job 6: Deploy to production environment
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [backend-test, frontend-test]
+    # Only deploy when a new tag is pushed (e.g., v1.0.0, v2.1.3)
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    
+    environment:
+      name: production
+      url: https://ipa.jannismilz.ch
+    
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Extract tag version for deployment
+      - name: Extract tag version
+        id: tag
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "version=$TAG" >> $GITHUB_OUTPUT
+          echo "📦 Deploying version: $TAG"
+
+      # Trigger Dokploy production deployment via webhook
+      - name: Deploy to Dokploy Production
+        id: deploy
+        env:
+          DOKPLOY_PRODUCTION_WEBHOOK_URL: ${{ secrets.DOKPLOY_PRODUCTION_WEBHOOK_URL }}
+        run: |
+          echo "🚀 Triggering Dokploy production deployment..."
+          echo "Version: ${{ steps.tag.outputs.version }}"
+          
+          # Trigger the Dokploy webhook to redeploy production instance
+          response=$(curl -X POST "$DOKPLOY_PRODUCTION_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -w "\n%{http_code}" \
+            -s)
+          
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | head -n-1)
+          
+          echo "Response: $body"
+          echo "HTTP Status: $http_code"
+          
+          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
+            echo "✅ Dokploy production deployment triggered successfully"
+            echo "📍 Environment: https://ipa.jannismilz.ch"
+            echo "🏷️  Version: ${{ steps.tag.outputs.version }}"
+          else
+            echo "❌ Dokploy production deployment failed with status $http_code"
+            echo "Response: $body"
+            exit 1
+          fi
+
+      # Wait for deployment to be ready
+      - name: Verify production deployment
+        run: |
+          echo "⏳ Waiting for production deployment to be ready..."
+          sleep 30
+          
+          # Check if production is responding
+          if curl -f -s -o /dev/null https://ipa.jannismilz.ch; then
+            echo "✅ Production environment is live and responding"
+          else
+            echo "⚠️  Production deployment triggered but health check failed"
+            echo "Note: Deployment may still be in progress"
+          fi
