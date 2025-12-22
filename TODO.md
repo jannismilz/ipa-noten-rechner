@@ -17,7 +17,7 @@
 - [ ] Alle Unit-Tests und Integrationstests werden automatisch ausgeführt
 - [ ] Die Tests müssen beim Durchlaufen der Pipeline mindestens 80 % der definierten Testfälle bestehen
 - [ ] Testergebnisse sollen in der GitHub Actions-Übersicht dargestellt werden
-- [ ] Ein Linter überprüft den Code und meldet Fehler
+- [x] Ein Linter überprüft den Code und meldet Fehler
 - [ ] Nach erfolgreichem Testen soll die Pipeline die App automatisch in eine Staging-Umgebung deployen
 - [ ] Sensible Daten wie API-Keys sollen sicher mit GitHub Secrets verwaltet werden
 - [ ] Jeder Schritt in der GitHub Actions-Konfiguration (YAML-Datei) muss kommentiert sein

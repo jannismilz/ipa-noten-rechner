@@ -12,6 +12,24 @@ Die Voraussetzungen für dieses Projekt sind zum Teil in [Projektbeschreibung](P
 - Am Anfang dieses Formulars soll eine kleine Übersicht sein, die den Fortschritt anzeigt und den Fortschritt in die Kategorien aufteilt
 - Es soll möglich sein, die Noten live anzusehen in der Übersicht am Anfang
 
+## Linter & Formatter
+
+*Frontend:*
+```bash
+npm run lint          # Check for errors
+npm run lint:fix      # Auto-fix errors
+npm run format        # Format code
+npm run format:check  # Check formatting
+```
+
+*Backend:*
+```bash
+bun run lint          # Check for errors
+bun run lint:fix      # Auto-fix errors
+bun run format        # Format code
+bun run format:check  # Check formatting
+```
+
 ## Kriterienkatalog Spezifikation
 
 ```json
