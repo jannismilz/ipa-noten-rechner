@@ -77,3 +77,11 @@ bun run format:check  # Check formatting
     ]
 }
 ```
+
+### Validierung
+
+```bash
+npm run helpers/validate-criterias.js
+# oder
+bun run helpers/validate-criterias.js
+```
