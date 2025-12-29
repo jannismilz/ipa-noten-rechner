@@ -127,7 +127,8 @@ router.get('/calculate', authMiddleware, async (req, res) => {
 
     res.json({
       categoryScores,
-      finalGrade
+      totalScore: finalGrade,
+      finalGrade: finalGrade
     });
   } catch (error) {
     console.error('Calculation error:', error);

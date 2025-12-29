@@ -94,7 +94,7 @@ describe('Evaluation Routes', () => {
 
   describe('POST /api/evaluations/:criteriaId', () => {
     test('should save ticked requirements', async () => {
-      const response = await fetch(`${API_URL}/evaluations/A1`, {
+      const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -112,13 +112,13 @@ describe('Evaluation Routes', () => {
 
       const saved = await sql`
         SELECT requirement FROM ticked_requirements 
-        WHERE user_id = ${testUser.id} AND criteria_id = 'A1'
+        WHERE user_id = ${testUser.id} AND criteria_id = 'A01'
       `;
       expect(saved.length).toBe(2);
     });
 
     test('should save criteria note', async () => {
-      const response = await fetch(`${API_URL}/evaluations/A1`, {
+      const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -136,7 +136,7 @@ describe('Evaluation Routes', () => {
 
       const [saved] = await sql`
         SELECT note FROM criteria_notes 
-        WHERE user_id = ${testUser.id} AND criteria_id = 'A1'
+        WHERE user_id = ${testUser.id} AND criteria_id = 'A01'
       `;
       expect(saved.note).toBe('This is a test note');
     });
@@ -144,10 +144,10 @@ describe('Evaluation Routes', () => {
     test('should delete note when empty string provided', async () => {
       await sql`
         INSERT INTO criteria_notes (user_id, criteria_id, note)
-        VALUES (${testUser.id}, 'A1', 'Existing note')
+        VALUES (${testUser.id}, 'A01', 'Existing note')
       `;
 
-      const response = await fetch(`${API_URL}/evaluations/A1`, {
+      const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -163,7 +163,7 @@ describe('Evaluation Routes', () => {
 
       const saved = await sql`
         SELECT note FROM criteria_notes 
-        WHERE user_id = ${testUser.id} AND criteria_id = 'A1'
+        WHERE user_id = ${testUser.id} AND criteria_id = 'A01'
       `;
       expect(saved.length).toBe(0);
     });
@@ -171,10 +171,10 @@ describe('Evaluation Routes', () => {
     test('should replace existing requirements', async () => {
       await sql`
         INSERT INTO ticked_requirements (user_id, criteria_id, requirement)
-        VALUES (${testUser.id}, 'A1', 'Old requirement')
+        VALUES (${testUser.id}, 'A01', 'Old requirement')
       `;
 
-      const response = await fetch(`${API_URL}/evaluations/A1`, {
+      const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -190,7 +190,7 @@ describe('Evaluation Routes', () => {
 
       const saved = await sql`
         SELECT requirement FROM ticked_requirements 
-        WHERE user_id = ${testUser.id} AND criteria_id = 'A1'
+        WHERE user_id = ${testUser.id} AND criteria_id = 'A01'
       `;
       expect(saved.length).toBe(1);
       expect(saved[0].requirement).toBe('New requirement');

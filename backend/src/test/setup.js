@@ -49,6 +49,8 @@ export async function cleanupTestDatabase() {
 }
 
 export async function createTestUser(username = 'testuser', password = 'testpass123') {
+  await sql`DELETE FROM users WHERE username = ${username}`;
+  
   const passwordHash = await Bun.password.hash(password);
   
   const [user] = await sql`

@@ -21,17 +21,22 @@ export function calculateGrade(criteria, tickedRequirements) {
     const condition = criteria.stages[stage];
     if (!condition) continue;
 
+    if (condition.must !== undefined) {
+      const mustRequirement = criteria.requirements[condition.must - 1];
+      const hasMust = tickedRequirements.includes(mustRequirement);
+      
+      if (condition.count !== undefined) {
+        if (hasMust && tickedCount >= condition.count) return parseInt(stage);
+      } else if (hasMust) {
+        return parseInt(stage);
+      }
+      continue;
+    }
+
     if (condition.all && tickedCount === totalRequirements) return parseInt(stage);
     if (condition.count !== undefined && tickedCount >= condition.count) return parseInt(stage);
     if (condition.counts && condition.counts.includes(tickedCount)) return parseInt(stage);
     if (condition.count_less_than !== undefined && tickedCount < condition.count_less_than) return parseInt(stage);
-    if (condition.must !== undefined) {
-      const mustRequirement = criteria.requirements[condition.must - 1];
-      if (tickedRequirements.includes(mustRequirement)) {
-        if (condition.count !== undefined && tickedCount >= condition.count) return parseInt(stage);
-        else if (condition.count === undefined) return parseInt(stage);
-      }
-    }
   }
 
   return 0;
