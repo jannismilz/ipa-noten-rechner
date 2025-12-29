@@ -1,6 +1,6 @@
 import express from 'express';
 import sql from '../db/connection.js';
-import { authMiddleware } from '../middleware/auth.js';
+import { authMiddleware } from '../middleware/auth';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -128,7 +128,7 @@ router.get('/calculate', authMiddleware, async (req, res) => {
     res.json({
       categoryScores,
       totalScore: finalGrade,
-      finalGrade: finalGrade
+      finalGrade
     });
   } catch (error) {
     console.error('Calculation error:', error);

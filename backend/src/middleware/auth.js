@@ -15,7 +15,7 @@ export const authMiddleware = async (req, res, next) => {
     const decoded = jwt.verify(token, JWT_SECRET);
     req.userId = decoded.userId;
     next();
-  } catch (error) {
+  } catch {
     return res.status(401).json({ error: 'Invalid token' });
   }
 };
