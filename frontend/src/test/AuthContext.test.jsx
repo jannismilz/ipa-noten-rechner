@@ -1,6 +1,7 @@
 import { describe, test, expect, beforeEach, vi } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
-import { AuthProvider, useAuth } from '../context/AuthContext';
+import { AuthProvider } from '../context/AuthContext.jsx';
+import { useAuth } from '../hooks/useAuth';
 import { api } from '../services/api';
 
 vi.mock('../services/api');

@@ -1,7 +1,8 @@
-import { describe, test, expect, beforeAll, afterAll, afterEach, vi } from 'vitest';
+import { describe, test, expect, afterEach, vi } from 'vitest';
 import { api } from '../services/api';
 
 const mockFetch = vi.fn();
+/* eslint-disable-next-line no-undef */
 global.fetch = mockFetch;
 
 afterEach(() => {

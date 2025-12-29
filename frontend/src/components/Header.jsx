@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import { LogIn, LogOut, UserCircle, Home } from 'lucide-react';
 
 export default function Header() {

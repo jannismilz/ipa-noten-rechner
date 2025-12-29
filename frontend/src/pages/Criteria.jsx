@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useState, useEffect, useCallback } from 'react';
+import { useAuth } from '../hooks/useAuth';
 import { api } from '../services/api';
 import { storage } from '../services/storage';
 import ProgressOverview from '../components/ProgressOverview';
@@ -14,11 +14,7 @@ export default function Criteria() {
   const [error, setError] = useState('');
   const [showResetModal, setShowResetModal] = useState(false);
 
-  useEffect(() => {
-    loadData();
-  }, [isAuthenticated, token]);
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     try {
       setLoading(true);
       const criteria = await api.getCriteria();
@@ -51,7 +47,11 @@ export default function Criteria() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [isAuthenticated, token]);
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
 
   const handleUpdate = async (criteriaId, data) => {
     const newEvaluations = {
@@ -106,7 +106,7 @@ export default function Criteria() {
           const data = JSON.parse(text);
           storage.importData(data);
           loadData();
-        } catch (err) {
+        } catch {
           alert('Fehler beim Importieren der Datei');
         }
       }
