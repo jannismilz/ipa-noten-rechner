@@ -8,19 +8,21 @@ describe('Auth Middleware', () => {
   describe('authMiddleware', () => {
     test('should pass with valid token', async () => {
       const token = jwt.sign({ userId: 123 }, JWT_SECRET, { expiresIn: '7d' });
-      
+
       const req = {
         headers: {
-          authorization: `Bearer ${token}`
-        }
+          authorization: `Bearer ${token}`,
+        },
       };
       const res = {
-        status: (code) => ({
-          json: (data) => ({ status: code, data })
-        })
+        status: code => ({
+          json: data => ({ status: code, data }),
+        }),
       };
       let nextCalled = false;
-      const next = () => { nextCalled = true; };
+      const next = () => {
+        nextCalled = true;
+      };
 
       await authMiddleware(req, res, next);
 
@@ -32,12 +34,12 @@ describe('Auth Middleware', () => {
       const req = { headers: {} };
       let response;
       const res = {
-        status: (code) => ({
-          json: (data) => {
+        status: code => ({
+          json: data => {
             response = { status: code, data };
             return response;
-          }
-        })
+          },
+        }),
       };
       const next = () => {};
 
@@ -50,17 +52,17 @@ describe('Auth Middleware', () => {
     test('should reject malformed authorization header', async () => {
       const req = {
         headers: {
-          authorization: 'InvalidFormat token'
-        }
+          authorization: 'InvalidFormat token',
+        },
       };
       let response;
       const res = {
-        status: (code) => ({
-          json: (data) => {
+        status: code => ({
+          json: data => {
             response = { status: code, data };
             return response;
-          }
-        })
+          },
+        }),
       };
       const next = () => {};
 
@@ -73,17 +75,17 @@ describe('Auth Middleware', () => {
     test('should reject invalid token', async () => {
       const req = {
         headers: {
-          authorization: 'Bearer invalid-token'
-        }
+          authorization: 'Bearer invalid-token',
+        },
       };
       let response;
       const res = {
-        status: (code) => ({
-          json: (data) => {
+        status: code => ({
+          json: data => {
             response = { status: code, data };
             return response;
-          }
-        })
+          },
+        }),
       };
       const next = () => {};
 
@@ -95,20 +97,20 @@ describe('Auth Middleware', () => {
 
     test('should reject expired token', async () => {
       const token = jwt.sign({ userId: 123 }, JWT_SECRET, { expiresIn: '-1s' });
-      
+
       const req = {
         headers: {
-          authorization: `Bearer ${token}`
-        }
+          authorization: `Bearer ${token}`,
+        },
       };
       let response;
       const res = {
-        status: (code) => ({
-          json: (data) => {
+        status: code => ({
+          json: data => {
             response = { status: code, data };
             return response;
-          }
-        })
+          },
+        }),
       };
       const next = () => {};
 
@@ -122,15 +124,17 @@ describe('Auth Middleware', () => {
   describe('optionalAuth', () => {
     test('should pass with valid token and set userId', async () => {
       const token = jwt.sign({ userId: 456 }, JWT_SECRET, { expiresIn: '7d' });
-      
+
       const req = {
         headers: {
-          authorization: `Bearer ${token}`
-        }
+          authorization: `Bearer ${token}`,
+        },
       };
       const res = {};
       let nextCalled = false;
-      const next = () => { nextCalled = true; };
+      const next = () => {
+        nextCalled = true;
+      };
 
       await optionalAuth(req, res, next);
 
@@ -142,7 +146,9 @@ describe('Auth Middleware', () => {
       const req = { headers: {} };
       const res = {};
       let nextCalled = false;
-      const next = () => { nextCalled = true; };
+      const next = () => {
+        nextCalled = true;
+      };
 
       await optionalAuth(req, res, next);
 
@@ -153,12 +159,14 @@ describe('Auth Middleware', () => {
     test('should pass with invalid token and set userId to null', async () => {
       const req = {
         headers: {
-          authorization: 'Bearer invalid-token'
-        }
+          authorization: 'Bearer invalid-token',
+        },
       };
       const res = {};
       let nextCalled = false;
-      const next = () => { nextCalled = true; };
+      const next = () => {
+        nextCalled = true;
+      };
 
       await optionalAuth(req, res, next);
 
@@ -169,12 +177,14 @@ describe('Auth Middleware', () => {
     test('should pass with malformed header', async () => {
       const req = {
         headers: {
-          authorization: 'InvalidFormat token'
-        }
+          authorization: 'InvalidFormat token',
+        },
       };
       const res = {};
       let nextCalled = false;
-      const next = () => { nextCalled = true; };
+      const next = () => {
+        nextCalled = true;
+      };
 
       await optionalAuth(req, res, next);
 

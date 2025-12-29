@@ -3,8 +3,8 @@ import sql from './connection.js';
 async function seed() {
   try {
     const hashedPassword = await Bun.password.hash('test');
-    
-    const [ user ] = await sql`
+
+    const [user] = await sql`
       INSERT INTO users (username, password_hash)
       VALUES ('test', ${hashedPassword})
       ON CONFLICT (username) DO UPDATE SET password_hash = ${hashedPassword}

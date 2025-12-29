@@ -5,7 +5,7 @@ export const api = {
     const response = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, password }),
     });
     if (!response.ok) {
       const error = await response.json();
@@ -16,7 +16,7 @@ export const api = {
 
   async getProfile(token) {
     const response = await fetch(`${API_URL}/users/profile`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     });
     if (!response.ok) {
       const error = await response.json();
@@ -29,10 +29,10 @@ export const api = {
     const response = await fetch(`${API_URL}/users/profile`, {
       method: 'PUT',
       headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
     if (!response.ok) {
       const error = await response.json();
@@ -51,7 +51,7 @@ export const api = {
 
   async getEvaluations(token) {
     const response = await fetch(`${API_URL}/evaluations`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     });
     if (!response.ok) {
       const error = await response.json();
@@ -64,10 +64,10 @@ export const api = {
     const response = await fetch(`${API_URL}/evaluations/${criteriaId}`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
     if (!response.ok) {
       const error = await response.json();
@@ -78,12 +78,12 @@ export const api = {
 
   async calculateScores(token) {
     const response = await fetch(`${API_URL}/evaluations/calculate`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     });
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.error || 'Failed to calculate scores');
     }
     return response.json();
-  }
+  },
 };

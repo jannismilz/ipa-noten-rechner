@@ -12,7 +12,7 @@ describe('Storage Service Integration Tests', () => {
 
       const stored = JSON.parse(localStorage.getItem('ipa_ticked_requirements'));
       expect(stored).toEqual({
-        A1: ['Requirement 1', 'Requirement 2']
+        A1: ['Requirement 1', 'Requirement 2'],
       });
     });
 
@@ -24,7 +24,7 @@ describe('Storage Service Integration Tests', () => {
       const stored = JSON.parse(localStorage.getItem('ipa_ticked_requirements'));
       expect(stored).toEqual({
         A1: ['Req 1', 'Req 3'],
-        A2: ['Req 2']
+        A2: ['Req 2'],
       });
     });
   });
@@ -33,7 +33,7 @@ describe('Storage Service Integration Tests', () => {
     test('should load ticked requirements from localStorage', () => {
       const testData = {
         A1: ['Requirement 1', 'Requirement 2'],
-        B1: ['Requirement 3']
+        B1: ['Requirement 3'],
       };
       localStorage.setItem('ipa_ticked_requirements', JSON.stringify(testData));
 
@@ -63,14 +63,14 @@ describe('Storage Service Integration Tests', () => {
 
       const stored = JSON.parse(localStorage.getItem('ipa_criteria_notes'));
       expect(stored).toEqual({
-        A1: 'This is a test note'
+        A1: 'This is a test note',
       });
     });
 
     test('should load notes from localStorage', () => {
       const testData = {
         A1: 'Note 1',
-        B1: 'Note 2'
+        B1: 'Note 2',
       };
       localStorage.setItem('ipa_criteria_notes', JSON.stringify(testData));
 
@@ -86,7 +86,7 @@ describe('Storage Service Integration Tests', () => {
 
       const stored = JSON.parse(localStorage.getItem('ipa_criteria_notes'));
       expect(stored).toEqual({
-        A2: 'Another note'
+        A2: 'Another note',
       });
     });
 
@@ -108,7 +108,7 @@ describe('Storage Service Integration Tests', () => {
 
       expect(exported).toMatchObject({
         tickedRequirements: { A1: ['Req 1'] },
-        notes: { A1: 'Test note' }
+        notes: { A1: 'Test note' },
       });
       expect(exported.exportedAt).toBeDefined();
       expect(new Date(exported.exportedAt)).toBeInstanceOf(Date);
@@ -118,7 +118,7 @@ describe('Storage Service Integration Tests', () => {
       const importData = {
         tickedRequirements: { A1: ['Req 1'], B1: ['Req 2'] },
         notes: { A1: 'Note 1' },
-        exportedAt: new Date().toISOString()
+        exportedAt: new Date().toISOString(),
       };
 
       storage.importData(importData);

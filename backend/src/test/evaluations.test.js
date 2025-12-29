@@ -44,8 +44,8 @@ describe('Evaluation Routes', () => {
     test('should get evaluations with authentication', async () => {
       const response = await fetch(`${API_URL}/evaluations`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
+          Authorization: `Bearer ${authToken}`,
+        },
       });
 
       expect(response.status).toBe(200);
@@ -77,13 +77,13 @@ describe('Evaluation Routes', () => {
 
       const response = await fetch(`${API_URL}/evaluations`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
+          Authorization: `Bearer ${authToken}`,
+        },
       });
 
       expect(response.status).toBe(200);
       const data = await response.json();
-      
+
       const criteriaA1 = data.criterias.find(c => c.id === 'A1');
       if (criteriaA1) {
         expect(criteriaA1.ticked_requirements).toContain('Test requirement');
@@ -97,13 +97,13 @@ describe('Evaluation Routes', () => {
       const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           tickedRequirements: ['Requirement 1', 'Requirement 2'],
-          note: null
-        })
+          note: null,
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -121,13 +121,13 @@ describe('Evaluation Routes', () => {
       const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           tickedRequirements: [],
-          note: 'This is a test note'
-        })
+          note: 'This is a test note',
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -150,13 +150,13 @@ describe('Evaluation Routes', () => {
       const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           tickedRequirements: [],
-          note: ''
-        })
+          note: '',
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -177,13 +177,13 @@ describe('Evaluation Routes', () => {
       const response = await fetch(`${API_URL}/evaluations/A01`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           tickedRequirements: ['New requirement'],
-          note: null
-        })
+          note: null,
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -200,13 +200,13 @@ describe('Evaluation Routes', () => {
       const response = await fetch(`${API_URL}/evaluations/INVALID`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           tickedRequirements: [],
-          note: null
-        })
+          note: null,
+        }),
       });
 
       expect(response.status).toBe(404);
@@ -218,12 +218,12 @@ describe('Evaluation Routes', () => {
       const response = await fetch(`${API_URL}/evaluations/A1`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           tickedRequirements: [],
-          note: null
-        })
+          note: null,
+        }),
       });
 
       expect(response.status).toBe(401);
@@ -236,8 +236,8 @@ describe('Evaluation Routes', () => {
     test('should calculate scores with no data', async () => {
       const response = await fetch(`${API_URL}/evaluations/calculate`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
+          Authorization: `Bearer ${authToken}`,
+        },
       });
 
       expect(response.status).toBe(200);
@@ -265,8 +265,8 @@ describe('Evaluation Routes', () => {
 
       const response = await fetch(`${API_URL}/evaluations/calculate`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
+          Authorization: `Bearer ${authToken}`,
+        },
       });
 
       expect(response.status).toBe(200);

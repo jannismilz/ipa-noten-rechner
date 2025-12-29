@@ -7,18 +7,13 @@ describe('Grade Calculation Unit Tests', () => {
       const criteria = {
         id: 'F&P05',
         selection: 'single',
-        requirements: [
-          'Requirement 1',
-          'Requirement 2',
-          'Requirement 3',
-          'Requirement 4'
-        ],
+        requirements: ['Requirement 1', 'Requirement 2', 'Requirement 3', 'Requirement 4'],
         stages: {
-          '3': { must: 1 },
-          '2': { must: 2 },
-          '1': { must: 3 },
-          '0': { must: 4 }
-        }
+          3: { must: 1 },
+          2: { must: 2 },
+          1: { must: 3 },
+          0: { must: 4 },
+        },
       };
 
       expect(calculateGrade(criteria, ['Requirement 1'])).toBe(3);
@@ -32,9 +27,9 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'single',
         requirements: ['Req 1', 'Req 2'],
         stages: {
-          '3': { must: 1 },
-          '0': { must: 2 }
-        }
+          3: { must: 1 },
+          0: { must: 2 },
+        },
       };
 
       expect(calculateGrade(criteria, [])).toBe(null);
@@ -45,9 +40,9 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'single',
         requirements: ['Req 1', 'Req 2'],
         stages: {
-          '3': { must: 1 },
-          '0': { must: 2 }
-        }
+          3: { must: 1 },
+          0: { must: 2 },
+        },
       };
 
       expect(calculateGrade(criteria, ['Invalid Req'])).toBe(null);
@@ -59,26 +54,16 @@ describe('Grade Calculation Unit Tests', () => {
       const criteria = {
         id: 'A01',
         selection: 'multiple',
-        requirements: [
-          'Requirement 1',
-          'Requirement 2',
-          'Requirement 3',
-          'Requirement 4'
-        ],
+        requirements: ['Requirement 1', 'Requirement 2', 'Requirement 3', 'Requirement 4'],
         stages: {
-          '3': { all: true },
-          '2': { count: 3 },
-          '1': { count: 2 },
-          '0': { count_less_than: 2 }
-        }
+          3: { all: true },
+          2: { count: 3 },
+          1: { count: 2 },
+          0: { count_less_than: 2 },
+        },
       };
 
-      const allRequirements = [
-        'Requirement 1',
-        'Requirement 2',
-        'Requirement 3',
-        'Requirement 4'
-      ];
+      const allRequirements = ['Requirement 1', 'Requirement 2', 'Requirement 3', 'Requirement 4'];
 
       expect(calculateGrade(criteria, allRequirements)).toBe(3);
     });
@@ -88,11 +73,11 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'multiple',
         requirements: ['Req 1', 'Req 2', 'Req 3', 'Req 4'],
         stages: {
-          '3': { all: true },
-          '2': { count: 3 },
-          '1': { count: 2 },
-          '0': { count_less_than: 2 }
-        }
+          3: { all: true },
+          2: { count: 3 },
+          1: { count: 2 },
+          0: { count_less_than: 2 },
+        },
       };
 
       expect(calculateGrade(criteria, ['Req 1', 'Req 2', 'Req 3'])).toBe(2);
@@ -105,11 +90,11 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'multiple',
         requirements: ['Req 1', 'Req 2', 'Req 3', 'Req 4', 'Req 5'],
         stages: {
-          '3': { all: true },
-          '2': { counts: [3, 4] },
-          '1': { count: 2 },
-          '0': { count_less_than: 2 }
-        }
+          3: { all: true },
+          2: { counts: [3, 4] },
+          1: { count: 2 },
+          0: { count_less_than: 2 },
+        },
       };
 
       expect(calculateGrade(criteria, ['Req 1', 'Req 2', 'Req 3'])).toBe(2);
@@ -122,11 +107,11 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'multiple',
         requirements: ['Req 1', 'Req 2', 'Req 3'],
         stages: {
-          '3': { all: true },
-          '2': { count: 2 },
-          '1': { count: 1 },
-          '0': { count: 0 }
-        }
+          3: { all: true },
+          2: { count: 2 },
+          1: { count: 1 },
+          0: { count: 0 },
+        },
       };
 
       expect(calculateGrade(criteria, [])).toBe(0);
@@ -137,11 +122,11 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'multiple',
         requirements: ['Req 1', 'Req 2', 'Req 3', 'Req 4'],
         stages: {
-          '3': { all: true },
-          '2': { count: 3 },
-          '1': { count: 2 },
-          '0': { count_less_than: 2 }
-        }
+          3: { all: true },
+          2: { count: 3 },
+          1: { count: 2 },
+          0: { count_less_than: 2 },
+        },
       };
 
       expect(calculateGrade(criteria, ['Req 1'])).toBe(0);
@@ -153,11 +138,11 @@ describe('Grade Calculation Unit Tests', () => {
         selection: 'multiple',
         requirements: ['Req 1', 'Req 2', 'Req 3', 'Req 4'],
         stages: {
-          '3': { all: true },
-          '2': { must: 4, count: 3 },
-          '1': { count: 2 },
-          '0': { count_less_than: 2 }
-        }
+          3: { all: true },
+          2: { must: 4, count: 3 },
+          1: { count: 2 },
+          0: { count_less_than: 2 },
+        },
       };
 
       expect(calculateGrade(criteria, ['Req 1', 'Req 2', 'Req 4'])).toBe(2);
@@ -172,14 +157,14 @@ describe('Grade Calculation Unit Tests', () => {
           id: 'cat1',
           name: 'Category 1',
           weight: 0.5,
-          part: 'Teil 1'
+          part: 'Teil 1',
         },
         {
           id: 'cat2',
           name: 'Category 2',
           weight: 0.5,
-          part: 'Teil 1'
-        }
+          part: 'Teil 1',
+        },
       ];
 
       const criterias = [
@@ -189,11 +174,11 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1', 'R2', 'R3'],
           stages: {
-            '3': { all: true },
-            '2': { count: 2 },
-            '1': { count: 1 },
-            '0': { count: 0 }
-          }
+            3: { all: true },
+            2: { count: 2 },
+            1: { count: 1 },
+            0: { count: 0 },
+          },
         },
         {
           id: 'C2',
@@ -201,17 +186,17 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1', 'R2', 'R3'],
           stages: {
-            '3': { all: true },
-            '2': { count: 2 },
-            '1': { count: 1 },
-            '0': { count: 0 }
-          }
-        }
+            3: { all: true },
+            2: { count: 2 },
+            1: { count: 1 },
+            0: { count: 0 },
+          },
+        },
       ];
 
       const evaluations = {
         C1: { tickedRequirements: ['R1', 'R2', 'R3'] },
-        C2: { tickedRequirements: ['R1', 'R2'] }
+        C2: { tickedRequirements: ['R1', 'R2'] },
       };
 
       const scores = calculateCategoryScores(categories, criterias, evaluations);
@@ -234,8 +219,8 @@ describe('Grade Calculation Unit Tests', () => {
           id: 'cat1',
           name: 'Category 1',
           weight: 1.0,
-          part: 'Teil 1'
-        }
+          part: 'Teil 1',
+        },
       ];
 
       const criterias = [
@@ -245,10 +230,10 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1', 'R2'],
           stages: {
-            '3': { all: true },
-            '0': { count: 0 }
-          }
-        }
+            3: { all: true },
+            0: { count: 0 },
+          },
+        },
       ];
 
       const evaluations = {};
@@ -265,8 +250,8 @@ describe('Grade Calculation Unit Tests', () => {
           id: 'cat1',
           name: 'Category 1',
           weight: 1.0,
-          part: 'Teil 1'
-        }
+          part: 'Teil 1',
+        },
       ];
 
       const criterias = [
@@ -276,14 +261,14 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1', 'R2', 'R3', 'R4'],
           stages: {
-            '3': { all: true },
-            '0': { count: 0 }
-          }
-        }
+            3: { all: true },
+            0: { count: 0 },
+          },
+        },
       ];
 
       const evaluations = {
-        C1: { tickedRequirements: ['R1', 'R2'] }
+        C1: { tickedRequirements: ['R1', 'R2'] },
       };
 
       const scores = calculateCategoryScores(categories, criterias, evaluations);
@@ -299,8 +284,8 @@ describe('Grade Calculation Unit Tests', () => {
           id: 'cat1',
           name: 'Category 1',
           weight: 1.0,
-          part: 'Teil 1'
-        }
+          part: 'Teil 1',
+        },
       ];
 
       const criterias = [
@@ -310,14 +295,14 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1', 'R2'],
           stages: {
-            '3': { must: 1 },
-            '0': { count: 0 }
-          }
-        }
+            3: { must: 1 },
+            0: { count: 0 },
+          },
+        },
       ];
 
       const evaluations = {
-        C1: { tickedRequirements: ['R1'] }
+        C1: { tickedRequirements: ['R1'] },
       };
 
       const scores = calculateCategoryScores(categories, criterias, evaluations);
@@ -333,8 +318,8 @@ describe('Grade Calculation Unit Tests', () => {
           id: 'cat1',
           name: 'Category 1',
           weight: 1.0,
-          part: 'Teil 1'
-        }
+          part: 'Teil 1',
+        },
       ];
 
       const criterias = [
@@ -344,10 +329,10 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1'],
           stages: {
-            '3': { all: true },
-            '0': { count: 0 }
-          }
-        }
+            3: { all: true },
+            0: { count: 0 },
+          },
+        },
       ];
 
       const evaluations = {};
@@ -362,8 +347,8 @@ describe('Grade Calculation Unit Tests', () => {
           id: 'cat1',
           name: 'Category 1',
           weight: 1.0,
-          part: 'Teil 1'
-        }
+          part: 'Teil 1',
+        },
       ];
 
       const criterias = [
@@ -373,14 +358,14 @@ describe('Grade Calculation Unit Tests', () => {
           selection: 'multiple',
           requirements: ['R1', 'R2'],
           stages: {
-            '3': { all: true },
-            '0': { count: 0 }
-          }
-        }
+            3: { all: true },
+            0: { count: 0 },
+          },
+        },
       ];
 
       const evaluations = {
-        C1: { tickedRequirements: ['R1', 'R2'] }
+        C1: { tickedRequirements: ['R1', 'R2'] },
       };
 
       const scores = calculateCategoryScores(categories, criterias, evaluations);
@@ -398,20 +383,20 @@ describe('Grade Calculation Unit Tests', () => {
           name: 'Category 1',
           weight: 0.5,
           grade: 5.0,
-          weightedGrade: 2.5
+          weightedGrade: 2.5,
         },
         cat2: {
           name: 'Category 2',
           weight: 0.3,
           grade: 4.0,
-          weightedGrade: 1.2
+          weightedGrade: 1.2,
         },
         cat3: {
           name: 'Category 3',
           weight: 0.2,
           grade: 6.0,
-          weightedGrade: 1.2
-        }
+          weightedGrade: 1.2,
+        },
       };
 
       const finalGrade = calculateFinalGrade(categoryScores);
@@ -425,8 +410,8 @@ describe('Grade Calculation Unit Tests', () => {
           name: 'Category 1',
           weight: 1.0,
           grade: 5.5,
-          weightedGrade: 5.5
-        }
+          weightedGrade: 5.5,
+        },
       };
 
       const finalGrade = calculateFinalGrade(categoryScores);
@@ -440,14 +425,14 @@ describe('Grade Calculation Unit Tests', () => {
           name: 'Category 1',
           weight: 0.5,
           grade: 1.0,
-          weightedGrade: 0.5
+          weightedGrade: 0.5,
         },
         cat2: {
           name: 'Category 2',
           weight: 0.5,
           grade: 1.0,
-          weightedGrade: 0.5
-        }
+          weightedGrade: 0.5,
+        },
       };
 
       const finalGrade = calculateFinalGrade(categoryScores);
@@ -461,14 +446,14 @@ describe('Grade Calculation Unit Tests', () => {
           name: 'Category 1',
           weight: 0.333,
           grade: 5.0,
-          weightedGrade: 1.665
+          weightedGrade: 1.665,
         },
         cat2: {
           name: 'Category 2',
           weight: 0.667,
           grade: 4.0,
-          weightedGrade: 2.668
-        }
+          weightedGrade: 2.668,
+        },
       };
 
       const finalGrade = calculateFinalGrade(categoryScores);

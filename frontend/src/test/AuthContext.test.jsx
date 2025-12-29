@@ -12,15 +12,15 @@ vi.mock('../services/api', () => ({
     getCriteria: vi.fn(),
     getEvaluations: vi.fn(),
     saveEvaluation: vi.fn(),
-    calculateScores: vi.fn()
-  }
+    calculateScores: vi.fn(),
+  },
 }));
 
 describe('AuthContext Integration Tests', () => {
   beforeEach(() => {
     localStorage.clear();
     vi.resetAllMocks();
-    
+
     // Set default mock implementations to prevent errors
     api.getProfile.mockResolvedValue({});
     api.login.mockResolvedValue({});
@@ -31,20 +31,20 @@ describe('AuthContext Integration Tests', () => {
     test('should update user state and store token on login', async () => {
       const mockLoginResponse = {
         token: 'test-token-123',
-        userId: 1
+        userId: 1,
       };
       const mockProfile = {
         id: 1,
         first_name: 'John',
         last_name: 'Doe',
-        user_id: 1
+        user_id: 1,
       };
 
       api.login.mockResolvedValue(mockLoginResponse);
       api.getProfile.mockResolvedValue(mockProfile);
 
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       await waitFor(() => {
@@ -68,7 +68,7 @@ describe('AuthContext Integration Tests', () => {
       api.login.mockRejectedValueOnce(new Error('Invalid credentials'));
 
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       await waitFor(() => {
@@ -85,20 +85,20 @@ describe('AuthContext Integration Tests', () => {
     test('should clear user state and remove token on logout', async () => {
       const mockLoginResponse = {
         token: 'test-token-123',
-        userId: 1
+        userId: 1,
       };
       const mockProfile = {
         id: 1,
         first_name: 'John',
         last_name: 'Doe',
-        user_id: 1
+        user_id: 1,
       };
 
       api.login.mockResolvedValue(mockLoginResponse);
       api.getProfile.mockResolvedValue(mockProfile);
 
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       await waitFor(() => {
@@ -123,7 +123,7 @@ describe('AuthContext Integration Tests', () => {
 
     test('should work when user is not logged in', () => {
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       result.current.logout();
@@ -139,14 +139,14 @@ describe('AuthContext Integration Tests', () => {
         id: 1,
         first_name: 'John',
         last_name: 'Doe',
-        user_id: 1
+        user_id: 1,
       };
 
       localStorage.setItem('token', 'existing-token');
       api.getProfile.mockResolvedValueOnce(mockProfile);
 
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       await waitFor(() => {
@@ -164,7 +164,7 @@ describe('AuthContext Integration Tests', () => {
       api.getProfile.mockRejectedValueOnce(new Error('Invalid token'));
 
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       await waitFor(() => {
@@ -182,19 +182,19 @@ describe('AuthContext Integration Tests', () => {
     test('should update user state with new profile data', async () => {
       const mockLoginResponse = {
         token: 'test-token-123',
-        userId: 1
+        userId: 1,
       };
       const mockProfile = {
         id: 1,
         first_name: 'John',
         last_name: 'Doe',
-        user_id: 1
+        user_id: 1,
       };
       const updatedProfile = {
         id: 1,
         first_name: 'Jane',
         last_name: 'Doe',
-        user_id: 1
+        user_id: 1,
       };
 
       api.login.mockResolvedValue(mockLoginResponse);
@@ -202,7 +202,7 @@ describe('AuthContext Integration Tests', () => {
       api.updateProfile.mockResolvedValue(updatedProfile);
 
       const { result } = renderHook(() => useAuth(), {
-        wrapper: AuthProvider
+        wrapper: AuthProvider,
       });
 
       await waitFor(() => {

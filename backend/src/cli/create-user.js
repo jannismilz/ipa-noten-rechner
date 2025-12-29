@@ -37,7 +37,7 @@ async function createUser() {
     console.log('User created successfully:');
     console.log(`  ID: ${user.id}`);
     console.log(`  Username: ${user.username}`);
-    
+
     process.exit(0);
   } catch (error) {
     if (error.code === '23505') {

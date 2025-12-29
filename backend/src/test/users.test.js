@@ -26,8 +26,8 @@ describe('User Profile Routes', () => {
     test('should get user profile with valid token', async () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
+          Authorization: `Bearer ${authToken}`,
+        },
       });
 
       expect(response.status).toBe(200);
@@ -51,8 +51,8 @@ describe('User Profile Routes', () => {
     test('should reject request with invalid token', async () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         headers: {
-          'Authorization': 'Bearer invalid-token'
-        }
+          Authorization: 'Bearer invalid-token',
+        },
       });
 
       expect(response.status).toBe(401);
@@ -63,8 +63,8 @@ describe('User Profile Routes', () => {
     test('should reject request with malformed authorization header', async () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         headers: {
-          'Authorization': 'InvalidFormat token'
-        }
+          Authorization: 'InvalidFormat token',
+        },
       });
 
       expect(response.status).toBe(401);
@@ -78,15 +78,15 @@ describe('User Profile Routes', () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           firstName: 'John',
           lastName: 'Doe',
           topic: 'Web Development',
-          submissionDate: '2024-12-31'
-        })
+          submissionDate: '2024-12-31',
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -100,12 +100,12 @@ describe('User Profile Routes', () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          firstName: 'Jane'
-        })
+          firstName: 'Jane',
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -118,11 +118,11 @@ describe('User Profile Routes', () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          firstName: 'John'
-        })
+          firstName: 'John',
+        }),
       });
 
       expect(response.status).toBe(401);
@@ -134,10 +134,10 @@ describe('User Profile Routes', () => {
       const response = await fetch(`${API_URL}/users/profile`, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({})
+        body: JSON.stringify({}),
       });
 
       expect(response.status).toBe(200);

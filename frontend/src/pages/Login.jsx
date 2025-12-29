@@ -11,16 +11,16 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
       const profile = await login(username, password);
-      
+
       const isProfileComplete = profile.first_name && profile.last_name && profile.topic && profile.submission_date;
-      
+
       if (isProfileComplete) {
         navigate('/');
       } else {
@@ -44,14 +44,14 @@ export default function Login() {
 
         <form onSubmit={handleSubmit} className="login-form">
           {error && <div className="error-message">{error}</div>}
-          
+
           <div className="form-group">
             <label htmlFor="username">Benutzername</label>
             <input
               id="username"
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={e => setUsername(e.target.value)}
               required
               autoComplete="username"
             />
@@ -63,7 +63,7 @@ export default function Login() {
               id="password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
               required
               autoComplete="current-password"
             />
@@ -75,11 +75,7 @@ export default function Login() {
         </form>
 
         <div className="login-footer">
-          <button
-            type="button"
-            className="btn-link"
-            onClick={() => navigate('/')}
-          >
+          <button type="button" className="btn-link" onClick={() => navigate('/')}>
             Ohne Anmeldung fortfahren
           </button>
         </div>

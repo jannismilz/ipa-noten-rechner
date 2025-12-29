@@ -21,8 +21,8 @@ describe('Auth Routes', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username: 'logintest',
-          password: 'password123'
-        })
+          password: 'password123',
+        }),
       });
 
       expect(response.status).toBe(200);
@@ -40,8 +40,8 @@ describe('Auth Routes', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username: 'nonexistent',
-          password: 'password123'
-        })
+          password: 'password123',
+        }),
       });
 
       expect(response.status).toBe(401);
@@ -57,8 +57,8 @@ describe('Auth Routes', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username: 'passwordtest',
-          password: 'wrongpassword'
-        })
+          password: 'wrongpassword',
+        }),
       });
 
       expect(response.status).toBe(401);
@@ -73,8 +73,8 @@ describe('Auth Routes', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          password: 'password123'
-        })
+          password: 'password123',
+        }),
       });
 
       expect(response.status).toBe(400);
@@ -87,8 +87,8 @@ describe('Auth Routes', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          username: 'testuser'
-        })
+          username: 'testuser',
+        }),
       });
 
       expect(response.status).toBe(400);

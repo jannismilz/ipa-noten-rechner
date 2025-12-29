@@ -1,6 +1,6 @@
 const STORAGE_KEYS = {
   TICKED: 'ipa_ticked_requirements',
-  NOTES: 'ipa_criteria_notes'
+  NOTES: 'ipa_criteria_notes',
 };
 
 export const storage = {
@@ -42,7 +42,7 @@ export const storage = {
     return {
       tickedRequirements: this.getTickedRequirements(),
       notes: this.getNotes(),
-      exportedAt: new Date().toISOString()
+      exportedAt: new Date().toISOString(),
     };
   },
 
@@ -58,5 +58,5 @@ export const storage = {
   clear() {
     localStorage.removeItem(STORAGE_KEYS.TICKED);
     localStorage.removeItem(STORAGE_KEYS.NOTES);
-  }
+  },
 };

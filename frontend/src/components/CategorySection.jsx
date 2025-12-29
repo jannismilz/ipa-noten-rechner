@@ -44,7 +44,7 @@ export default function CategorySection({ category, criterias, evaluations, onUp
               criteria={criteria}
               tickedRequirements={evaluations[criteria.id]?.tickedRequirements || []}
               note={evaluations[criteria.id]?.note || ''}
-              onUpdate={(data) => onUpdate(criteria.id, data)}
+              onUpdate={data => onUpdate(criteria.id, data)}
             />
           ))}
         </div>

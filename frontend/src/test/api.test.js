@@ -2,7 +2,7 @@ import { describe, test, expect, afterEach, vi } from 'vitest';
 import { api } from '../services/api';
 
 const mockFetch = vi.fn();
- 
+
 global.fetch = mockFetch;
 
 afterEach(() => {
@@ -14,12 +14,12 @@ describe('API Service Integration Tests', () => {
     test('should login with credentials and return token', async () => {
       const mockResponse = {
         token: 'test-token-123',
-        userId: 1
+        userId: 1,
       };
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => mockResponse
+        json: async () => mockResponse,
       });
 
       const result = await api.login('testuser', 'password123');
@@ -29,7 +29,7 @@ describe('API Service Integration Tests', () => {
         expect.objectContaining({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username: 'testuser', password: 'password123' })
+          body: JSON.stringify({ username: 'testuser', password: 'password123' }),
         })
       );
       expect(result).toEqual(mockResponse);
@@ -38,7 +38,7 @@ describe('API Service Integration Tests', () => {
     test('should throw error on failed login', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: false,
-        json: async () => ({ error: 'Invalid credentials' })
+        json: async () => ({ error: 'Invalid credentials' }),
       });
 
       await expect(api.login('wrong', 'wrong')).rejects.toThrow('Invalid credentials');
@@ -48,30 +48,24 @@ describe('API Service Integration Tests', () => {
   describe('FE-IT-02: Get Criteria', () => {
     test('should fetch criteria data', async () => {
       const mockCriteria = {
-        categories_with_weigth: [
-          { id: 'cat1', name: 'Category 1', weight: 0.5 }
-        ],
-        criterias: [
-          { id: 'C1', category: 'cat1', title: 'Test Criteria' }
-        ]
+        categories_with_weigth: [{ id: 'cat1', name: 'Category 1', weight: 0.5 }],
+        criterias: [{ id: 'C1', category: 'cat1', title: 'Test Criteria' }],
       };
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => mockCriteria
+        json: async () => mockCriteria,
       });
 
       const result = await api.getCriteria();
 
-      expect(mockFetch).toHaveBeenCalledWith(
-        expect.stringContaining('/evaluations/criteria')
-      );
+      expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/evaluations/criteria'));
       expect(result).toEqual(mockCriteria);
     });
 
     test('should throw error on failed fetch', async () => {
       mockFetch.mockResolvedValueOnce({
-        ok: false
+        ok: false,
       });
 
       await expect(api.getCriteria()).rejects.toThrow('Failed to fetch criteria');
@@ -84,12 +78,12 @@ describe('API Service Integration Tests', () => {
         id: 1,
         first_name: 'John',
         last_name: 'Doe',
-        user_id: 1
+        user_id: 1,
       };
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => mockProfile
+        json: async () => mockProfile,
       });
 
       const result = await api.getProfile('test-token');
@@ -97,7 +91,7 @@ describe('API Service Integration Tests', () => {
       expect(mockFetch).toHaveBeenCalledWith(
         expect.stringContaining('/users/profile'),
         expect.objectContaining({
-          headers: { 'Authorization': 'Bearer test-token' }
+          headers: { Authorization: 'Bearer test-token' },
         })
       );
       expect(result).toEqual(mockProfile);
@@ -109,12 +103,12 @@ describe('API Service Integration Tests', () => {
       const mockUpdated = {
         id: 1,
         first_name: 'Jane',
-        last_name: 'Doe'
+        last_name: 'Doe',
       };
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => mockUpdated
+        json: async () => mockUpdated,
       });
 
       const result = await api.updateProfile('test-token', { firstName: 'Jane' });
@@ -124,10 +118,10 @@ describe('API Service Integration Tests', () => {
         expect.objectContaining({
           method: 'PUT',
           headers: {
-            'Authorization': 'Bearer test-token',
-            'Content-Type': 'application/json'
+            Authorization: 'Bearer test-token',
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ firstName: 'Jane' })
+          body: JSON.stringify({ firstName: 'Jane' }),
         })
       );
       expect(result).toEqual(mockUpdated);
@@ -138,12 +132,12 @@ describe('API Service Integration Tests', () => {
     test('should fetch evaluations with token', async () => {
       const mockEvaluations = {
         categories: [],
-        criterias: []
+        criterias: [],
       };
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => mockEvaluations
+        json: async () => mockEvaluations,
       });
 
       const result = await api.getEvaluations('test-token');
@@ -151,7 +145,7 @@ describe('API Service Integration Tests', () => {
       expect(mockFetch).toHaveBeenCalledWith(
         expect.stringContaining('/evaluations'),
         expect.objectContaining({
-          headers: { 'Authorization': 'Bearer test-token' }
+          headers: { Authorization: 'Bearer test-token' },
         })
       );
       expect(result).toEqual(mockEvaluations);
@@ -162,12 +156,12 @@ describe('API Service Integration Tests', () => {
     test('should save evaluation data', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => ({ success: true })
+        json: async () => ({ success: true }),
       });
 
       const result = await api.saveEvaluation('test-token', 'A1', {
         tickedRequirements: ['Req 1'],
-        note: 'Test note'
+        note: 'Test note',
       });
 
       expect(mockFetch).toHaveBeenCalledWith(
@@ -175,13 +169,13 @@ describe('API Service Integration Tests', () => {
         expect.objectContaining({
           method: 'POST',
           headers: {
-            'Authorization': 'Bearer test-token',
-            'Content-Type': 'application/json'
+            Authorization: 'Bearer test-token',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             tickedRequirements: ['Req 1'],
-            note: 'Test note'
-          })
+            note: 'Test note',
+          }),
         })
       );
       expect(result).toEqual({ success: true });
@@ -192,12 +186,12 @@ describe('API Service Integration Tests', () => {
     test('should fetch calculated scores', async () => {
       const mockScores = {
         categoryScores: {},
-        finalGrade: 4.5
+        finalGrade: 4.5,
       };
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => mockScores
+        json: async () => mockScores,
       });
 
       const result = await api.calculateScores('test-token');
@@ -205,7 +199,7 @@ describe('API Service Integration Tests', () => {
       expect(mockFetch).toHaveBeenCalledWith(
         expect.stringContaining('/evaluations/calculate'),
         expect.objectContaining({
-          headers: { 'Authorization': 'Bearer test-token' }
+          headers: { Authorization: 'Bearer test-token' },
         })
       );
       expect(result).toEqual(mockScores);

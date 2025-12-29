@@ -6,17 +6,17 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
   const [isOpen, setIsOpen] = useState(false);
   const [localNote, setLocalNote] = useState(note || '');
 
-  const handleRequirementToggle = (requirement) => {
+  const handleRequirementToggle = requirement => {
     const newTicked = tickedRequirements.includes(requirement)
       ? tickedRequirements.filter(r => r !== requirement)
       : criteria.selection === 'single'
         ? [requirement]
         : [...tickedRequirements, requirement];
-    
+
     onUpdate({ tickedRequirements: newTicked, note: localNote });
   };
 
-  const handleNoteChange = (e) => {
+  const handleNoteChange = e => {
     const newNote = e.target.value;
     setLocalNote(newNote);
   };
@@ -40,7 +40,9 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
         </div>
         <div className="criteria-meta">
           {points !== null && (
-            <span className={`grade-badge ${gradeClass}`}>{points} {points === 1 ? "Punkt" : "Punkte"}</span>
+            <span className={`grade-badge ${gradeClass}`}>
+              {points} {points === 1 ? 'Punkt' : 'Punkte'}
+            </span>
           )}
           <span className="criteria-progress">
             {tickedRequirements.length}/{criteria.requirements.length}

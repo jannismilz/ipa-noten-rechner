@@ -11,9 +11,7 @@ const __dirname = dirname(__filename);
 
 const router = express.Router();
 
-const criteriasData = JSON.parse(
-  readFileSync(join(__dirname, '../../../criterias.json'), 'utf-8')
-);
+const criteriasData = JSON.parse(readFileSync(join(__dirname, '../../../criterias.json'), 'utf-8'));
 
 router.get('/criteria', (req, res) => {
   res.json(criteriasData);
@@ -30,22 +28,20 @@ router.get('/', authMiddleware, async (req, res) => {
     `;
 
     const enrichedCriterias = criteriasData.criterias.map(criteria => {
-      const requirements = tickedRequirements
-        .filter(tr => tr.criteria_id === criteria.id)
-        .map(tr => tr.requirement);
-      
+      const requirements = tickedRequirements.filter(tr => tr.criteria_id === criteria.id).map(tr => tr.requirement);
+
       const noteEntry = criteriaNotes.find(cn => cn.criteria_id === criteria.id);
-      
+
       return {
         ...criteria,
         ticked_requirements: requirements,
-        note: noteEntry ? noteEntry.note : null
+        note: noteEntry ? noteEntry.note : null,
       };
     });
 
     res.json({
       categories: criteriasData.categories_with_weigth,
-      criterias: enrichedCriterias
+      criterias: enrichedCriterias,
     });
   } catch (error) {
     console.error('Evaluations fetch error:', error);
@@ -128,7 +124,7 @@ router.get('/calculate', authMiddleware, async (req, res) => {
     res.json({
       categoryScores,
       totalScore: finalGrade,
-      finalGrade
+      finalGrade,
     });
   } catch (error) {
     console.error('Calculation error:', error);

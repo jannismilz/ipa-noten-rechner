@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
     }
 
     const valid = await Bun.password.verify(password, user.password_hash);
-    
+
     if (!valid) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }

@@ -26,7 +26,7 @@ export default function Criteria() {
         evalData.criterias.forEach(c => {
           formatted[c.id] = {
             tickedRequirements: c.ticked_requirements || [],
-            note: c.note || ''
+            note: c.note || '',
           };
         });
         setEvaluations(formatted);
@@ -37,7 +37,7 @@ export default function Criteria() {
         criteria.criterias.forEach(c => {
           formatted[c.id] = {
             tickedRequirements: localTicked[c.id] || [],
-            note: localNotes[c.id] || ''
+            note: localNotes[c.id] || '',
           };
         });
         setEvaluations(formatted);
@@ -56,7 +56,7 @@ export default function Criteria() {
   const handleUpdate = async (criteriaId, data) => {
     const newEvaluations = {
       ...evaluations,
-      [criteriaId]: data
+      [criteriaId]: data,
     };
     setEvaluations(newEvaluations);
 
@@ -78,7 +78,7 @@ export default function Criteria() {
       alert('Export ist nur im Offline-Modus verfügbar');
       return;
     }
-    
+
     const data = storage.exportData();
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -98,7 +98,7 @@ export default function Criteria() {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
-    input.onchange = async (e) => {
+    input.onchange = async e => {
       const file = e.target.files[0];
       if (file) {
         try {
@@ -120,13 +120,13 @@ export default function Criteria() {
         for (const criteriaId of Object.keys(evaluations)) {
           await api.saveEvaluation(token, criteriaId, {
             tickedRequirements: [],
-            note: ''
+            note: '',
           });
         }
       } else {
         storage.clear();
       }
-      
+
       setEvaluations({});
       loadData();
       setShowResetModal(false);
@@ -149,7 +149,9 @@ export default function Criteria() {
     return (
       <div className="error-container">
         <p>Fehler: {error}</p>
-        <button onClick={loadData} className="btn-primary">Erneut versuchen</button>
+        <button onClick={loadData} className="btn-primary">
+          Erneut versuchen
+        </button>
       </div>
     );
   }
@@ -160,9 +162,7 @@ export default function Criteria() {
 
   const groupedCriterias = {};
   criteriaData.categories_with_weigth.forEach(category => {
-    groupedCriterias[category.id] = criteriaData.criterias.filter(
-      c => c.category === category.id
-    );
+    groupedCriterias[category.id] = criteriaData.criterias.filter(c => c.category === category.id);
   });
 
   return (

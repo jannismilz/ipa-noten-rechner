@@ -9,7 +9,8 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     if (token) {
-      api.getProfile(token)
+      api
+        .getProfile(token)
         .then(profile => setUser(profile))
         .catch(() => {
           localStorage.removeItem('token');
@@ -34,7 +35,7 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
-  const updateProfile = async (data) => {
+  const updateProfile = async data => {
     const updated = await api.updateProfile(token, data);
     setUser(updated);
     return updated;

@@ -10,7 +10,7 @@ export default function Onboarding() {
     firstName: '',
     lastName: '',
     topic: '',
-    submissionDate: ''
+    submissionDate: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -18,7 +18,7 @@ export default function Onboarding() {
   useEffect(() => {
     if (user) {
       const isProfileComplete = user.first_name && user.last_name && user.topic && user.submission_date;
-      
+
       if (isProfileComplete) {
         navigate('/');
         return;
@@ -28,12 +28,12 @@ export default function Onboarding() {
         firstName: user.first_name || '',
         lastName: user.last_name || '',
         topic: user.topic || '',
-        submissionDate: user.submission_date || ''
+        submissionDate: user.submission_date || '',
       });
     }
   }, [user, navigate]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setError('');
     setLoading(true);
@@ -48,10 +48,10 @@ export default function Onboarding() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -93,14 +93,7 @@ export default function Onboarding() {
 
           <div className="form-group">
             <label htmlFor="topic">IPA-Thema</label>
-            <input
-              id="topic"
-              name="topic"
-              type="text"
-              value={formData.topic}
-              onChange={handleChange}
-              required
-            />
+            <input id="topic" name="topic" type="text" value={formData.topic} onChange={handleChange} required />
           </div>
 
           <div className="form-group">

@@ -10,7 +10,7 @@ export default function Profile() {
     firstName: '',
     lastName: '',
     topic: '',
-    submissionDate: ''
+    submissionDate: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -27,12 +27,12 @@ export default function Profile() {
         firstName: user.first_name || '',
         lastName: user.last_name || '',
         topic: user.topic || '',
-        submissionDate: user.submission_date || ''
+        submissionDate: user.submission_date || '',
       });
     }
   }, [user, isAuthenticated, navigate]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setError('');
     setSuccess(false);
@@ -49,10 +49,10 @@ export default function Profile() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -100,14 +100,7 @@ export default function Profile() {
 
           <div className="form-group">
             <label htmlFor="topic">IPA-Thema</label>
-            <input
-              id="topic"
-              name="topic"
-              type="text"
-              value={formData.topic}
-              onChange={handleChange}
-              required
-            />
+            <input id="topic" name="topic" type="text" value={formData.topic} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
@@ -116,7 +109,7 @@ export default function Profile() {
               id="submissionDate"
               name="submissionDate"
               type="date"
-              value={formData.submissionDate.split("T")[0]}
+              value={formData.submissionDate.split('T')[0]}
               onChange={handleChange}
               required
             />
