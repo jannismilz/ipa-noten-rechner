@@ -1,6 +1,6 @@
 import { describe, test, expect, beforeAll, afterAll, beforeEach } from 'bun:test';
 import jwt from 'jsonwebtoken';
-import { setupTestDatabase, cleanupTestDatabase, createTestUser, deleteTestUser } from './setup.js';
+import { setupTestDatabase, cleanupTestDatabase, createTestUser } from './setup.js';
 
 const API_URL = 'http://localhost:3001/api';
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';

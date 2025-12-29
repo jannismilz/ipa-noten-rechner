@@ -39,7 +39,7 @@ async function migrate() {
         note TEXT,
         UNIQUE(user_id, criteria_id)
       )
-    `
+    `;
 
     console.log('Migration completed successfully');
     process.exit(0);

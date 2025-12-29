@@ -1,6 +1,6 @@
 import express from 'express';
 import sql from '../db/connection.js';
-import { authMiddleware, optionalAuth } from '../middleware/auth.js';
+import { authMiddleware } from '../middleware/auth.js';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';

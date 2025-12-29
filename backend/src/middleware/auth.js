@@ -16,7 +16,7 @@ export const authMiddleware = async (req, res, next) => {
     req.userId = decoded.userId;
     next();
   } catch (error) {
-    return res.status(401).json({ error: 'Invalid token' });
+    return res.status(401).json({ error: `Invalid token (${error.message})` });
   }
 };
 
@@ -29,6 +29,7 @@ export const optionalAuth = async (req, res, next) => {
       const decoded = jwt.verify(token, JWT_SECRET);
       req.userId = decoded.userId;
     } catch (error) {
+      console.error('Invalid token:', error);
       req.userId = null;
     }
   }
