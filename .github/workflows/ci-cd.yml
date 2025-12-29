@@ -48,7 +48,7 @@ jobs:
         working-directory: ./backend
         run: |
           echo "Checking backend syntax and imports..."
-          bun run --dry-run src/index.js || {
+          bun build src/index.js --target=bun --outfile=/dev/null || {
             echo "❌ Backend build failed - syntax or import errors detected"
             exit 1
           }
