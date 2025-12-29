@@ -2,7 +2,7 @@ import { describe, test, expect, afterEach, vi } from 'vitest';
 import { api } from '../services/api';
 
 const mockFetch = vi.fn();
-/* eslint-disable-next-line no-undef */
+ 
 global.fetch = mockFetch;
 
 afterEach(() => {
