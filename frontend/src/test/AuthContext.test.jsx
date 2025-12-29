@@ -4,12 +4,27 @@ import { AuthProvider } from '../context/AuthContext.jsx';
 import { useAuth } from '../hooks/useAuth';
 import { api } from '../services/api';
 
-vi.mock('../services/api');
+vi.mock('../services/api', () => ({
+  api: {
+    login: vi.fn(),
+    getProfile: vi.fn(),
+    updateProfile: vi.fn(),
+    getCriteria: vi.fn(),
+    getEvaluations: vi.fn(),
+    saveEvaluation: vi.fn(),
+    calculateScores: vi.fn()
+  }
+}));
 
 describe('AuthContext Integration Tests', () => {
   beforeEach(() => {
     localStorage.clear();
-    vi.clearAllMocks();
+    vi.resetAllMocks();
+    
+    // Set default mock implementations to prevent errors
+    api.getProfile.mockResolvedValue({});
+    api.login.mockResolvedValue({});
+    api.updateProfile.mockResolvedValue({});
   });
 
   describe('FE-IT-05: Login Flow', () => {
@@ -25,8 +40,8 @@ describe('AuthContext Integration Tests', () => {
         user_id: 1
       };
 
-      api.login.mockResolvedValueOnce(mockLoginResponse);
-      api.getProfile.mockResolvedValueOnce(mockProfile);
+      api.login.mockResolvedValue(mockLoginResponse);
+      api.getProfile.mockResolvedValue(mockProfile);
 
       const { result } = renderHook(() => useAuth(), {
         wrapper: AuthProvider
@@ -79,8 +94,8 @@ describe('AuthContext Integration Tests', () => {
         user_id: 1
       };
 
-      api.login.mockResolvedValueOnce(mockLoginResponse);
-      api.getProfile.mockResolvedValueOnce(mockProfile);
+      api.login.mockResolvedValue(mockLoginResponse);
+      api.getProfile.mockResolvedValue(mockProfile);
 
       const { result } = renderHook(() => useAuth(), {
         wrapper: AuthProvider
@@ -98,10 +113,12 @@ describe('AuthContext Integration Tests', () => {
 
       result.current.logout();
 
-      expect(result.current.user).toBeNull();
-      expect(result.current.token).toBeNull();
-      expect(result.current.isAuthenticated).toBe(false);
-      expect(localStorage.getItem('token')).toBeNull();
+      await waitFor(() => {
+        expect(result.current.user).toBeNull();
+        expect(result.current.token).toBeNull();
+        expect(result.current.isAuthenticated).toBe(false);
+        expect(localStorage.getItem('token')).toBeNull();
+      });
     });
 
     test('should work when user is not logged in', () => {
@@ -180,9 +197,9 @@ describe('AuthContext Integration Tests', () => {
         user_id: 1
       };
 
-      api.login.mockResolvedValueOnce(mockLoginResponse);
-      api.getProfile.mockResolvedValueOnce(mockProfile);
-      api.updateProfile.mockResolvedValueOnce(updatedProfile);
+      api.login.mockResolvedValue(mockLoginResponse);
+      api.getProfile.mockResolvedValue(mockProfile);
+      api.updateProfile.mockResolvedValue(updatedProfile);
 
       const { result } = renderHook(() => useAuth(), {
         wrapper: AuthProvider
