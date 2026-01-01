@@ -1,23 +1,23 @@
 FROM node:24-alpine AS base
 
-WORKDIR /app
-
 FROM base AS dependencies
+WORKDIR /repo
 COPY . .
-WORKDIR /app/frontend
+WORKDIR /repo/frontend
 RUN npm ci
 
 FROM base AS build
+WORKDIR /repo
 COPY . .
-WORKDIR /app/frontend
-COPY --from=dependencies /app/frontend/node_modules ./node_modules
+WORKDIR /repo/frontend
+COPY --from=dependencies /repo/frontend/node_modules ./node_modules
 
 RUN npm run build
 
 FROM nginx:alpine AS production
 
-COPY --from=build /app/frontend/dist /usr/share/nginx/html
-COPY --from=build /app/frontend/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /repo/frontend/dist /usr/share/nginx/html
+COPY --from=build /repo/frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nextjs -u 1001 && \
