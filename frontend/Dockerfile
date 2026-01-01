@@ -10,8 +10,6 @@ FROM base AS build
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 
-ENV VITE_API_URL
-
 RUN npm run build
 
 FROM nginx:alpine AS production
