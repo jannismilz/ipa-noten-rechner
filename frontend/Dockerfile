@@ -17,7 +17,7 @@ FROM nginx:alpine AS production
 
 COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nextjs -u 1001 && \
