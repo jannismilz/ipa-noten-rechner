@@ -3,12 +3,13 @@ FROM node:24-alpine AS base
 WORKDIR /app
 
 FROM base AS dependencies
-COPY package.json package-lock.json* ./
+COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm ci
 
 FROM base AS build
 COPY --from=dependencies /app/node_modules ./node_modules
-COPY . .
+COPY frontend ./
+COPY shared ../shared
 
 RUN npm run build
 
