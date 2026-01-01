@@ -99,6 +99,24 @@ jobs:
           echo "DATABASE_URL=postgresql://test_user:test_password@localhost:5432/test_db" >> $GITHUB_ENV
           echo "JWT_SECRET=${{ secrets.JWT_SECRET || 'test-secret-key-for-ci' }}" >> $GITHUB_ENV
 
+      # Start the backend server in the background
+      - name: Start backend server
+        working-directory: ./backend
+        run: |
+          echo "Starting backend server on port 3001..."
+          DATABASE_URL=postgresql://test_user:test_password@localhost:5432/test_db \
+          JWT_SECRET=${{ secrets.JWT_SECRET || 'test-secret-key-for-ci' }} \
+          bun run src/index.js &
+          echo $! > server.pid
+          echo "Waiting for server to be ready..."
+          sleep 5
+          if curl -f -s -o /dev/null http://localhost:3001/api/evaluations/criteria; then
+            echo "✅ Server is running and responding"
+          else
+            echo "❌ Server failed to start properly"
+            exit 1
+          fi
+
       # Run all backend tests with coverage
       - name: Run backend tests
         working-directory: ./backend
@@ -109,6 +127,17 @@ jobs:
             exit 1
           }
           echo "✅ Backend tests passed successfully"
+
+      # Stop the backend server
+      - name: Stop backend server
+        if: always()
+        working-directory: ./backend
+        run: |
+          if [ -f server.pid ]; then
+            kill $(cat server.pid) || true
+            rm server.pid
+            echo "Backend server stopped"
+          fi
 
       # Upload test results as artifacts
       - name: Upload backend test results
