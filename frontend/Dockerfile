@@ -1,23 +1,13 @@
-FROM node:24-alpine AS base
+FROM node:24-alpine AS build
 
-WORKDIR /app
-
-FROM base AS dependencies
-COPY frontend/package.json frontend/package-lock.json* ./
-RUN npm ci
-
-FROM base AS build
-COPY --from=dependencies /app/node_modules ./node_modules
-COPY frontend ./frontend
-COPY shared ./shared
-WORKDIR /app/frontend
-
-RUN npm run build
+COPY . /build
+WORKDIR /build/frontend
+RUN npm ci && npm run build
 
 FROM nginx:alpine AS production
 
-COPY --from=build /app/frontend/dist /usr/share/nginx/html
-COPY --from=build /app/frontend/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /build/frontend/dist /usr/share/nginx/html
+COPY --from=build /build/frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nextjs -u 1001 && \
