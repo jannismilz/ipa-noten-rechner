@@ -1,8 +1,8 @@
 FROM node:24-alpine AS build
 
 COPY . /build
-WORKDIR /build/frontend
-RUN npm ci && npm run build
+WORKDIR /build
+RUN cd frontend && npm ci && npm run build
 
 FROM nginx:alpine AS production
 
