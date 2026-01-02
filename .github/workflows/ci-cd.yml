@@ -348,7 +348,7 @@ jobs:
           
           # Check if API is responding
           echo "🔍 Checking API..."
-          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.com/api; then
+          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.com/api/evaluations/criteria; then
             echo "✅ API is live and responding"
             api_ok=true
           else
@@ -472,7 +472,7 @@ jobs:
           
           # Check if API is responding
           echo "🔍 Checking API..."
-          if curl -f -s -o /dev/null https://ipa.jannismilz.com/api; then
+          if curl -f -s -o /dev/null https://ipa.jannismilz.com/api/evaluations/criteria; then
             echo "✅ API is live and responding"
             api_ok=true
           else
