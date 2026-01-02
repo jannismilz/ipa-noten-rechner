@@ -267,19 +267,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Trigger Dokploy staging deployment via webhook
+      # Trigger Dokploy staging deployment via API
       - name: Deploy to Dokploy Staging
         id: deploy
         env:
-          DOKPLOY_STAGING_FRONTEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_STAGING_FRONTEND_WEBHOOK_URL }}
-          DOKPLOY_STAGING_BACKEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_STAGING_BACKEND_WEBHOOK_URL }}
+          DOKPLOY_HOSTNAME: ${{ secrets.DOKPLOY_HOSTNAME }}
+          DOKPLOY_API_TOKEN: ${{ secrets.DOKPLOY_API_TOKEN }}
+          DOKPLOY_STAGING_FRONTEND_APPID: ${{ secrets.DOKPLOY_STAGING_FRONTEND_APPID }}
+          DOKPLOY_STAGING_BACKEND_APPID: ${{ secrets.DOKPLOY_STAGING_BACKEND_APPID }}
         run: |
           echo "🚀 Triggering Dokploy staging deployment..."
           
           # Trigger backend deployment
           echo "📦 Deploying backend..."
-          backend_response=$(curl -X POST "$DOKPLOY_STAGING_BACKEND_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
+          backend_response=$(curl -X POST \
+            "https://$DOKPLOY_HOSTNAME/api/application.deploy" \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H "x-api-key: $DOKPLOY_API_TOKEN" \
+            -d "{\"applicationId\": \"$DOKPLOY_STAGING_BACKEND_APPID\"}" \
             -w "\n%{http_code}" \
             -s)
           
@@ -299,8 +305,12 @@ jobs:
           
           # Trigger frontend deployment
           echo "📦 Deploying frontend..."
-          frontend_response=$(curl -X POST "$DOKPLOY_STAGING_FRONTEND_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
+          frontend_response=$(curl -X POST \
+            "https://$DOKPLOY_HOSTNAME/api/application.deploy" \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H "x-api-key: $DOKPLOY_API_TOKEN" \
+            -d "{\"applicationId\": \"$DOKPLOY_STAGING_FRONTEND_APPID\"}" \
             -w "\n%{http_code}" \
             -s)
           
@@ -379,20 +389,26 @@ jobs:
           echo "version=$TAG" >> $GITHUB_OUTPUT
           echo "📦 Deploying version: $TAG"
 
-      # Trigger Dokploy production deployment via webhook
+      # Trigger Dokploy production deployment via API
       - name: Deploy to Dokploy Production
         id: deploy
         env:
-          DOKPLOY_PRODUCTION_FRONTEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_PRODUCTION_FRONTEND_WEBHOOK_URL }}
-          DOKPLOY_PRODUCTION_BACKEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_PRODUCTION_BACKEND_WEBHOOK_URL }}
+          DOKPLOY_HOSTNAME: ${{ secrets.DOKPLOY_HOSTNAME }}
+          DOKPLOY_API_TOKEN: ${{ secrets.DOKPLOY_API_TOKEN }}
+          DOKPLOY_PRODUCTION_FRONTEND_APPID: ${{ secrets.DOKPLOY_PRODUCTION_FRONTEND_APPID }}
+          DOKPLOY_PRODUCTION_BACKEND_APPID: ${{ secrets.DOKPLOY_PRODUCTION_BACKEND_APPID }}
         run: |
           echo "🚀 Triggering Dokploy production deployment..."
           echo "Version: ${{ steps.tag.outputs.version }}"
           
           # Trigger backend deployment
           echo "📦 Deploying backend..."
-          backend_response=$(curl -X POST "$DOKPLOY_PRODUCTION_BACKEND_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
+          backend_response=$(curl -X POST \
+            "https://$DOKPLOY_HOSTNAME/api/application.deploy" \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H "x-api-key: $DOKPLOY_API_TOKEN" \
+            -d "{\"applicationId\": \"$DOKPLOY_PRODUCTION_BACKEND_APPID\"}" \
             -w "\n%{http_code}" \
             -s)
           
@@ -412,8 +428,12 @@ jobs:
           
           # Trigger frontend deployment
           echo "📦 Deploying frontend..."
-          frontend_response=$(curl -X POST "$DOKPLOY_PRODUCTION_FRONTEND_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
+          frontend_response=$(curl -X POST \
+            "https://$DOKPLOY_HOSTNAME/api/application.deploy" \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H "x-api-key: $DOKPLOY_API_TOKEN" \
+            -d "{\"applicationId\": \"$DOKPLOY_PRODUCTION_FRONTEND_APPID\"}" \
             -w "\n%{http_code}" \
             -s)
           
