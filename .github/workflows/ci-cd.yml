@@ -260,7 +260,7 @@ jobs:
     
     environment:
       name: staging
-      url: https://staging-ipa.jannismilz.ch
+      url: https://staging.ipa.jannismilz.ch
     
     steps:
       # Checkout the repository code
@@ -318,7 +318,7 @@ jobs:
             exit 1
           fi
           
-          echo "📍 Environment: https://staging-ipa.jannismilz.ch"
+          echo "📍 Environment: https://staging.ipa.jannismilz.ch"
 
       # Wait for deployment to be ready (optional)
       - name: Verify staging deployment
@@ -328,7 +328,7 @@ jobs:
           
           # Check if frontend is responding
           echo "🔍 Checking frontend..."
-          if curl -f -s -o /dev/null https://staging-ipa.jannismilz.ch; then
+          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.ch; then
             echo "✅ Frontend is live and responding"
             frontend_ok=true
           else
@@ -338,7 +338,7 @@ jobs:
           
           # Check if API is responding
           echo "🔍 Checking API..."
-          if curl -f -s -o /dev/null https://staging-ipa.jannismilz.ch/api; then
+          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.ch/api; then
             echo "✅ API is live and responding"
             api_ok=true
           else
