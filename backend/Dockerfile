@@ -12,7 +12,9 @@ RUN bun install --frozen-lockfile
 
 FROM oven/bun:1 AS production
 
+ARG APP_VERSION=dev
 ENV NODE_ENV=production
+ENV APP_VERSION=${APP_VERSION}
 
 WORKDIR /app
 

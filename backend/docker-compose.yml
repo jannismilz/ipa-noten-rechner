@@ -17,22 +17,5 @@ services:
       timeout: 5s
       retries: 5
 
-  backend:
-    build: .
-    ports:
-      - "3001:3001"
-    environment:
-      DB_HOST: postgres
-      DB_PORT: 5420
-      DB_NAME: ipa_noten_rechner
-      DB_USER: postgres
-      DB_PASSWORD: ${DB_PASSWORD:-postgres}
-      JWT_SECRET: ${JWT_SECRET:-change-this-in-production}
-      NODE_ENV: production
-      PORT: 3001
-    depends_on:
-      postgres:
-        condition: service_healthy
-
 volumes:
   postgres_data:

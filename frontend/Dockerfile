@@ -1,5 +1,8 @@
 FROM node:20-alpine AS build
 
+ARG VITE_APP_VERSION=dev
+ENV VITE_APP_VERSION=${VITE_APP_VERSION}
+
 WORKDIR /app
 
 COPY shared/ ./shared/

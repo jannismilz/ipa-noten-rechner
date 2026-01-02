@@ -188,8 +188,10 @@ jobs:
         working-directory: ./frontend
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL || 'http://localhost:3000' }}
+          VITE_APP_VERSION: ${{ github.ref_name }}
         run: |
           echo "Building frontend application..."
+          echo "Version: $VITE_APP_VERSION"
           npm run build || {
             echo "❌ Frontend build failed - check for TypeScript/build errors above"
             exit 1

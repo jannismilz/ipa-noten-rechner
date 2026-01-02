@@ -1,6 +1,6 @@
 {
   "name": "ipa-noten-rechner-backend",
-  "version": "1.0.0",
+  "version": "dev",
   "description": "Backend for IPA Notenrechner application",
   "type": "module",
   "scripts": {
