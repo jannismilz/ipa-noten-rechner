@@ -30,8 +30,8 @@ async function createUser() {
     `;
 
     await sql`
-      INSERT INTO user_profiles (user_id, onboarding_completed)
-      VALUES (${user.id}, false)
+      INSERT INTO user_profiles (user_id)
+      VALUES (${user.id})
     `;
 
     console.log('User created successfully:');
