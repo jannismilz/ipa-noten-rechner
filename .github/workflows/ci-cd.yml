@@ -260,7 +260,7 @@ jobs:
     
     environment:
       name: staging
-      url: https://staging.ipa.jannismilz.ch
+      url: https://staging.ipa.jannismilz.com
     
     steps:
       # Checkout the repository code
@@ -328,7 +328,7 @@ jobs:
             exit 1
           fi
           
-          echo "📍 Environment: https://staging.ipa.jannismilz.ch"
+          echo "📍 Environment: https://staging.ipa.jannismilz.com"
 
       # Wait for deployment to be ready (optional)
       - name: Verify staging deployment
@@ -338,7 +338,7 @@ jobs:
           
           # Check if frontend is responding
           echo "🔍 Checking frontend..."
-          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.ch; then
+          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.com; then
             echo "✅ Frontend is live and responding"
             frontend_ok=true
           else
@@ -348,7 +348,7 @@ jobs:
           
           # Check if API is responding
           echo "🔍 Checking API..."
-          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.ch/api; then
+          if curl -f -s -o /dev/null https://staging.ipa.jannismilz.com/api; then
             echo "✅ API is live and responding"
             api_ok=true
           else
@@ -374,7 +374,7 @@ jobs:
     
     environment:
       name: production
-      url: https://ipa.jannismilz.ch
+      url: https://ipa.jannismilz.com
     
     steps:
       # Checkout the repository code
@@ -451,7 +451,7 @@ jobs:
             exit 1
           fi
           
-          echo "📍 Environment: https://ipa.jannismilz.ch"
+          echo "📍 Environment: https://ipa.jannismilz.com"
           echo "🏷️  Version: ${{ steps.tag.outputs.version }}"
 
       # Wait for deployment to be ready
@@ -462,7 +462,7 @@ jobs:
           
           # Check if frontend is responding
           echo "🔍 Checking frontend..."
-          if curl -f -s -o /dev/null https://ipa.jannismilz.ch; then
+          if curl -f -s -o /dev/null https://ipa.jannismilz.com; then
             echo "✅ Frontend is live and responding"
             frontend_ok=true
           else
@@ -472,7 +472,7 @@ jobs:
           
           # Check if API is responding
           echo "🔍 Checking API..."
-          if curl -f -s -o /dev/null https://ipa.jannismilz.ch/api; then
+          if curl -f -s -o /dev/null https://ipa.jannismilz.com/api; then
             echo "✅ API is live and responding"
             api_ok=true
           else
