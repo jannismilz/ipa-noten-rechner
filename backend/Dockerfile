@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY shared/ ./shared/
 COPY backend/ ./backend/
+COPY criterias.json ./criterias.json
 
 WORKDIR /app/backend
 
