@@ -17,6 +17,7 @@ WORKDIR /app
 
 COPY --from=build /app/shared ./shared
 COPY --from=build /app/backend ./backend
+COPY --from=build /app/criterias.json ./criterias.json
 
 WORKDIR /app/backend
 
