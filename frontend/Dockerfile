@@ -1,13 +1,22 @@
 FROM node:24-alpine AS build
 
-WORKDIR /app
-COPY . .
-RUN npm ci && npm run build
+# Copy everything to /build
+COPY . /build
+
+# Check if we have frontend directory (repo root context) or not (frontend context)
+RUN if [ -d "/build/frontend" ]; then \
+      echo "Building from repo root"; \
+      mkdir -p /build/shared && cp -r /build/shared /; \
+      cd /build/frontend && npm ci && npm run build && mv dist /dist && mv nginx.conf /nginx.conf; \
+    else \
+      echo "Building from frontend directory"; \
+      cd /build && npm ci && npm run build && mv dist /dist && mv nginx.conf /nginx.conf; \
+    fi
 
 FROM nginx:alpine AS production
 
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /dist /usr/share/nginx/html
+COPY --from=build /nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nextjs -u 1001 && \
