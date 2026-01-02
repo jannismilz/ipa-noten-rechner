@@ -1,13 +1,13 @@
 FROM node:24-alpine AS build
 
-COPY . /build
-WORKDIR /build
-RUN cd frontend && npm ci && npm run build
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
 
 FROM nginx:alpine AS production
 
-COPY --from=build /build/frontend/dist /usr/share/nginx/html
-COPY --from=build /build/frontend/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nextjs -u 1001 && \
