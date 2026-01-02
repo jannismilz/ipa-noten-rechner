@@ -19,9 +19,6 @@ COPY . .
 # COPY --from=build /dist /usr/share/nginx/html
 # COPY --from=build /nginx.conf /etc/nginx/conf.d/default.conf
 
-RUN touch /var/run/nginx.pid && \
-    chown -R nextjs:nodejs /var/run/nginx.pid
-
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
