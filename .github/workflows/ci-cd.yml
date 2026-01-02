@@ -269,30 +269,54 @@ jobs:
       - name: Deploy to Dokploy Staging
         id: deploy
         env:
-          DOKPLOY_STAGING_WEBHOOK_URL: ${{ secrets.DOKPLOY_STAGING_WEBHOOK_URL }}
+          DOKPLOY_STAGING_FRONTEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_STAGING_FRONTEND_WEBHOOK_URL }}
+          DOKPLOY_STAGING_BACKEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_STAGING_BACKEND_WEBHOOK_URL }}
         run: |
           echo "🚀 Triggering Dokploy staging deployment..."
           
-          # Trigger the Dokploy webhook to redeploy staging instance
-          response=$(curl -X POST "$DOKPLOY_STAGING_WEBHOOK_URL" \
+          # Trigger backend deployment
+          echo "📦 Deploying backend..."
+          backend_response=$(curl -X POST "$DOKPLOY_STAGING_BACKEND_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -w "\n%{http_code}" \
             -s)
           
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | head -n-1)
+          backend_http_code=$(echo "$backend_response" | tail -n1)
+          backend_body=$(echo "$backend_response" | head -n-1)
           
-          echo "Response: $body"
-          echo "HTTP Status: $http_code"
+          echo "Backend Response: $backend_body"
+          echo "Backend HTTP Status: $backend_http_code"
           
-          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
-            echo "✅ Dokploy staging deployment triggered successfully"
-            echo "📍 Environment: https://staging-ipa.jannismilz.ch"
+          if [ "$backend_http_code" -ge 200 ] && [ "$backend_http_code" -lt 300 ]; then
+            echo "✅ Backend deployment triggered successfully"
           else
-            echo "❌ Dokploy staging deployment failed with status $http_code"
-            echo "Response: $body"
+            echo "❌ Backend deployment failed with status $backend_http_code"
+            echo "Response: $backend_body"
             exit 1
           fi
+          
+          # Trigger frontend deployment
+          echo "📦 Deploying frontend..."
+          frontend_response=$(curl -X POST "$DOKPLOY_STAGING_FRONTEND_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -w "\n%{http_code}" \
+            -s)
+          
+          frontend_http_code=$(echo "$frontend_response" | tail -n1)
+          frontend_body=$(echo "$frontend_response" | head -n-1)
+          
+          echo "Frontend Response: $frontend_body"
+          echo "Frontend HTTP Status: $frontend_http_code"
+          
+          if [ "$frontend_http_code" -ge 200 ] && [ "$frontend_http_code" -lt 300 ]; then
+            echo "✅ Frontend deployment triggered successfully"
+          else
+            echo "❌ Frontend deployment failed with status $frontend_http_code"
+            echo "Response: $frontend_body"
+            exit 1
+          fi
+          
+          echo "📍 Environment: https://staging-ipa.jannismilz.ch"
 
       # Wait for deployment to be ready (optional)
       - name: Verify staging deployment
@@ -300,9 +324,29 @@ jobs:
           echo "⏳ Waiting for staging deployment to be ready..."
           sleep 10
           
-          # Check if staging is responding
+          # Check if frontend is responding
+          echo "🔍 Checking frontend..."
           if curl -f -s -o /dev/null https://staging-ipa.jannismilz.ch; then
-            echo "✅ Staging environment is live and responding"
+            echo "✅ Frontend is live and responding"
+            frontend_ok=true
+          else
+            echo "❌ Frontend health check failed"
+            frontend_ok=false
+          fi
+          
+          # Check if API is responding
+          echo "🔍 Checking API..."
+          if curl -f -s -o /dev/null https://staging-ipa.jannismilz.ch/api; then
+            echo "✅ API is live and responding"
+            api_ok=true
+          else
+            echo "❌ API health check failed"
+            api_ok=false
+          fi
+          
+          # Final status
+          if [ "$frontend_ok" = true ] && [ "$api_ok" = true ]; then
+            echo "✅ Staging environment fully operational"
           else
             echo "⚠️  Staging deployment triggered but health check failed"
             echo "Note: Deployment may still be in progress"
@@ -337,32 +381,56 @@ jobs:
       - name: Deploy to Dokploy Production
         id: deploy
         env:
-          DOKPLOY_PRODUCTION_WEBHOOK_URL: ${{ secrets.DOKPLOY_PRODUCTION_WEBHOOK_URL }}
+          DOKPLOY_PRODUCTION_FRONTEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_PRODUCTION_FRONTEND_WEBHOOK_URL }}
+          DOKPLOY_PRODUCTION_BACKEND_WEBHOOK_URL: ${{ secrets.DOKPLOY_PRODUCTION_BACKEND_WEBHOOK_URL }}
         run: |
           echo "🚀 Triggering Dokploy production deployment..."
           echo "Version: ${{ steps.tag.outputs.version }}"
           
-          # Trigger the Dokploy webhook to redeploy production instance
-          response=$(curl -X POST "$DOKPLOY_PRODUCTION_WEBHOOK_URL" \
+          # Trigger backend deployment
+          echo "📦 Deploying backend..."
+          backend_response=$(curl -X POST "$DOKPLOY_PRODUCTION_BACKEND_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -w "\n%{http_code}" \
             -s)
           
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | head -n-1)
+          backend_http_code=$(echo "$backend_response" | tail -n1)
+          backend_body=$(echo "$backend_response" | head -n-1)
           
-          echo "Response: $body"
-          echo "HTTP Status: $http_code"
+          echo "Backend Response: $backend_body"
+          echo "Backend HTTP Status: $backend_http_code"
           
-          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
-            echo "✅ Dokploy production deployment triggered successfully"
-            echo "📍 Environment: https://ipa.jannismilz.ch"
-            echo "🏷️  Version: ${{ steps.tag.outputs.version }}"
+          if [ "$backend_http_code" -ge 200 ] && [ "$backend_http_code" -lt 300 ]; then
+            echo "✅ Backend deployment triggered successfully"
           else
-            echo "❌ Dokploy production deployment failed with status $http_code"
-            echo "Response: $body"
+            echo "❌ Backend deployment failed with status $backend_http_code"
+            echo "Response: $backend_body"
             exit 1
           fi
+          
+          # Trigger frontend deployment
+          echo "📦 Deploying frontend..."
+          frontend_response=$(curl -X POST "$DOKPLOY_PRODUCTION_FRONTEND_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -w "\n%{http_code}" \
+            -s)
+          
+          frontend_http_code=$(echo "$frontend_response" | tail -n1)
+          frontend_body=$(echo "$frontend_response" | head -n-1)
+          
+          echo "Frontend Response: $frontend_body"
+          echo "Frontend HTTP Status: $frontend_http_code"
+          
+          if [ "$frontend_http_code" -ge 200 ] && [ "$frontend_http_code" -lt 300 ]; then
+            echo "✅ Frontend deployment triggered successfully"
+          else
+            echo "❌ Frontend deployment failed with status $frontend_http_code"
+            echo "Response: $frontend_body"
+            exit 1
+          fi
+          
+          echo "📍 Environment: https://ipa.jannismilz.ch"
+          echo "🏷️  Version: ${{ steps.tag.outputs.version }}"
 
       # Wait for deployment to be ready
       - name: Verify production deployment
@@ -370,9 +438,29 @@ jobs:
           echo "⏳ Waiting for production deployment to be ready..."
           sleep 10
           
-          # Check if production is responding
+          # Check if frontend is responding
+          echo "🔍 Checking frontend..."
           if curl -f -s -o /dev/null https://ipa.jannismilz.ch; then
-            echo "✅ Production environment is live and responding"
+            echo "✅ Frontend is live and responding"
+            frontend_ok=true
+          else
+            echo "❌ Frontend health check failed"
+            frontend_ok=false
+          fi
+          
+          # Check if API is responding
+          echo "🔍 Checking API..."
+          if curl -f -s -o /dev/null https://ipa.jannismilz.ch/api; then
+            echo "✅ API is live and responding"
+            api_ok=true
+          else
+            echo "❌ API health check failed"
+            api_ok=false
+          fi
+          
+          # Final status
+          if [ "$frontend_ok" = true ] && [ "$api_ok" = true ]; then
+            echo "✅ Production environment fully operational"
           else
             echo "⚠️  Production deployment triggered but health check failed"
             echo "Note: Deployment may still be in progress"

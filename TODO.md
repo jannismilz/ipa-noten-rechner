@@ -38,6 +38,6 @@
 
 - [ ] Favicon
 - [x] Kriterienkatalog Spezifikation Checker CLI
-- [ ] Auf VPS hosten unter https://ipa.jannismilz.ch mit Testumgebung
+- [x] Auf VPS hosten unter https://ipa.jannismilz.ch mit Testumgebung
 - [ ] Ganzer Kriterienkatalog von https://www.ict-berufsbildung.ch/resources/Kriterienkatalog_QV_BiVO2021_DE-20251025.pdf in `criteria.json` einfügen
 - [ ] KI Nutzung dokumentieren
