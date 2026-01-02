@@ -15,8 +15,7 @@ RUN cd frontend && npm run build
 FROM nginx:alpine AS production
 
 COPY --from=build /app/frontend/dist /usr/share/nginx/html
-
-COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
