@@ -1,30 +1,24 @@
-FROM oven/bun:1 AS base
+FROM oven/bun:1 AS build
 
 WORKDIR /app
 
-# Dependencies
-FROM base AS dependencies
+COPY shared/ ./shared/
+COPY backend/ ./backend/
 
-COPY package.json bun.lockb* ./
+WORKDIR /app/backend
 
 RUN bun install --frozen-lockfile
 
-FROM base AS build
-
-COPY --from=dependencies /app/node_modules ./node_modules
-
-COPY . .
-
-# Production
-FROM base AS production
+FROM oven/bun:1 AS production
 
 ENV NODE_ENV=production
 
-COPY package.json bun.lockb* ./
+WORKDIR /app
 
-RUN bun install --production --frozen-lockfile
+COPY --from=build /app/shared ./shared
+COPY --from=build /app/backend ./backend
 
-COPY --from=build /app/src ./src
+WORKDIR /app/backend
 
 EXPOSE 3000
 
