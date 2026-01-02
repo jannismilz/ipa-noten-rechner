@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY shared/ ./shared/
 
-COPY frontend/package.json frontend/package-lock.json* ./frontend/
-COPY frontend ./
+COPY frontend/ ./frontend/
 
 WORKDIR /app/frontend
 
