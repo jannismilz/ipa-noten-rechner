@@ -1,4 +1,4 @@
-FROM node:24-alpine AS build
+FROM nginx:alpine AS production
 
 WORKDIR /app
 # Copy everything to /build
