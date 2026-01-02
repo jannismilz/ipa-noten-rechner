@@ -4,13 +4,19 @@ WORKDIR /app
 
 COPY shared/ ./shared/
 
-COPY frontend/package.json frontend/package-lock.json* ./frontend
+COPY frontend/package.json frontend/package-lock.json* ./frontend/
 
-RUN cd frontend && npm ci
+WORKDIR /app/frontend
+
+RUN npm ci
+
+WORKDIR /app
 
 COPY frontend/ ./
 
-RUN cd frontend && npm run build
+WORKDIR /app/frontend
+
+RUN npm run build
 
 FROM nginx:alpine AS production
 
