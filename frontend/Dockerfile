@@ -1,23 +1,22 @@
-FROM nginx:alpine AS production
+FROM node:20-alpine AS build
 
 WORKDIR /app
-# Copy everything to /build
-COPY . .
 
-# Check if we have frontend directory (repo root context) or not (frontend context)
-# RUN if [ -d "/build/frontend" ]; then \
-#       echo "Building from repo root"; \
-#       cp -r /build/shared /build/frontend/; \
-#       cd /build/frontend && npm ci && npm run build && mv dist /dist && mv nginx.conf /nginx.conf; \
-#     else \
-#       echo "Building from frontend directory"; \
-#       cd /build && npm ci && npm run build && mv dist /dist && mv nginx.conf /nginx.conf; \
-#     fi
+COPY shared/ ./shared/
 
-# FROM nginx:alpine AS production
+COPY frontend/package.json frontend/package-lock.json* ./frontend
 
-# COPY --from=build /dist /usr/share/nginx/html
-# COPY --from=build /nginx.conf /etc/nginx/conf.d/default.conf
+RUN cd frontend && npm ci
+
+COPY frontend/ ./
+
+RUN cd frontend && npm run build
+
+FROM nginx:alpine AS production
+
+COPY --from=build /app/frontend/dist /usr/share/nginx/html
+
+COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
