@@ -6,7 +6,7 @@ COPY . /build
 # Check if we have frontend directory (repo root context) or not (frontend context)
 RUN if [ -d "/build/frontend" ]; then \
       echo "Building from repo root"; \
-      mkdir -p /build/shared && cp -r /build/shared /; \
+      cp -r /build/shared /build/frontend/; \
       cd /build/frontend && npm ci && npm run build && mv dist /dist && mv nginx.conf /nginx.conf; \
     else \
       echo "Building from frontend directory"; \
