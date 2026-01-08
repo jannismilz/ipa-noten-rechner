@@ -12,6 +12,20 @@ Die Voraussetzungen für dieses Projekt sind zum Teil in [Projektbeschreibung](P
 - Am Anfang dieses Formulars soll eine kleine Übersicht sein, die den Fortschritt anzeigt und den Fortschritt in die Kategorien aufteilt
 - Es soll möglich sein, die Noten live anzusehen in der Übersicht am Anfang
 
+## Get Started
+
+Dependencies for
+```
+npm, bun
+```
+
+Install
+```bash
+git clone https://github.com/bbwheroes/324-ruts-ipa_noten_rechner-jannismilz
+npm --prefix ./frontend install ./frontend && bun install --cwd ./backend
+```
+
+
 ## Linter & Formatter
 
 *Frontend:*
