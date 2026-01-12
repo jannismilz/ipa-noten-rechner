@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { LogIn, LogOut, UserCircle, Home } from 'lucide-react';
+import { LogIn, LogOut, UserCircle, Home, Github } from 'lucide-react';
 import { APP_VERSION } from '../utils/version';
 
 export default function Header() {
@@ -24,6 +24,16 @@ export default function Header() {
             </h1>
           </button>
         </div>
+
+        <a
+          href="https://github.com/bbwheroes/324-ruts-ipa_noten_rechner-jannismilz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-link"
+          title="View on GitHub"
+        >
+          <Github size={20} />
+        </a>
 
         <div className="header-right">
           {isAuthenticated ? (
