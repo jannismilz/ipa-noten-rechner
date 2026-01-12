@@ -1,6 +1,8 @@
 import { describe, test, expect, beforeEach } from 'vitest';
 import { storage } from '../services/storage';
 
+// KI: Aus dem TESTKONZEPT.md generiert
+
 describe('Storage Service Integration Tests', () => {
   beforeEach(() => {
     localStorage.clear();

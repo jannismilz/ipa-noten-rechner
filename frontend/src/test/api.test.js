@@ -9,6 +9,8 @@ afterEach(() => {
   mockFetch.mockClear();
 });
 
+// KI: Aus dem TESTKONZEPT.md generiert
+
 describe('API Service Integration Tests', () => {
   describe('FE-IT-01: Login', () => {
     test('should login with credentials and return token', async () => {
