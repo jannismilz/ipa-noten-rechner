@@ -39,5 +39,17 @@
 - [x] Favicon
 - [x] Kriterienkatalog Spezifikation Checker CLI
 - [x] Auf VPS hosten unter https://ipa.jannismilz.ch mit Testumgebung
-- [ ] Ganzer Kriterienkatalog von https://www.ict-berufsbildung.ch/resources/Kriterienkatalog_QV_BiVO2021_DE-20251025.pdf in `criteria.json` einfügen
+- [x] Ganzer Kriterienkatalog von https://www.ict-berufsbildung.ch/resources/Kriterienkatalog_QV_BiVO2021_DE-20251025.pdf in `criteria.json` einfügen
+  - [x] A (S. 3-11)
+  - [x] B (S. 12-14)
+  - [x] C (S. 15-20)
+  - [x] D (S. 21-23)
+  - [x] E (S. 24-29)
+  - [x] F (S. 30-33)
+  - [x] G (S. 34-42)
+  - [x] H (S. 43-47)
+  - [x] Dokumentation (S. 48-51)
+  - [x] Fachgespräch (S. 52-56)
+- [ ] Auswählen zwischen Fachrichtungen (hat Auswirkungen auf Bewertung)
+- [ ] Auswählen von Projektmethode (linear / agil) (hat Auswirkungen auf Bewertung)
 - [ ] KI Nutzung dokumentieren
