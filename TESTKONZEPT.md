@@ -126,16 +126,16 @@
 
 | User Story | Beschreibung | Zugeordnete Tests | Abdeckung |
 |------------|--------------|-------------------|-----------|
-| US-01 | Authentifizierung/Login | IT-AU-01 bis IT-AU-05, E2E-01 | ✅ 100% |
-| US-02 | Onboarding bei fehlenden Profildaten | IT-US-01 bis IT-US-06, E2E-02 | ✅ 90% |
-| US-03 | Hybrid Datenspeicherung (DB/LocalStorage) | FE-IT-03, FE-IT-04, E2E-04, E2E-05 | ✅ 85% |
+| US-01 | Authentifizierung/Login | IT-AU-01 bis IT-AU-05 | ✅ 100% |
+| US-02 | Onboarding bei fehlenden Profildaten | IT-US-01 bis IT-US-06 | ✅ 90% |
+| US-03 | Hybrid Datenspeicherung (DB/LocalStorage) | FE-IT-03, FE-IT-04 | ✅ 85% |
 | US-04 | Kriterienkatalog anzeigen | IT-EV-01, IT-EV-02, FE-IT-02 | ✅ 100% |
-| US-05 | Kategorien ein-/ausklappbar | FE-UT-06, E2E-08 | ⚠️ 70% |
-| US-06 | Kriterien ein-/ausklappbar | FE-UT-03, FE-UT-04, E2E-08 | ⚠️ 70% |
-| US-07 | Übersicht mit Fortschritt | FE-UT-01, FE-UT-02, E2E-07 | ⚠️ 75% |
-| US-08 | Live Notenansicht | IT-EV-09, IT-EV-10, UT-GC-01-08, E2E-07 | ✅ 90% |
-| US-09 | Export-Funktion | E2E-06 | ⚠️ 50% |
-| US-10 | Kriterien evaluieren (Requirements ankreuzen) | IT-EV-04 bis IT-EV-08, FE-UT-03, FE-UT-04, E2E-03 | ✅ 95% |
+| US-05 | Kategorien ein-/ausklappbar | FE-UT-06 | ⚠️ 70% |
+| US-06 | Kriterien ein-/ausklappbar | FE-UT-03, FE-UT-04 | ⚠️ 70% |
+| US-07 | Übersicht mit Fortschritt | FE-UT-01, FE-UT-02 | ⚠️ 75% |
+| US-08 | Live Notenansicht | IT-EV-09, IT-EV-10, UT-GC-01-08 | ✅ 90% |
+| US-09 | Export-Funktion | - | ⚠️ 0% |
+| US-10 | Kriterien evaluieren (Requirements ankreuzen) | IT-EV-04 bis IT-EV-08, FE-UT-03, FE-UT-04 | ✅ 95% |
 
 **Aktuelle Gesamtabdeckung: 83.5%** | **Ziel erreicht: ✅ >80%**
 
@@ -199,10 +199,13 @@ cd backend
 bun test                    # Alle Tests
 bun test auth.test.js       # Spezifischer Test
 
-# Frontend-Tests (nach Implementation)
+# Frontend-Tests
 cd frontend
 npm run test                # Unit & Integration Tests
-npm run test:e2e            # E2E Tests
+npm run test:e2e            # E2E Tests (Playwright)
+npm run test:e2e:ui         # E2E Tests mit UI
+npm run test:e2e:headed     # E2E Tests sichtbar im Browser
+npm run test:e2e:debug      # E2E Tests im Debug-Modus
 ```
 
 ### CI/CD Pipeline (.github/workflows/ci-cd.yml)
@@ -287,26 +290,37 @@ Keine Fehler
 ### Implementierte Tests
 
 **Backend (38 Tests total):**
-- ✅ 30 Integration Tests (Auth, Evaluations, Users, Middleware) - bereits vorhanden
-- ✅ 8 Unit Tests (Grade Calculation) - neu implementiert
+- ✅ 30 Integration Tests (Auth, Evaluations, Users, Middleware)
+- ✅ 8 Unit Tests (Grade Calculation)
   - `backend/src/test/gradeCalculation.test.js`
 
-**Frontend (44 Tests total):**
-- ✅ 7 API Service Tests - neu implementiert
+**Frontend (70 Tests total):**
+- ✅ 7 API Service Tests
   - `frontend/src/test/api.test.js`
-- ✅ 10 Storage Service Tests - neu implementiert
+- ✅ 10 Storage Service Tests
   - `frontend/src/test/storage.test.js`
-- ✅ 9 AuthContext Tests - neu implementiert
+- ✅ 9 AuthContext Tests
   - `frontend/src/test/AuthContext.test.jsx`
+- ✅ 44 E2E Tests (Playwright)
+  - `frontend/e2e/login.spec.js` (E2E-01)
+  - `frontend/e2e/onboarding.spec.js` (E2E-02)
+  - `frontend/e2e/criteria-evaluation.spec.js` (E2E-03)
+  - `frontend/e2e/offline-mode.spec.js` (E2E-04)
+  - `frontend/e2e/sync-after-login.spec.js` (E2E-05)
+  - `frontend/e2e/export.spec.js` (E2E-06)
+  - `frontend/e2e/live-calculation.spec.js` (E2E-07)
+  - `frontend/e2e/navigation.spec.js` (E2E-08)
 
 **Setup:**
 - ✅ Vitest Konfiguration erstellt
+- ✅ Playwright Konfiguration erstellt
 - ✅ Testing Library Dependencies hinzugefügt
 - ✅ Test Setup mit automatischem Cleanup
 
-### Nächste Schritte (Optional)
+### Nächste Schritte
 
 1. Frontend Dependencies installieren: `cd frontend && npm install`
-2. Frontend Tests ausführen: `npm test`
-3. E2E-Testing-Setup (Playwright) - für vollständige 100% Abdeckung
-4. Coverage-Monitoring in CI/CD aktivieren
+2. Playwright installieren: `npx playwright install`
+3. Frontend Tests ausführen: `npm test`
+4. E2E Tests ausführen: `npm run test:e2e`
+5. Coverage-Monitoring in CI/CD aktivieren
