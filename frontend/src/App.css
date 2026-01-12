@@ -110,10 +110,8 @@ body {
 }
 
 .github-link:hover {
-  color: var(--text);
+  color: var(--primary);
   background: var(--border);
-  border-color: var(--primary);
-  transform: translateY(-2px) rotate(360deg);
 }
 
 .user-info {
