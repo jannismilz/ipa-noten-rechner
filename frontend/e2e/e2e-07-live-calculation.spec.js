@@ -16,13 +16,6 @@ test.describe('E2E-07: Live-Notenberechnung', () => {
     const progressOverview = page.locator('.progress-overview');
     await expect(progressOverview).toBeVisible();
     
-    // Initiale Note merken (falls angezeigt)
-    const gradeDisplay = page.locator('.final-grade, .grade-value, .grade-badge').first();
-    let initialGradeText = '';
-    if (await gradeDisplay.isVisible({ timeout: 2000 }).catch(() => false)) {
-      initialGradeText = await gradeDisplay.textContent();
-    }
-    
     // Erstes Kriterium aufklappen
     await page.locator('.criteria-header').first().click();
     await page.waitForTimeout(300);
