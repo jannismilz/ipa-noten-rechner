@@ -95,8 +95,40 @@ export default function Criteria() {
   };
 
   const handleExport = () => {
-    const data = storage.exportData();
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const tickedRequirements = {};
+    const notes = {};
+
+    Object.entries(evaluations).forEach(([criteriaId, data]) => {
+      if (data.tickedRequirements && data.tickedRequirements.length > 0) {
+        tickedRequirements[criteriaId] = data.tickedRequirements;
+      }
+      if (data.note) {
+        notes[criteriaId] = data.note;
+      }
+    });
+
+    let profile = {};
+    if (isAuthenticated && user) {
+      profile = {
+        firstName: user.first_name || '',
+        lastName: user.last_name || '',
+        topic: user.topic || '',
+        submissionDate: user.submission_date || '',
+        specialty: user.specialty || '',
+        projectMethod: user.project_method || '',
+      };
+    } else {
+      profile = storage.getProfile();
+    }
+
+    const exportData = {
+      tickedRequirements,
+      notes,
+      profile,
+      exportedAt: new Date().toISOString(),
+    };
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -115,9 +147,23 @@ export default function Criteria() {
         try {
           const text = await file.text();
           const data = JSON.parse(text);
-          storage.importData(data);
+
+          if (isAuthenticated && token) {
+            const allCriteriaIds = criteriaData?.criterias?.map(c => c.id) || [];
+            for (const criteriaId of allCriteriaIds) {
+              const evalData = {
+                tickedRequirements: data.tickedRequirements?.[criteriaId] || [],
+                note: data.notes?.[criteriaId] || '',
+              };
+              await api.saveEvaluation(token, criteriaId, evalData);
+            }
+          } else {
+            storage.importData(data);
+          }
+
           loadData();
-        } catch {
+        } catch (err) {
+          console.error('Import error:', err);
           alert('Fehler beim Importieren der Datei');
         }
       }

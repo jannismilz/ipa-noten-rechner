@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { storage } from '../services/storage';
 import { LogIn, LogOut, UserCircle, Home, Github } from 'lucide-react';
 import { APP_VERSION } from '../utils/version';
 
 export default function Header() {
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
+  const localProfile = storage.getProfile();
 
   const handleLogout = () => {
     logout();
@@ -49,6 +51,22 @@ export default function Header() {
               <button onClick={handleLogout} className="btn-secondary-small">
                 <LogOut size={16} />
                 Abmelden
+              </button>
+            </>
+          ) : localProfile.firstName ? (
+            <>
+              <div className="user-info">
+                <UserCircle size={18} />
+                <span>
+                  {localProfile.firstName} {localProfile.lastName || ''}
+                </span>
+              </div>
+              <button onClick={() => navigate('/onboarding')} className="btn-secondary-small">
+                Profil
+              </button>
+              <button onClick={() => navigate('/login')} className="btn-secondary-small">
+                <LogIn size={16} />
+                Anmelden
               </button>
             </>
           ) : (

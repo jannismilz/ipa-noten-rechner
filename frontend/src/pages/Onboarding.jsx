@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { storage } from '../services/storage';
-import { UserCircle } from 'lucide-react';
+import { UserCircle, Upload } from 'lucide-react';
 
 export default function Onboarding() {
   const { user, updateProfile, isAuthenticated } = useAuth();
@@ -79,6 +79,38 @@ export default function Onboarding() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleImport = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = async e => {
+      const file = e.target.files[0];
+      if (file) {
+        try {
+          const text = await file.text();
+          const data = JSON.parse(text);
+
+          storage.importData(data);
+
+          if (data.profile) {
+            setFormData({
+              firstName: data.profile.firstName || '',
+              lastName: data.profile.lastName || '',
+              topic: data.profile.topic || '',
+              submissionDate: data.profile.submissionDate?.split('T')[0] || '',
+              specialty: data.profile.specialty || '',
+              projectMethod: data.profile.projectMethod || '',
+            });
+          }
+        } catch (err) {
+          console.error('Import error:', err);
+          setError('Fehler beim Importieren der Datei');
+        }
+      }
+    };
+    input.click();
   };
 
   return (
@@ -166,6 +198,15 @@ export default function Onboarding() {
 
           <button type="submit" className="btn-primary" disabled={loading}>
             {loading ? 'Speichern...' : 'Speichern'}
+          </button>
+
+          <div className="form-divider">
+            <span>oder</span>
+          </div>
+
+          <button type="button" onClick={handleImport} className="btn-secondary">
+            <Upload size={18} />
+            Daten importieren
           </button>
         </form>
       </div>
