@@ -1,34 +1,5 @@
 # Backend Documentation
 
-## Setup
-
-### Prerequisites
-- [Bun](https://bun.sh/) runtime installed
-- PostgreSQL database (or use Docker Compose)
-
-### Installation
-
-1. Install dependencies:
-```bash
-bun install
-```
-
-2. Configure environment variables:
-```bash
-cp .env.example .env
-```
-Edit `.env` with your database credentials and JWT secret.
-
-3. Run database migrations:
-```bash
-bun run migrate
-```
-
-4. (Optional) Seed the database:
-```bash
-bun run seed
-```
-
 ## Commands
 
 ### Development

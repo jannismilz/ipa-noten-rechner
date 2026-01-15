@@ -20,10 +20,49 @@ npm, bun
 ```
 
 Install
+
+1. Clone and Install
 ```bash
 git clone https://github.com/bbwheroes/324-ruts-ipa_noten_rechner-jannismilz
 npm --prefix ./frontend install ./frontend && bun install --cwd ./backend
 ```
+
+
+2. Copy .env examples
+```bash
+cp frontend/.env.example frontend/.env && cp backend/.env.example backend/.env
+```
+
+3. Run database migrations:
+```bash
+bun run migrate
+```
+
+4. (Optional) Seed the database:
+```bash
+bun run seed
+```
+
+read more in [backend README](./backend/README.md)
+
+Start
+
+Für Backend
+```bash
+cd backend
+bun start
+```
+
+Es läuft auf localhost:3001
+
+
+Für Frontend
+```bash
+cd backend
+npm run dev
+```
+
+Es läuft auf localhost:5173
 
 
 ## Linter & Formatter
