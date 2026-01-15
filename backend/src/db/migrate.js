@@ -17,8 +17,22 @@ async function migrate() {
         first_name VARCHAR(100),
         last_name VARCHAR(100),
         topic TEXT,
-        submission_date DATE
+        submission_date DATE,
+        specialty VARCHAR(50),
+        project_method VARCHAR(20)
       )
+    `;
+
+    await sql`
+      DO $$ 
+      BEGIN
+        IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'user_profiles' AND column_name = 'specialty') THEN
+          ALTER TABLE user_profiles ADD COLUMN specialty VARCHAR(50);
+        END IF;
+        IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'user_profiles' AND column_name = 'project_method') THEN
+          ALTER TABLE user_profiles ADD COLUMN project_method VARCHAR(20);
+        END IF;
+      END $$;
     `;
 
     await sql`

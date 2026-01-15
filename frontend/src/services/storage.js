@@ -1,6 +1,7 @@
 const STORAGE_KEYS = {
   TICKED: 'ipa_ticked_requirements',
   NOTES: 'ipa_criteria_notes',
+  PROFILE: 'ipa_user_profile',
 };
 
 export const storage = {
@@ -38,10 +39,24 @@ export const storage = {
     localStorage.setItem(STORAGE_KEYS.NOTES, JSON.stringify(all));
   },
 
+  getProfile() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEYS.PROFILE);
+      return data ? JSON.parse(data) : {};
+    } catch {
+      return {};
+    }
+  },
+
+  saveProfile(profile) {
+    localStorage.setItem(STORAGE_KEYS.PROFILE, JSON.stringify(profile));
+  },
+
   exportData() {
     return {
       tickedRequirements: this.getTickedRequirements(),
       notes: this.getNotes(),
+      profile: this.getProfile(),
       exportedAt: new Date().toISOString(),
     };
   },
@@ -53,10 +68,14 @@ export const storage = {
     if (data.notes) {
       localStorage.setItem(STORAGE_KEYS.NOTES, JSON.stringify(data.notes));
     }
+    if (data.profile) {
+      localStorage.setItem(STORAGE_KEYS.PROFILE, JSON.stringify(data.profile));
+    }
   },
 
   clear() {
     localStorage.removeItem(STORAGE_KEYS.TICKED);
     localStorage.removeItem(STORAGE_KEYS.NOTES);
+    localStorage.removeItem(STORAGE_KEYS.PROFILE);
   },
 };

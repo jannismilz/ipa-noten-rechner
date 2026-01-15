@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { api } from '../services/api';
 import { storage } from '../services/storage';
@@ -7,7 +8,8 @@ import CategorySection from '../components/CategorySection';
 import ConfirmModal from '../components/ConfirmModal';
 
 export default function Criteria() {
-  const { token, isAuthenticated } = useAuth();
+  const { token, isAuthenticated, user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const [criteriaData, setCriteriaData] = useState(null);
   const [evaluations, setEvaluations] = useState({});
   const [loading, setLoading] = useState(true);
@@ -48,6 +50,25 @@ export default function Criteria() {
       setLoading(false);
     }
   }, [isAuthenticated, token]);
+
+  useEffect(() => {
+    if (authLoading) return;
+
+    if (isAuthenticated && user) {
+      const isProfileComplete = user.first_name && user.last_name && user.topic && user.submission_date && user.specialty && user.project_method;
+      if (!isProfileComplete) {
+        navigate('/onboarding');
+        return;
+      }
+    } else if (!isAuthenticated) {
+      const localProfile = storage.getProfile();
+      const isLocalProfileComplete = localProfile.firstName && localProfile.lastName && localProfile.topic && localProfile.submissionDate && localProfile.specialty && localProfile.projectMethod;
+      if (!isLocalProfileComplete) {
+        navigate('/onboarding');
+        return;
+      }
+    }
+  }, [authLoading, isAuthenticated, user, navigate]);
 
   useEffect(() => {
     loadData();
