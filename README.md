@@ -46,6 +46,8 @@ bun run format:check  # Check formatting
 
 ## Kriterienkatalog Spezifikation
 
+Für den [offiziellen Kriterienkatalog](https://www.ict-berufsbildung.ch/resources/Kriterienkatalog_QV_BiVO2021_DE-20251025.pdf).
+
 ```json
 {
     "categories_with_weigth": [
@@ -95,7 +97,5 @@ bun run format:check  # Check formatting
 ### Validierung
 
 ```bash
-npm run helpers/validate-criterias.js
-# oder
 bun run helpers/validate-criterias.js
 ```

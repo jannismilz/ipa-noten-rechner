@@ -75,6 +75,389 @@
             }
         },
         {
+            "id": "A03",
+            "category": "hkb",
+            "title": "Informations-Aufbereitung und -Verwendung",
+            "subtitle": "Wie werden Informationen effektiv aufbereitet und verwendet?",
+            "selection": "multiple",
+            "requirements": [
+                "Die verwendeten Informationen finden in einer klaren und übersichtlichen Dokumentation Niederschlag.",
+                "Es werden geeignete Visualisierungsmethoden wie Grafiken, Diagramme oder Tabellen eingesetzt.",
+                "Die bereitgestellten Informationen erlauben es einer Fachperson, ein umfassendes Verständnis der IPA (Dokumentation, Lösung) anzueignen.",
+                "Alle verwendeten Informationen stehen im Auftragskontext und finden im Projekt sinnvolle Anwendung."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A04",
+            "category": "hkb",
+            "title": "Zeitplan",
+            "subtitle": "Was sind die Anforderungen an den Zeitplan?",
+            "selection": "multiple",
+            "requirements": [
+                "Der Zeitplan ist Bestandteil von Teil 1 des IPA-Berichts",
+                "Der Zeitplan ist übersichtlich gestaltet.",
+                "Struktur und Elemente des Zeitplans orientieren sich nach der gewählten Projektmethode.",
+                "Es wurde eine Zeitachse definiert (Datum), die Zeitachse weist eine vernünftige Granularität auf (bspw. Stundenblöcke).",
+                "Die identifizierten Aktivitäten sind zweckmässig und folgen einer sinnvollen Logik.",
+                "Die IPA-Zeitvorgabe ist im Zeitplan korrekt berücksichtigt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [4, 5]
+                },
+                "1": {
+                    "counts": [2, 3]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A05",
+            "category": "hkb",
+            "title": "Überprüfung und Dokumentation der Fortschritte und Risiken",
+            "subtitle": "Wie erfolgt die Überprüfung und Dokumentation des Projektfortschritts und der Risiken?",
+            "selection": "multiple",
+            "requirements": [
+                "Der Fortschritt wurde regelmässig überprüft, verständlich und korrekt dokumentiert.",
+                "Es gibt eine genaue Gegenüberstellung des geplanten und tatsächlichen Zeitplans (Soll-/Ist-Vergleich).",
+                "Es erfolgte eine periodische Risiko- und Problemüberprüfung. Bei einem allfälligen Eintreten eines Risikos oder Problems wurde professionell darauf reagiert. Es besteht hierzu ein schriftlicher Nachweis.",
+                "Nicht erreichte Ziele wie auch Korrekturmassnahmen und Nacharbeiten zur IPA sind beschrieben. Falls solche Aspekte nicht existieren, ist dies entsprechend begründet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A06",
+            "category": "hkb",
+            "title": "Leistungsfähigkeit",
+            "subtitle": "Wie ist die Leistung einzustufen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Projektziele wurden konsequent verfolgt, Prioritäten wurden erkannt und das Vorgehen darauf abgestimmt.",
+                "Die Aufgaben wurden effizient und ergebnisorientiert bearbeitet und entsprechen hinsichtlich Arbeitsleistung den Standards einer Informatik-Fachperson.",
+                "Ergebnisse und Arbeitsweise sind fachlich korrekt, praxisgerecht und entsprechen hinsichtlich Qualität und Professionalität den Standards einer Informatik-Fachperson."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "A07",
+            "category": "hkb",
+            "title": "Selbständiges Arbeiten",
+            "subtitle": "Wie selbständig wurde gearbeitet?",
+            "selection": "multiple",
+            "requirements": [
+                "Ziele und Aufgaben wurden eigenständig verfolgt.",
+                "Eine ausgeprägte Fähigkeit zur Problemlösung wurde demonstriert; Hindernisse wurden eigenständig überwunden und/oder fremde Hilfe wurde angemessen in Anspruch genommen.",
+                "Die Fähigkeit zur Selbstmotivation wurde gezeigt, das Engagement war hoch.",
+                "Die Fähigkeit zur Selbstreflexion wurde gezeigt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A08",
+            "category": "hkb",
+            "title": "Anwendung der Fachsprache",
+            "subtitle": "Wie ist die Anwendung der Fachsprache zu beurteilen?",
+            "selection": "multiple",
+            "requirements": [
+                "Das relevante Fachvokabular ist bekannt und wird konsistent und fachgerecht angewendet.",
+                "Fachinhalte wurden präzise formuliert und korrekt wiedergegeben.",
+                "Die Sprache ist durchgängig logisch strukturiert und ermöglicht dem Zielpublikum (externe Fachperson) ein klares Verständnis."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "A09",
+            "category": "hkb",
+            "title": "Anwendung der Fachkompetenz",
+            "subtitle": "Wie ist die Anwendung der Fachkompetenz zu beurteilen?",
+            "selection": "multiple",
+            "requirements": [
+                "Das theoretische Wissen ist vorhanden und konnte in praktischen Situationen erfolgreich angewandt werden. Bei offensichtlichem Mangel an theoretischem Wissen wird dieser Punkt nicht gesprochen.",
+                "Informationen und Sachverhalte wurden kritisch analysiert, um fundierte Schlussfolgerungen zu ziehen.",
+                "Der Anspruch der Transferleistung ist erfüllt, da Fähigkeiten und Kenntnisse auf unerwartete oder neuartige Aufgabenstellungen angewandt wurden.",
+                "Methoden und Werkzeuge wurden passend zur gewählten Projektmethode ausgewählt und wirkungsvoll eingesetzt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A10",
+            "category": "hkb",
+            "title": "Interaktion im Projektteam",
+            "subtitle": "Wie ist die Interaktion mit anderen Projektmitgliedern zu beurteilen?",
+            "selection": "multiple",
+            "requirements": [
+                "Relevante Informationen von Auftraggebern, Experten oder anderen Projektmitgliedern wurden sorgfältig aufgenommen und korrekt dokumentiert.",
+                "Rückmeldungen oder Vorgaben wurden nachvollziehbar umgesetzt und im Projektbericht nachgewiesen.",
+                "Die Kommunikation mit Projektbeteiligten erfolgte effizient und nachvollziehbar, z. B. über Projektmanagement- oder Kollaborationstools."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "A11",
+            "category": "hkb",
+            "title": "Abbildung der Projektaufbauorganisation",
+            "subtitle": "Welche Informationen zur Projektaufbauorganisation sind verlangt?",
+            "selection": "multiple",
+            "requirements": [
+                "Die zur gewählten Projektmethode relevanten Rollen wurden identifiziert.",
+                "Die Rollen wurden korrekt und verständlich beschrieben.",
+                "Die Projektaufbauorganisation ist grafisch dargestellt (z. B. als Organigramm), vollständig und die Abhängigkeiten zwischen den Rollen sind korrekt dargestellt.",
+                "Der schriftliche Nachweis dieser drei Punkte ist Bestandteil von Teil 1 des IPA-Berichts."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A12",
+            "category": "hkb",
+            "title": "Testdurchführung und Dokumentation",
+            "subtitle": "Wie wurde die Testdurchführung organisiert und dokumentiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurde eine Beschreibung der Testinfrastruktur und des Umfelds bereitgestellt, sodass eine externe Fachperson die Tests mit gleichen Ergebnissen reproduzieren kann.",
+                "Verbesserungspotential wie auch Nacharbeiten wurden identifiziert. Falls weder Verbesserungspotential besteht noch Nacharbeit nötig ist, ist dies nachvollziehbar begründet.",
+                "Linear: Relevante Testszenarien wie auch Testkomponenten (bspw. Funktionen, Daten, Dokumente, Performance, Schnittstellen etc.) sind inkl. der erwarteten Ergebnisse beschrieben.",
+                "Linear: Die Tests wurden basierend auf den Testszenarien durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert.",
+                "Agil: Es existiert eine Definition of Done (DoD), die festlegt, welche Bedingungen erfüllt sein müssen, damit eine User Story oder ein Arbeitspaket als abgeschlossen gilt.",
+                "Agil: Die Tests wurden basierend auf der DoD durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert."
+            ],
+            "stages": {
+                "3": {
+                    "count": 4
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A13",
+            "category": "hkb",
+            "title": "Erhebung und Dokumentation der Bedürfnisse und Umfeld",
+            "subtitle": "Wie werden die Bedürfnisse und das Umfeld erhoben und dokumentiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Bedürfniserhebung folgte einem strukturierten und geeigneten Vorgehen (Befragungstechniken, Erhebungen oder Modelle). Das Vorgehen ist dokumentiert.",
+                "Die relevanten Bedürfnisse (bspw. Kosten, Zeit, Qualität, Funktionen) wurden präzise erhoben und dokumentiert.",
+                "Die Bedürfnisse sind nach ihrer Relevanz oder Dringlichkeit priorisiert oder strukturiert.",
+                "Systeme und Umfeld sowie die relevanten Schnittstellen wurden korrekt identifiziert und dokumentiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A14",
+            "category": "hkb",
+            "title": "Machbarkeitsstudie (Proof of concept)",
+            "subtitle": "Wie ist eine Machbarkeitsstudie durchzuführen?",
+            "selection": "multiple",
+            "requirements": [
+                "Der Umfang der Machbarkeitsstudie ist korrekt identifiziert und beschrieben.",
+                "Sinnvolle Erfolgskriterien wurden identifiziert und beschrieben.",
+                "Die Machbarkeitsstudie liefert brauchbare Rückschlüsse zur Anwendbarkeit der geplanten Lösung.",
+                "Die Machbarkeitsstudie liefert eine solide und dokumentierte Grundlage, um über die nächsten Schritte zu befinden."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "A15",
+            "category": "hkb",
+            "title": "Instruktion",
+            "subtitle": "Wie wird eine Instruktion durchgeführt?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Instruktion ist systematisch vorbereitet.",
+                "Die Instruktion wurde durchgeführt.",
+                "Die Instruktion setzt die relevanten Schwerpunkte und ist sinnvoll strukturiert.",
+                "Die Instruktion ist auf die Zielgruppe zugeschnitten.",
+                "Die Instruktion führt den Benutzer zum Erfolg."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "must": 2,
+                    "count": 4
+                },
+                "1": {
+                    "must": 2,
+                    "count": 3
+                },
+                "0": {
+                    "count_less_than": 3
+                }
+            }
+        },
+        {
+            "id": "A16",
+            "category": "hkb",
+            "title": "Durchführung einer Evaluation",
+            "subtitle": "Wie ist eine Evaluation durchzuführen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Evaluationskriterien sind sinnvoll gewählt.",
+                "Das Gewichtungsschema ist vor der Bewertung festgelegt.",
+                "KO-Kriterien und allfällige Grenzwerte sind festgelegt.",
+                "Die Evaluation wurde durchgeführt, das Ergebnis wurde verständlich dokumentiert.",
+                "Basierend auf dem Evaluations-Ergebnis wurde eine objektive Empfehlung hergeleitet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3, 4]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
             "id": "B01",
             "category": "hkb",
             "title": "Firewall aufsetzen",
@@ -116,6 +499,86 @@
                 "Nach Abschluss der Installation wurde eine Überprüfung durchgeführt, um sicherzustellen, dass das Betriebssystem ordnungsgemäss funktioniert und alle erforderlichen Komponenten erkannt wurden.",
                 "Es wurde sichergestellt, dass alle erforderlichen Patches und Updates installiert sind, um die Sicherheit und Stabilität des Systems zu gewährleisten.",
                 "Vor der endgültigen Bereitstellung des Systems wurden Benutzertests durchgeführt, um sicherzustellen, dass alle Funktionen ordnungsgemäß funktionieren und die Benutzererwartungen erfüllt werden."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "B03",
+            "category": "hkb",
+            "title": "Konfiguration der Sicherheitsmassnahmen",
+            "subtitle": "Wie erfolgt die Konfiguration der Sicherheitsmassnahmen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die erforderlichen Sicherheitsmassnahmen wie Firewall-Konfiguration, Antivirensoftware-Installation usw. wurden gemäss den Unternehmensrichtlinien umgesetzt.",
+                "Es wurde eine umfassende Dokumentation über die durchgeführten Sicherheitskonfigurationen erstellt, einschliesslich der Einstellungen, Ausnahmen und Aktualisierungen.",
+                "Eine Sicherheitsprüfung wurde durchgeführt, um zu gewährleisten, dass die Konfiguration den aktuellen Bedrohungen standhält und den Sicherheitsanforderungen entspricht."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "B04",
+            "category": "hkb",
+            "title": "Identifikation relevanter Prozessinformationen",
+            "subtitle": "Was umfasst die Identifikation relevanter Prozessinformationen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Prozessinformationen wurden vollständig erfasst und umfassen mindestens die Bezeichnung des Prozesses, das auslösende Ereignis, das erwartete Ergebnis, den Auslöser des Prozesses und den Empfänger des Ergebnisses.",
+                "Die erfassten Prozessinformationen wurden klar und präzise dokumentiert, um eine eindeutige Zuordnung zu ermöglichen.",
+                "Es wurde sichergestellt, dass die erfassten Informationen den tatsächlichen Ablauf des Geschäftsprozesses vollständig abbilden und keine wesentlichen Details fehlen.",
+                "Die Identifikation erfolgte unter Berücksichtigung der spezifischen Anforderungen des Kunden und der branchenüblichen Standards für die Prozessdokumentation."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "B05",
+            "category": "hkb",
+            "title": "Zerlegung eines Geschäftsprozesses in einzelne Prozessschritte",
+            "subtitle": "Wie erfolgt die Zerlegung eines Geschäftsprozesses in einzelne Prozessschritte?",
+            "selection": "multiple",
+            "requirements": [
+                "Der Geschäftsprozess wurde systematisch analysiert, um alle relevanten Prozessschritte zu identifizieren und zu erfassen.",
+                "Jeder Prozessschritt wurde klar und verständlich beschrieben, um seine Funktionalität und seine Position im Gesamtprozess zu verdeutlichen.",
+                "Es wurde sichergestellt, dass die Zerlegung des Prozesses eine logische Abfolge von Aktivitäten darstellt und keine wesentlichen Schritte ausgelassen wurden.",
+                "Die Zerlegung erfolgte unter Berücksichtigung der Abhängigkeiten zwischen den einzelnen Prozessschritten sowie der möglichen Variationen oder Ausnahmen, die auftreten können."
             ],
             "stages": {
                 "3": {
@@ -199,6 +662,278 @@
             }
         },
         {
+            "id": "C03",
+            "category": "hkb",
+            "title": "Datenmodell implementieren",
+            "subtitle": "Wie wird ein Datenmodell implementiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurde ein geeignetes Datenbankmanagementsystem (bspw. MySQL) ausgewählt. Die Wahl wurde plausibel begründet.",
+                "Basierend auf dem Datenmodell wurden im Datenbankmanagementsystem Tabellen und Beziehungen angelegt.",
+                "Die Datenintegrität wurde durch den Einsatz von Integritätsregeln (Constraints) sowie Primär- und Fremdschlüsseln sichergestellt.",
+                "Es wurden Sicherheitsmassnahmen implementiert, um die Vertraulichkeit und Integrität der Daten zu gewährleisten.",
+                "Es wurden Massnahmen - wie bspw. Indexierung - zwecks Entsprechung der Performanceerwartung umgesetzt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3,4]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C04",
+            "category": "hkb",
+            "title": "Durchführung einer Datenmigration",
+            "subtitle": "Wie erfolgt eine Datenmigration?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Datenmigration aus den definierten Quellen ins Zielsystem wurde strukturiert vorbereitet.",
+                "Die Datenmigration wurde strukturiert durchgeführt.",
+                "Die relevanten Funktions- und Performancetests wurden durchgeführt, dokumentiert und ausgewertet.",
+                "Die migrierten Daten wurden korrekt auf Vollständigkeit und Integrität geprüft. Sollten dabei Unregelmässigkeiten festgestellt worden sein, wurden diese entweder umgehend behoben oder es wurde ein detailliertes Vorgehen zur Behebung beschrieben."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C05",
+            "category": "hkb",
+            "title": "Datensicherheit und Datenschutz planen",
+            "subtitle": "Wie wird der Schutz von Daten geplant?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurde erfolgreich ein Modell entwickelt oder gewählt, welches eine Klassifizierung der Daten nach ihrer Schutzwürdigkeit ermöglicht. Das Modell ist beschrieben.",
+                "Die Klassifizierung der relevanten Daten nach ihrer Schutzwürdigkeit wurde durchgeführt.",
+                "Es wurden erfolgreich Modelle eingesetzt, welche den Grundsätzen von \"Privacy by Design\" (Einbeziehung von Datenschutz in den gesamten Entwicklungsprozess) entsprechen.",
+                "Ein einsetzbares Rollenkonzept wurde beschrieben, das Zuweisungen von Verantwortlichkeiten und Zugriffsrechten für die verschiedenen Benutzerrollen innerhalb des Systems festlegt.",
+                "Es wurde ein einsetzbares Backup-Recovery-Konzept beschrieben."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3,4]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C06",
+            "category": "hkb",
+            "title": "Verschlüsselung von Daten",
+            "subtitle": "Wie werden Daten verschlüsselt?",
+            "selection": "multiple",
+            "requirements": [
+                "Ein geeigneter Verschlüsselungsalgorithmus wurde gewählt. Die Wahl wurde begründet.",
+                "Ein robustes Schlüsselmanagement wurde entwickelt, das die sichere Erzeugung, Speicherung, Verteilung und Vernichtung von Verschlüsselungsschlüsseln ermöglicht.",
+                "Die End-to-End-Verschlüsselung wurde erfolgreich implementiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "C07",
+            "category": "hkb",
+            "title": "Planung eines Backup-Recovery-Konzepts und Durchführung",
+            "subtitle": "Wie wird ein Backup-Recovery-Konzept geplant und durchgeführt?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurde eine Backup-Strategie entwickelt, welche mindestens folgendes korrekt festlegt: Datenumfang, Häufigkeit der Backups, Backup-Methode, Definition eines sicheren Speicherorts.",
+                "Es wurden Backup-Routinen konzipiert und implementiert, damit die Daten in definierten Intervallen gespeichert werden.",
+                "Der Backup-Wiederherstellungsprozess wurde erfolgreich getestet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "C08",
+            "category": "hkb",
+            "title": "Planung und Implementierung eines Rollenkonzepts",
+            "subtitle": "Wie wird ein Rollenkonzept geplant und implementiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Die entsprechenden Rollen wurden korrekt identifiziert und beschrieben.",
+                "Ein einsetzbares Berechtigungsmanagement wurde entwickelt, welches die Rollen mit entsprechenden Zugriffsrechten verknüpft.",
+                "Das Prinzip der geringsten Privilegien (Least Privilege) wurde korrekt angewandt.",
+                " Das Konzept wurde erfolgreich implementiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C09",
+            "category": "hkb",
+            "title": "Daten analysieren, identifizieren sowie Validität prüfen.",
+            "subtitle": "Wie werden die Daten analysiert, identifiziert sowie auf Datenfehler und Validität geprüft?",
+            "selection": "multiple",
+            "requirements": [
+                "Die relevanten Daten wurden nach einem systematischen Ansatz (Verfahren/Methoden) analysiert.",
+                "Die essenziellen Informationen wurden identifiziert.",
+                "Es wurden entsprechende Massnahmen ergriffen, um Datenfehler zu erkennen und die Validität der Daten sicherzustellen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "C10",
+            "category": "hkb",
+            "title": "Daten aufbereiten, darstellen und bewerten.",
+            "subtitle": "Wie werden Daten dargestellt?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurden geeignete Darstellungsmethoden gewählt und eingesetzt.",
+                "Es wurden geeignete Methoden eingesetzt, um die Konsistenz der dargestellten Daten sicherzustellen. Die Umsetzung ist dokumentiert.",
+                "Die präsentierten Ergebnisse sind von Relevanz und bieten einen Mehrwert (bspw. für eine Entscheidungsfindung oder für Analysezwecke)."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "C11",
+            "category": "hkb",
+            "title": "Einsatz von KI-Modellen",
+            "subtitle": "Wie werden KI-Modelle souverän eingesetzt?",
+            "selection": "multiple",
+            "requirements": [
+                "Höhere Effizienz, bspw. in Form einer schnelleren Datenanalyse oder via ProzessAutomatisierung",
+                "Höhere Effektivität, bspw. in Form besserer Entscheidungsfindung oder frühzeitiger Erkennung von Fehlern",
+                "Qualitätssteigerung bspw. in Form höherwertiger Datenqualität",
+                "Demonstriert: Die Input-Werte für das KI-Modell wurden durch korrekte und präzise formulierte Erwartungen und Spezifikationen bereitgestellt.",
+                "Demonstriert: Das KI-Modell wurde zweckmässig genutzt.",
+                "Demonstriert: Die Ergebnisse wurden objektiv geprüft."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [4,5]
+                },
+                "1": {
+                    "counts": [2,3]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "C12",
+            "category": "hkb",
+            "title": "Eine KI mittels Machine Learning antrainieren",
+            "subtitle": "Wie erfolgt das Anlernen einer KI mittels Machine Learning?",
+            "selection": "multiple",
+            "requirements": [
+                "Das zu lösendes Problem sowie das Ziel wurden klar definiert.",
+                "Relevante Trainingsdaten wurden beschafft und entsprechend aufbereitet.",
+                "Ein geeignetes Machine Learning-Modell wurde evaluiert.",
+                "Der Trainingsprozess wurde erfolgreich durchgeführt.",
+                "Das KI-Modell wurde bewertet und basierend auf den Erkenntnissen verbessert bzw. die Limitationen beschrieben.",
+                "Das KI-Modell wurde in die Nutzungsphase überführt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [4,5]
+                },
+                "1": {
+                    "counts": [2,3]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
             "id": "D01",
             "category": "hkb",
             "title": "Analyse",
@@ -252,6 +987,87 @@
             }
         },
         {
+            "id": "D03",
+            "category": "hkb",
+            "title": "Sicherstellung des Betriebs und der Weiterentwicklung",
+            "subtitle": "Was ist zu beachten, damit das erstellte Produkt erfolgreich betrieben oder weiterentwickelt werden kann?",
+            "selection": "multiple",
+            "requirements": [
+                "Es steht eine detaillierte Übergabe-Dokumentation zur Verfügung, die alle relevanten Informationen für den Betreiber des Produkts enthält; bspw. Anleitungen zur Installation, Konfiguration, Wartung und Fehlerbehebung.",
+                "Es existiert eine präzise Beschreibung, die die nächsten Entwicklungsschritte oder Massnahmen aufzeigt. Gibt es keine weiteren Entwicklungsschritte oder Massnahmen, ist das entsprechend begründet.",
+                "Basierend auf den Punkten eins und zwei kann der Betrieb und / oder die Weiterentwicklung der Lösung durch eine Fachperson ohne zusätzliche Mithilfe der in der IPA beauftragten Person sichergestellt werden."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "D04",
+            "category": "hkb",
+            "title": "Plattform wählen und bereitstellen",
+            "subtitle": "Wie erfolgen die Wahl und Bereitstellung der Plattform?",
+            "selection": "multiple",
+            "requirements": [
+                "Die technischen Rahmenbedingungen für die Wahl der Plattform wurden definiert und beschrieben.",
+                "Die Wahl der Plattform ist fachlich begründet und berücksichtigt die Rahmenbedingungen sowie den Auftrag.",
+                "Die technische Umsetzung und Konfiguration für die Implementierung wurden definiert und beschrieben.",
+                "Die Plattform wurde erfolgreich in Betrieb genommen.",
+                "Eine geeignete Dokumentation ermöglicht einer Fachperson eine effiziente Anpassung der Plattform."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3,4] 
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "D05",
+            "category": "hkb",
+            "title": "Inbetriebnahme und Übergabe einer ICT-Lösung",
+            "subtitle": "Wie wurde die ICT-Lösung in Betrieb genommen und die Übergabe geplant?",
+            "selection": "multiple",
+            "requirements": [
+                "Inhaltliche und technische Anpassungen und Konfigurationen der Umsysteme sind nachvollziehbar beschrieben.",
+                "Die Inbetriebnahme wurde mit den Stakeholdern koordiniert und notwendige Schulungen zur Gewährleistung der Betriebsübernahme sind definiert.",
+                "Die Inbetriebnahme wurde durch klare Schritte und Prozesse gewährleistet, um einen reibungslosen und nachvollziehbaren Betrieb sicherzustellen.",
+                "Alle benötigten Informationen zum Weiterbetrieb der Lösung sind vorhanden und richten sich an eine Fachperson."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [2,3]
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
             "id": "E01",
             "category": "hkb",
             "title": "Netzwerkplanung",
@@ -300,6 +1116,248 @@
                 },
                 "0": {
                     "count": 0
+                }
+            }
+        },{
+            "id": "E03",
+            "category": "hkb",
+            "title": "Netzwerkkomponenten auswählen",
+            "subtitle": "Was ist bei der Auswahl von Netzwerkkomponenten zu beachten?",
+            "selection": "multiple",
+            "requirements": [
+                "Sie erfüllen die Anforderungen an Bandbreite, Geschwindigkeit, Übertragungsprotokolle und andere relevante Leistungsmerkmale.",
+                "Sie können nahtlos mit anderen Netzwerkgeräten und -systemen integriert werden (bspw. bezüglich Kompatibilität mit Protokollen, Standards und Technologien).",
+                "Deren Verwaltbarkeit, Konfigurierbarkeit und Wartungsintensität sind der Situation angemessen.",
+                "Den erforderlichen Sicherheitsstandards wird entsprochen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "E04",
+            "category": "hkb",
+            "title": "Netzwerkkomponenten in Betrieb nehmen",
+            "subtitle": "Wie ist bei der Inbetriebnahme von Netzwerkkomponenten vorzugehen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die physische Installation der Netzwerkkomponenten wurde korrekt vorgenommen.",
+                "Die Netzwerkkomponenten wurden korrekt konfiguriert.",
+                "Konnektivitätsprüfungen, Durchführung von Leistungstests, Überprüfung der Datenintegrität und Sicherheitstests wurden durchgeführt; allfällige nötige Massnahmen wurden initiiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "E05",
+            "category": "hkb",
+            "title": "Planung der Wartung von Netzwerkkomponenten",
+            "subtitle": "Was ist bezüglich Planung der Wartung von Netzwerkkomponenten zu berücksichtigen?",
+            "selection": "multiple",
+            "requirements": [
+                "Wartungsmassnahmen und deren Zyklen sind definiert und berücksichtigen die Wichtigkeit.",
+                "Der Lebenszyklus der Netzwerkkomponenten und der verbundenen Dienste ist detailliert dokumentiert.",
+                "Die Funktionsüberprüfung nach Wartungsmassnahmen ist festgehalten.",
+                "Ein Rollback-Plan wurde entwickelt, um im Falle von unmittelbar unlösbaren Problemen während der Wartung eine schnelle Rückkehr zum vorherigen Zustand zu ermöglichen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "E06",
+            "category": "hkb",
+            "title": "Definition von Netzwerk-Sicherheitsmassnahmen",
+            "subtitle": "Wie ist bei der Definition von Netzwerk-Sicherheitsmassnahmen vorzugehen?",
+            "selection": "multiple",
+            "requirements": [
+                "Sicherheitsrisiken wurden basierend auf ihrer Schwere und Wichtigkeit der zu schützenden Ressourcen identifiziert und priorisiert.",
+                "Sicherheitsrichtlinien und -standards wurden festgelegt.",
+                "Es wurde ein Plan erarbeitet, um die Netzwerksicherheit kontinuierlich zu überwachen.",
+                "Es wurde ein Plan erarbeitet, der beschreibt, wie im Falle des Eintritts eines Sicherheitsvorfalls umzugehen ist."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "E07",
+            "category": "hkb",
+            "title": "Implementierung von Netzwerk-Sicherheitsmassnahmen",
+            "subtitle": "Wie ist bei der Implementierung von Netzwerksicherheitsmassnahmen vorzugehen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die definierten Sicherheitsmassnahmen wurden erfolgreich implementiert.",
+                "Die implementierten Sicherheitsmassnahmen wurden erfolgreich getestet.",
+                "Es wurden Massnahmen ergriffen, um das System kontinuierlich bezüglich Netzwerksicherheit zu überwachen.",
+                "Die Massnahmen wurden transparent dokumentiert.",
+                "Die relevanten Personen wurden über das Vorgehen informiert und wissen, wie sie sich beim Eintritt eines Sicherheitsvorfalls zu verhalten haben."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3,4]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "E08",
+            "category": "hkb",
+            "title": "Leistungsfähigkeit eines Netzes analysieren",
+            "subtitle": "Wie erfolgt die Prüfung der Leistungsfähigkeit eines Netzwerks?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurde ein Konzept erarbeitet, welches Aussagen zu den zu prüfenden Leistungselementen (bspw. Bandbreite, Latenzzeit, Paktverluste) eines Netzwerks macht. Die Zielwerte wurden festgehalten.",
+                "Das Netzwerk wurde basierend auf dem Konzept geprüft. Das Prüfergebnis wurde schriftlich festgehalten, der Inhalt ist korrekt.",
+                "Das Prüfergebnis resultiert in sinnvollen Massnahme-Empfehlungen.",
+                "Die Massnahmen wurden korrekt adressiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "E09",
+            "category": "hkb",
+            "title": "Leistungsfähigkeit eines Netzes basierend auf Prüfwerten optimieren",
+            "subtitle": "Wie ist bei der Optimierung eines Netzwerks basierend auf Prüfwerten vorzugehen?",
+            "selection": "multiple",
+            "requirements": [
+                "Relevante Optimierungsmassnahmen wurden definiert, priorisiert und umfassen konkrete Schritte zur Verbesserung der Netzwerkleistung.",
+                "Die Optimierungsmassnahmen berücksichtigen Einschränkungen und Abhängigkeiten; sowohl funktional wie auch betriebswirtschaftlich.",
+                "Die Massnahmen wurden umgesetzt, Vorgehen und Ergebnis wurden dokumentiert.",
+                "Der Erfolg wird durch nachweisbare Verbesserungen der Netzwerkleistung und der Erfüllung der definierten Ziele bestätigt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "counts": [1,2]
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "E10",
+            "category": "hkb",
+            "title": "Konzept zur Überwachung von Netzwerken",
+            "subtitle": "Wie sieht ein Konzept zwecks Überwachung von Netzwerken aus?",
+            "selection": "multiple",
+            "requirements": [
+                "Alle sich im definierten Netzwerk befindenden Komponenten sind in einem Konzept beschrieben.",
+                "Die Definition der zu überwachenden Elemente aller Komponenten liegt vor.",
+                "Die Begründung der zu überwachenden Elemente aller Komponenten ist nachvollziehbar beschrieben.",
+                "Die Deklaration der Schwellwerte, deren Dringlichkeit und Priorisierung sowie die daraus resultierenden Aktionen sind definiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "counts": [1,2]
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "E11",
+            "category": "hkb",
+            "title": "Implementierung einer Netzwerk- und Peripherie-Überwachung",
+            "subtitle": "Wie wird eine Netzwerküberwachung implementiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Zu überwachende Netzwerk-Komponenten wurden gemäss Vorgaben definiert und integriert.",
+                "Die zu überwachenden Elemente der Komponenten wurden gemäss Vorgaben implementiert.",
+                "Aktionen zu den definierten Schwellwerten wurden entsprechend implementiert.",
+                "Die korrekte Funktion der Überwachung wurde nachvollziehbar überprüft."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
                 }
             }
         },
@@ -370,6 +1428,140 @@
             }
         },
         {
+            "id": "F03",
+            "category": "hkb",
+            "title": "Abnahme einer Server-Infrastruktur oder von Server-Diensten",
+            "subtitle": "Wie ist bei der Abnahme einer Server-Infrastruktur oder von Serverdiensten vorzugehen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Abnahmekriterien sind klar definiert und geeignet.",
+                "Ein ausführliches Testkonzept zur Überprüfung von Funktionalität, Performance und Sicherheit ist vorhanden.",
+                "System-Abhängigkeiten sind dokumentiert.",
+                "Die Abnahme basiert auf Punkt eins und zwei, sie wurde durchgeführt und dokumentiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "F04",
+            "category": "hkb",
+            "title": "Erstellen und Führen des Betriebshandbuchs",
+            "subtitle": "Was ist bei der Erstellung und Führung eines Betriebshandbuchs zu beachten?",
+            "selection": "multiple",
+            "requirements": [
+                "Das Betriebshandbuch dokumentiert die Infrastruktur und Dienste und deren Abhängigkeiten.",
+                "Das Betriebshandbuch beschreibt Verantwortungen und Zuständigkeiten.",
+                "Das Betriebshandbuch beschreibt das Dokumentationsverfahren der Wartungs- und Arbeitshistorie (bspw. Updates, Inbetriebnahme neuer Systeme usw.).",
+                "Der Zugriff auf das Betriebshandbuch ist für alle betroffenen Personen gewährleistet und dokumentiert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "F05",
+            "category": "hkb",
+            "title": "Erstellung eines Wartungskonzepts",
+            "subtitle": "Was ist bei der Erstellung eines Wartungskonzepts zu beachten?",
+            "selection": "multiple",
+            "requirements": [
+                "Das Wartungskonzept beinhaltet die Definition und Dokumentation der Wartungsaufgaben.",
+                "Die Wartungszyklen und deren Regelmässigkeit sind beschrieben.",
+                "Planung und Kommunikation der Wartungen sind festgehalten und klar geregelt.",
+                "Die Protokollierung und Versionierung sind nachvollziehbar beschrieben.",
+                "Es bestehen Backup- und Wiederherstellungsstrategien, diese sind im Konzept reproduzierbar aufgelistet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3,4]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "F06",
+            "category": "hkb",
+            "title": "Durchführung der Wartung",
+            "subtitle": "Wie wird eine Wartung durchgeführt?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Durchführung der Wartung orientiert sich an einem Wartungskonzept.",
+                "Die Wartung wurde durchgeführt und protokolliert.",
+                "Die Systemverfügbarkeit wurde nach Wartungsabschluss überprüft."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "F07",
+            "category": "hkb",
+            "title": "Implementierung einer Archivierungslösung",
+            "subtitle": "Wie erfolgt die Implementierung einer Archivierungslösung?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Implementation der Archivierungslösung folgt einem Archivierungskonzept.",
+                "Die Archivierung ist fachlich korrekt umgesetzt und dokumentiert.",
+                "Die Archivierungsfunktion ist sichergestellt und getestet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
             "id": "G01",
             "category": "hkb",
             "title": "Dokumentation fachlicher und technischer Anforderungen",
@@ -424,6 +1616,383 @@
             }
         },
         {
+            "id": "G03",
+            "category": "hkb",
+            "title": "Entwicklung von Gestaltungsentwürfen",
+            "subtitle": "Wie wurde sichergestellt, dass die Gestaltungsentwürfe für Benutzerschnittstellen den technischen Vorgaben entsprachen?",
+            "selection": "multiple",
+            "requirements": [
+                "Es wurden geeignete grafische Tools zur Erstellung von Gestaltungsentwürfen wie MockUps eingesetzt, die den Richtlinien der eingesetzten Technologie und Vorgaben der Firma entsprechen.",
+                "Benutzerfreundlichkeit und technische Machbarkeit wurden in den Entwürfen gewährleistet.",
+                "Die finalen Gestaltungsentwürfe sind vollständig dokumentiert, inklusive aller Änderungen und Begründungen für diese Anpassungen.",
+                "Die Entwürfe wurden mit dem Auftraggeber abgeglichen und in die Überarbeitung integriert, um eine optimale Benutzererfahrung zu sichern."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G04",
+            "category": "hkb",
+            "title": "Überprüfung der technischen Machbarkeit",
+            "subtitle": "Wie wurde die technischen Anforderungen auf Machbarkeit überprüft und sichergestellt, dass die Lösung umsetzbar ist?",
+            "selection": "multiple",
+            "requirements": [
+                "Die technische Machbarkeit der geplanten Lösung wurde überprüft (z. B. Schnittstellen, Datenstrukturen, Technologien, Abhängigkeiten).",
+                "Potenzielle Risiken oder technische Einschränkungen wurden früh erkannt und nachvollziehbar dokumentiert.",
+                "Mit Stakeholdern oder Fachpersonen wurden machbare Alternativen oder Optimierungen besprochen.",
+                "Die gewählte Lösung ist technisch realisierbar und entspricht den definierten Anforderungen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G05",
+            "category": "hkb",
+            "title": "Prototyping und Validierung der Benutzeroberfläche",
+            "subtitle": "Wie wurden Benutzeroberflächen und Abläufe mit geeigneten Prototypen gestaltet, getestet und verbessert?",
+            "selection": "multiple",
+            "requirements": [
+                "Zentrale Funktionen oder Abläufe wurden mit Prototypen (z. B. Wireframes, Mockups, klickbare Modelle) dargestellt.",
+                "Die Prototypen wurden genutzt, um Benutzerfreundlichkeit, Informationsfluss und Gestaltung zu überprüfen.",
+                "Rückmeldungen von Beteiligten oder Testpersonen wurden eingeholt und in die Verbesserung eingearbeitet.",
+                "Die finalen Oberflächen sind klar, konsistent und orientieren sich an aktuellen Usability- und Designprinzipien."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G06",
+            "category": "hkb",
+            "title": "Risikoanalyse und Sicherheitsmassnahme",
+            "subtitle": "Wie wurden Sicherheitsrisiken von Applikationen und Schnittstellen identifiziert und wie wurden diese adressiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Relevante Risiken im Projekt wurden systematisch identifiziert und dokumentiert.",
+                "Das Systemumfeld wurde analysiert, um sicherheitsrelevante Schwachstellen zu erkennen.",
+                "Geeignete Sicherheitsmassnahmen, wie Verschlüsselung und Zugriffssicherheit, sind spezifiziert und umgesetzt worden.",
+                "Die Ergebnisse und geplanten Massnahmen wurden mit den Stakeholdern abgestimmt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G07",
+            "category": "hkb",
+            "title": "Entwicklung und Anpassung des Anforderungskatalogs",
+            "subtitle": "Wie wurde der Anforderungskatalog für Sicherheitsmassnahmen von Applikationen und/oder Schnittstellen erstellt oder angepasst?",
+            "selection": "multiple",
+            "requirements": [
+                "Der Anforderungskatalog wurde basierend auf den identifizierten Sicherheitsrisiken und den diskutierten Massnahmen aktualisiert und detailliert ausgearbeitet.",
+                "Sicherheitsrelevante Informationen wurden systematisch im Team und mit der Community (z.B. OWASP) ausgetauscht und in die Anforderungen integriert.",
+                "Alle sicherheitsrelevanten Risiken und Massnahmen sind im Anforderungskatalog nachvollziehbar dokumentiert und klar kommuniziert.",
+                "Der überarbeitete Anforderungskatalog wurde mit den Stakeholdern besprochen, um eine vollständige Übereinstimmung mit den Sicherheitsanforderungen zu gewährleisten."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G08",
+            "category": "hkb",
+            "title": "Erarbeitung von Umsetzungsvarianten",
+            "subtitle": "Wie wurden alternative Umsetzungsmöglichkeiten für die Applikation bewertet und ausgewählt?",
+            "selection": "multiple",
+            "requirements": [
+                "Mindestens zwei mögliche Umsetzungsvarianten wurden skizziert und beschrieben (z.B. Ablauf, Komponenten, Technologien).",
+                "Vor- und Nachteile jeder Variante wurden dokumentiert, um eine sachliche Entscheidungsgrundlage zu schaffen.",
+                "Die Auswahl der bevorzugten Variante wurde nachvollziehbar begründet und mit den relevanten Stakeholdern abgestimmt.",
+                "Für die gewählte Variante wurde eine Machbarkeitsprüfung durchgeführt, um die Realisierbarkeit zu bestätigen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G09",
+            "category": "hkb",
+            "title": "Ausarbeitung des Realisierungskonzepts",
+            "subtitle": "Wie wird das Realisierungskonzept für die ausgewählte Umsetzungsvariante entwickelt?",
+            "selection": "multiple",
+            "requirements": [
+                "Das fachliche und technische Realisierungskonzept wurde schrittweise ausgearbeitet, inklusive Use Cases, Komponenten, Schichten, Abläufen, Schnittstellen, Klassen und Datenmodell.",
+                "Relevante Daten, Abläufe, Systeme und Schnittstellen wurden analysiert und die Ergebnisse präzise dokumentiert.",
+                "Zur Dokumentation und Darstellung des Konzepts wurden geeignete Werkzeuge und/oder Methoden (bspw. UML) verwendet.",
+                "Bei Bedarf wurden Anpassungen für bestehende Applikationen entworfen und in das Konzept integriert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G10",
+            "category": "hkb",
+            "title": "Einrichtung der Entwicklungs- und Laufzeitumgebung",
+            "subtitle": "Wie wird eine geeignete Entwicklungs- und Laufzeitumgebung eingerichtet?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Auswahl und Konfiguration der Entwicklungs- und Laufzeitumgebung basiert auf dem Realisierungskonzept sowie den spezifischen Firmenvorgaben.",
+                "Alle notwendigen Tools und Dienste für die Entwicklung (z.B. IDEs, Datenbanken, Versionierungssysteme) sind installiert und funktionsfähig.",
+                "Die Umgebung unterstützt die Entwicklung sowohl des Back-Ends als auch des Front-Ends und berücksichtigt dabei Sicherheitsanforderungen.",
+                "Die Einrichtung ermöglicht eine effiziente, strukturierte Programmierung und unterstützt regelmässige Tests und Debugging-Aktivitäten."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G11",
+            "category": "hkb",
+            "title": "Konforme Implementierung und Versionierung",
+            "subtitle": "Wie werden Applikationen und Schnittstellen konform implementiert und versioniert?",
+            "selection": "multiple",
+            "requirements": [
+                "Back-End und Front-End wurden gemäss den definierten Anforderungen und unter Einhaltung der Programmiersprachen, Entwicklungstools und Sicherheitsvorgaben implementiert.",
+                "Regelmässige Überprüfungen der Implementierung gegen die Anforderungen (funktional, nicht-funktional, Sicherheit) wurden durchgeführt, mit kontinuierlicher Anpassung und Optimierung.",
+                "Die Einhaltung von Coderichtlinien wurde überprüft, um Nachvollziehbarkeit und Verständlichkeit des Codes zu sichern.",
+                "Alle Änderungen und Erweiterungen wurden übersichtlich und zuverlässig in einem Softwareverwaltungssystem abgelegt, wobei firmeninterne Richtlinien beachtet wurden."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G12",
+            "category": "hkb",
+            "title": "Testkonzepterstellung und Testfalldefinition",
+            "subtitle": "Wie wurden Testkonzepte und Testfälle für die Applikationen und/oder Schnittstellen entwickelt?",
+            "selection": "multiple",
+            "requirements": [
+                "Das Testumfeld wurde vollständig beschrieben, inklusive System, Akteure, Daten, Benutzer und Berechtigungen, sodass eine aussenstehende Person dieses Umfeld reproduzieren kann.",
+                "Eine Auswahl geeigneter Testarten (Unit Tests, Integrationstests, Sicherheitstests etc.) wurde getroffen und die Begründung wurde dokumentiert.",
+                "Testfälle wurden klar in Bezug auf Anwendungsfälle und Anforderungen beschrieben, unter Berücksichtigung verschiedener Testperspektiven, und sind wiederholbar gestaltet (automatisiert oder manuell).",
+                "Erwartete Ergebnisse für jeden Testfall wurden definiert und sind nachvollziehbar dokumentiert. Unerwartete Ergebnisse bzw. Fehler wurden souverän behoben."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G13",
+            "category": "hkb",
+            "title": "Durchführung und Auswertung von Tests",
+            "subtitle": "Wie wird die Durchführung von Tests organisiert und deren Ergebnisse ausgewertet?",
+            "selection": "multiple",
+            "requirements": [
+                "Eine geeignete Testumgebung wurde gemäss dem Testkonzept aufgebaut und alle automatisierbaren Testfälle wurden implementiert.",
+                "Testfälle wurden umfassend durchgeführt, wobei besonderes Augenmerk auf die Sorgfalt der Testdurchführung und die Nachvollziehbarkeit der Protokollierung gelegt wurde.",
+                "Ergebnisse der Testläufe wurden systematisch ausgewertet und dokumentiert; nicht erfolgreiche Testfälle wurden identifiziert und Korrekturmassnahmen eingeleitet.",
+                "Die Implementierung wurde gemäss dem Sicherheitskonzept überprüft, und bei Abweichungen wurden geeignete Korrekturmassnahmen getroffen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G14",
+            "category": "hkb",
+            "title": "Berücksichtigung sicherer Programmierpraktiken",
+            "subtitle": "Wie werden sichere Programmierpraktiken angewandt?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Software wurde unter Berücksichtigung sicherer Programmierpraktiken entwickelt. Dazu gehört die Vermeidung von häufigen Sicherheitsanfälligkeiten wie SQLInjektionen, Cross-Site-Scripting (XSS) und unsicheren Datenübertragungen.",
+                "Es wurden Sicherheitsüberprüfungen und -tests durchgeführt, einschliesslich der Implementierung automatisierter Tests, um sicherzustellen, dass sicherheitsrelevante Anforderungen erfüllt sind. Dies umfasst beispielsweise Unit-Tests für Sicherheitsfunktionen.",
+                "Die Dokumentation umfasst klare Richtlinien zu Cyber-Security, einschliesslich Best Practices für die sichere Softwareentwicklung, Anleitungen zur Durchführung von Sicherheitsüberprüfungen sowie einen Plan zur Reaktion auf Sicherheitsvorfälle."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "G15",
+            "category": "hkb",
+            "title": "Weiterführende Test- und Qualitätssicherungsmassnahmen",
+            "subtitle": "Wie sind weiterführende Test- und Qualitätsmassnahmen umzusetzen?",
+            "selection": "multiple",
+            "requirements": [
+                "Automatisierte Tests wurden umfassend implementiert, einschliesslich Unit-Tests, Integrationstests und gegebenenfalls End-to-End-Tests. Die Tests sind klar strukturiert und dokumentiert.",
+                "Test-Driven Development (TDD) wurde konsequent angewendet. Der Code wurde iterativ entwickelt, wobei zunächst die Tests geschrieben wurden, die die gewünschte Funktionalität überprüfen.",
+                "Es wurden geeignete Testtools und -frameworks (z.B. JUnit, TestNG, Selenium) eingesetzt, um Tests zu automatisieren, und die Ergebnisse der Tests wurden in regelmässigen Abständen überprüft. Zusätzlich wurden Metriken zur Testabdeckung erfasst und ausgewertet.",
+                "Die Projektdokumentation umfasst eine Beschreibung der Teststrategie, einschliesslich der verwendeten Automatisierungstools, der Struktur der Tests und der Vorgehensweise zur Sicherstellung der Testqualität. Es sind klare Anleitungen zur Durchführung der Tests enthalten, damit andere Entwickler die Qualitätssicherungsprozesse nachvollziehen können."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "G16",
+            "category": "hkb",
+            "title": "Fehlerbehandlung und Protokollierung",
+            "subtitle": "Wie ist bei der Konzeption und Umsetzung der Fehler- und Ausnahmebehandlung vorzugehen?",
+            "selection": "multiple",
+            "requirements": [
+                "Eine umfassende Fehlerbehandlung wurde implementiert, die sowohl erwartete als auch unerwartete Fehler angemessen auffängt, ohne die Benutzererfahrung negativ zu beeinträchtigen. Hierbei wurden benutzerfreundliche Fehlermeldungen bereitgestellt.",
+                "Es sind spezifische Ausnahmebehandlungsmechanismen vorhanden, die sicherstellen, dass Fehler systematisch protokolliert werden. Dies umfasst die Verwendung von trycatch-Blöcken oder ähnlichen Strukturen zur Handhabung von Ausnahmen.",
+                "Ein robustes «Logging-System» wird verwendet, um Fehlerprotokolle zu erstellen. Diese Protokolle enthalten relevante Informationen wie Zeitstempel, Fehlermeldungen und den Kontext, in dem der Fehler aufgetreten ist, und sind so strukturiert, dass sie bei der Fehlersuche hilfreich sind.",
+                "Die Dokumentation beschreibt die Vorgehensweise zur Fehlerbehandlung, einschliesslich der verwendeten Methoden für «Logging» und «Notifications». Es werden Leitlinien bereitgestellt, wie auf bestimmte Fehler reagiert werden soll, um die Wartung und das Troubleshooting zu erleichtern."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
             "id": "H01",
             "category": "hkb",
             "title": "Komponenten-Abhängigkeiten und deren Auswahl",
@@ -461,6 +2030,222 @@
                 "Die Plattformwahl berücksichtigt technische Umsetzbarkeit, z. B. Unterstützung derbenötigten Services, Schnittstellen und Komponenten.",
                 "Die Plattform wurde praktisch eingerichtet oder konfiguriert, sodass die Applikation darauf ausgeführt werden kann.",
                 "Sicherheits- und Datenschutzanforderungen wurden identifiziert und die verfügbarenPlattformdienste (z. B. Benutzerrechte, Verschlüsselung, Backups) entsprechend genutzt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H03",
+            "category": "hkb",
+            "title": "Ressourcenauswahl und Konsistenzprüfung",
+            "subtitle": "Wie erfolgt die Auswahl der benötigten Ressourcen und die Konsistenzprüfung?",
+            "selection": "multiple",
+            "requirements": [
+                "Notwendige Ressourcen sind basierend auf der Empfehlung des Plattformbetreibers ausgewählt (Performance, Speicherbedarf, Verfügbarkeit, Kosten, Zugriff).",
+                "Die gewählten Ressourcen unterstützen die geplante Funktionalität und Performance der Applikation.",
+                "Die Auswahl wurde im Team und/oder mit dem Stakeholder auf Konsistenz geprüft; nötige Anpassungen wurden vorgenommen.",
+                "Die Ergebnisse der Auswahl und Konsistenzprüfung sind dokumentiert und für alle Beteiligten nachvollziehbar festgehalten."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H04",
+            "category": "hkb",
+            "title": "Integrationspraktiken für Auslieferungsprozesse",
+            "subtitle": "Welche Integrationspraktiken sind für den Auslieferungsprozess geeignet?",
+            "selection": "multiple",
+            "requirements": [
+                "Abhängigkeiten zwischen den verschiedenen Komponenten im Hinblick auf den Auslieferungsprozess sind analysiert und dokumentiert.",
+                "Die Art und Weise, wie verschiedene Source-Codes geeignet zusammengefügt und freigegeben werden (bspw. Git-Flow, Trunk, Continuous Integration), ist definiert und korrekt umgesetzt.",
+                "Die ausgewählten Integrationspraktiken sind klar festgehalten und allen relevanten Teammitgliedern kommuniziert.",
+                "Planbare Migrationen (Code First, Datenbankschema) sind unter Berücksichtigung der Architektur berücksichtigt und in den Integrationsprozess integriert."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H05",
+            "category": "hkb",
+            "title": "Deployment-Praktiken und Artefakt-Verwaltung",
+            "subtitle": "Wie werden Deployment-Praktiken und Artefakt-Verwaltung definiert und umgesetzt?",
+            "selection": "multiple",
+            "requirements": [
+                "Geeignete Deployment-Praktiken (z. B. Continuous Delivery, automatisierte Deployments) wurden praktisch definiert und umgesetzt.",
+                "Die Applikation wurde erfolgreich auf der vorgesehenen Umgebung bereitgestellt (z. B. Test-, Entwicklungs- oder lokale Umgebung).",
+                "Die Deployment-Schritte wurden in einer logischen Reihenfolge umgesetzt, sodass abhängige Komponenten korrekt starten. Beispielsweise wird die Datenbank zuerst bereitgestellt, danach das Backend und zum Schluss das Frontend.",
+                "Es wurde überprüft, ob die Applikation korrekt läuft, die Grundfunktionen wurden getestet, auftretende Probleme wurden behoben, sodass die Auslieferung stabil und nutzbar ist."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H06",
+            "category": "hkb",
+            "title": "Automatisierung des Auslieferungsprozesses",
+            "subtitle": "Wie wird der Auslieferungsprozess effizient automatisiert?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Auslieferung ist automatisiert, korrekt eingerichtet und funktioniert einwandfrei.",
+                "Die Auslieferung ist dokumentiert und für Aussenstehende nachvollziehbar.",
+                "Der Automatisierungsprozess wurde auf Effizienz und Fehlerfreiheit überprüft und bei Bedarf optimiert.",
+                "Es sind geeignete Kontrollmechanismen (z. B. Logs, Benachrichtigungen, Monitoring) implementiert, um Probleme frühzeitig zu erkennen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H07",
+            "category": "hkb",
+            "title": "Verwaltung und Test des Auslieferungsprozesses",
+            "subtitle": "Wie werden Applikationskomponenten verwaltet und der Auslieferungsprozess getestet?",
+            "selection": "multiple",
+            "requirements": [
+                "Applikationskomponenten sind bereitgestellt und korrekt in die Laufzeitumgebung integriert (z.B. Docker, Container).",
+                "Artefakte sind systematisch verwaltet und versioniert, um Nachvollziehbarkeit und Konsistenz zu gewährleisten.",
+                "Der gesamte Auslieferungsprozess ist gemäss Vorgaben überprüft, und die Funktionsfähigkeit der Applikation ist mittels eines Testkonzepts (z.B. Integrationstest) bestätigt.",
+                "Verbesserungs- und Optimierungsmassnahmen für den Auslieferungsprozess sind auf Basis der Testergebnisse und der praktischen Anwendung identifiziert und umgesetzt."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H08",
+            "category": "hkb",
+            "title": "Überwachung der Stabilität und Performance von Applikationen",
+            "subtitle": "Wie wird die Stabilität und Performance der Applikation überwacht?",
+            "selection": "multiple",
+            "requirements": [
+                "Kritische Performance-Indikatoren (z. B. Antwortzeiten, CPU-/Speicherauslastung) wurden definiert.",
+                "Tools oder Mechanismen zur Überwachung wurden eingerichtet und korrekt konfiguriert (z. B. Log-Level, Messpunkte).",
+                "Die Performance wurde regelmässig überprüft, Abweichungen wurden erkannt und dokumentiert.",
+                "Optimierungen oder Anpassungen wurden auf Basis der Überprüfung durchgeführt, um die Stabilität sicherzustellen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H09",
+            "category": "hkb",
+            "title": "Überwachung der Sicherheit von Applikationen",
+            "subtitle": "Wie wird die Applikation auf sicherheitsrelevante Ereignisse überwacht?",
+            "selection": "multiple",
+            "requirements": [
+                "Relevante Sicherheitsmetriken oder Ereignisse (z.B. fehlerhafte Logins, Berechtigungsänderungen, Zugriff auf kritische Daten) wurden definiert.",
+                "Monitoring-Mechanismen oder Logs wurden eingerichtet, um diese Metriken zu erfassen.",
+                "Sicherheitsrelevante Vorfälle wurden regelmässig überprüft und dokumentiert.",
+                "Bei erkannten Problemen wurden angemessene Massnahmen umgesetzt oder vorgeschlagen (z. B. Berechtigungen korrigieren, Warnungen konfigurieren)."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 3
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "H10",
+            "category": "hkb",
+            "title": "Analyse und Behebung von Problemen im Betrieb",
+            "subtitle": "Wie werden Probleme im laufenden Betrieb analysiert und behoben?",
+            "selection": "multiple",
+            "requirements": [
+                "Strukturierte Vorgehensweise zur Problemanalyse ist etabliert, inklusive Fehlerreproduktion und systematischer Fehlerausgrenzung.",
+                "Aktualität und Sicherheitseinstellungen der Applikationen und Schnittstellen werden regelmässig überprüft, basierend auf den neuesten Herstellerinformationen.",
+                "Ein zielführendes Vorgehen zur Problembehebung ist festgelegt.",
+                "Umgesetzte Massnahmen zur Problembehebung sind dokumentiert und führen zu einer Erweiterung der Testfälle, um zukünftige Vorfälle zu minimieren."
             ],
             "stages": {
                 "3": {
@@ -535,6 +2320,174 @@
             }
         },
         {
+            "id": "Doc03",
+            "category": "dok",
+            "title": "Formale Anforderungen an den IPA-Bericht",
+            "subtitle": "Was sind die Anforderungen an die formale Vollständigkeit des IPA-Berichts?",
+            "selection": "multiple",
+            "requirements": [
+                "Der IPA-Bericht enthält auf allen Seiten (optional Titelblatt) eine Kopf- oder Fusszeile, eine korrekte Seitennummerierung, das aktuelle Druckdatum und den Kandidatennamen.",
+                "Der IPA-Bericht enthält ein vollständiges Inhaltsverzeichnis.",
+                "Der IPA-Bericht enthält ein alphabetisch sortiertes Glossar, das präzise Erläuterungen zu den verwendeten Fachbegriffen und Abkürzungen bietet. Die Bestandteile des Glossars sind auf externe Fachpersonen ausgerichtet. Es fehlen maximal drei relevante Komponenten.",
+                "Der IPA-Bericht enthält ein vollständiges und gültiges Quellenverzeichnis.",
+                "Der IPA-Bericht ist digital durchsuchbar (Screenshots und Grafiken sind von diesem Anspruch ausgenommen)."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 4
+                },
+                "1": {
+                    "counts": [2,3]
+                },
+                "0": {
+                    "count_less_than": 3
+                }
+            }
+        },
+        {
+            "id": "Doc04",
+            "category": "dok",
+            "title": "Schriftliche Brillanz",
+            "subtitle": "Wie sind Rechtschreibung, Interpunktion und Grammatik zu beurteilen?",
+            "selection": "single",
+            "requirements": [
+                "1. Der Schreibstil ist flüssig, der Text ist durchweg klar und verständlich geschrieben. 2. Die Sätze sind vollständig und ausführlich formuliert. 3. Rechtschreibung, Interpunktion und Grammatik weisen keine oder nur vereinzelt kleine Schwächen auf.",
+                "Die Gütestufe 3 wurde nicht vollständig erreicht. Bspw. aus folgenden Gründen: Der Schreibstil zeigt einige Schwächen, die Klarheit des Textes könnte verbessert werden. Einige Sätze sind nicht vollständig oder ausführlich genug. Rechtschreibung, Interpunktion und Grammatik weisen kleinere Schwächen auf, die die Lesbarkeit nicht beeinträchtigen.",
+                "Die Gütestufe 3 wurde wesentlich verfehlt. Bspw. aus folgenden Gründen: Der Schreibstil ist wenig flüssig, der Text weist erhebliche Verständnisschwierigkeiten auf. Viele Sätze sind unvollständig oder knapp formuliert. Rechtschreibung, Interpunktion und Grammatik zeigen deutliche Schwächen, die die Lesbarkeit erheblich beeinträchtigen.",
+                "Die Gütestufe 3 wurde nicht annähernd erreicht. Bspw. aus folgenden Gründen: Der Schreibstil ist mangelhaft, der Text ist schwer verständlich. Viele Sätze sind unvollständig oder undeutlich formuliert. Rechtschreibung, Interpunktion und Grammatik weisen erhebliche Mängel auf, die die Gesamtqualität stark beeinträchtigen."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        },
+        {
+            "id": "Doc05",
+            "category": "dok",
+            "title": "Visuelle Anforderungen an Abbildungen",
+            "subtitle": "Welche visuellen Kriterien sind für Abbildungen (bspw. Grafiken, Bilder, Diagramme und Tabellen) zu erfüllen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Abbildungen sind gut lesbar, wobei ausreichender Kontrast und angemessene Grösse berücksichtigt wurden (als Referenz dient der Ausdruck auf Format A4).",
+                "Die Abbildungen sind klar und verständlich, um eine einfache Interpretation und Informationsaufnahme zu ermöglichen.",
+                "Die Abbildungen weisen aussagekräftige Beschriftungen/Legenden auf, um den Inhalt zu erklären und zu kontextualisieren."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "Doc06",
+            "category": "dok",
+            "title": "Kurzfassung des IPA-Berichts",
+            "subtitle": "Was sind die Anforderungen an eine Kurzfassung?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Kurzfassung ist Bestandteil von Teil 2 des IPA-Berichts.",
+                "Es werden die Kerninformationen wiedergegeben, weder mehr noch weniger.",
+                "Die Kurzfassung beschränkt sich auf eine A4-Seite und enthält keine Grafik.",
+                "Die Kurzfassung weist eine klare Struktur auf und beinhaltet 3 bis 4 Kapitel.",
+                "Die Ausrichtung auf die Zielgruppe ist gewährleistet.",
+                "Die Kurzfassung endet sinnvoll, bspw. mit einer Schlussfolgerung oder einer Empfehlung.",
+                "Die Kurzfassung ist objektiv und verzichtet auf die Schilderung persönlicher Erfahrungen."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [5,6]
+                },
+                "1": {
+                    "counts": [3, 4]
+                },
+                "0": {
+                    "count_less_than": 3
+                }
+            }
+        },
+        {
+            "id": "Doc07",
+            "category": "dok",
+            "title": "Führung des Arbeitsjournals",
+            "subtitle": "Was ist beim Führen des Arbeitsjournals zu beachten?",
+            "selection": "multiple",
+            "requirements": [
+                "Das Arbeitsjournal ist Bestandteil von Teil 1 des IPA-Berichts.",
+                "Die Darstellung ist übersichtlich, klar und verständlich.",
+                "Das Arbeitsjournal besteht aus individuellen Tagesberichten.",
+                "Alle Aktivitäten gemäss Zeitplan sowie Überzeiten und ungeplante Arbeiten sind erwähnt.",
+                "Erfolge und Misserfolge sind erwähnt. Misserfolge werden kritisch hinterfragt.",
+                "Alle genutzten Unterstützungen, einschliesslich Hilfestellungen und KI-Nutzung, sind vollständig aufgelistet und begründet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [4,5]
+                },
+                "1": {
+                    "counts": [2,3]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
+            "id": "Doc08",
+            "category": "dok",
+            "title": "Persönliches Fazit",
+            "subtitle": "Was ist beim Verfassen des persönlichen Fazits zu berücksichtigen?",
+            "selection": "multiple",
+            "requirements": [
+                "Das persönliche Fazit ist Bestandteil von Teil 1 des IPA-Berichts.",
+                "Gibt objektiven Einblick in die Herausforderungen",
+                "Gibt objektiven Einblick in die Lernerfahrung",
+                "Gibt objektiven Einblick in die Entwicklungsperspektiven. Es wird aufgezeigt, was bei einem künftig ähnlichen Projekt besser oder anders gemacht wird.",
+                "Gibt objektiven Einblick in die Beurteilung des Erfolgs."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "counts": [3,4]
+                },
+                "1": {
+                    "count": 2
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
             "id": "F&P01",
             "category": "fpd",
             "title": "Präsentation: Struktur und Zeitmanagement",
@@ -566,10 +2519,225 @@
             }
         },
         {
+            "id": "F&P02",
+            "category": "fpd",
+            "title": "Präsentation: Einsatz von Medien und Technologie",
+            "subtitle": "Was ist beim Einsatz von Medien und Technologie anlässlich der Präsentation zu beachten?",
+            "selection": "multiple",
+            "requirements": [
+                "Verwendete Geräte und Software funktionierten einwandfrei. Bei unvorhergesehenen Schwierigkeiten lässt alles darauf schliessen, dass die Vorbereitungen professionell getroffen wurden.",
+                "Die Verwendung von Medien und Technologie ist sinnvoll, inhaltlich relevant und unterstützt die Präsentation effektiv.",
+                "Die Präsentationsunterlagen sind visuell ansprechend gestaltet."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "F&P03",
+            "category": "fpd",
+            "title": "Präsentationsgeschick",
+            "subtitle": "Was zeichnet ein hohes Präsentationsgeschick aus?",
+            "selection": "multiple",
+            "requirements": [
+                "Informationen wurden klar und verständlich präsentiert, damit die Anwesenden die Aussagen leicht nachvollziehen konnten.",
+                "Sprache und Medieneinsatz sind aufeinander abgestimmt und ergänzen sich inhaltlich.",
+                "Die Präsentation beeindruckte durch selbstsicheres Auftreten, sowohl verbal als auch durch eine überzeugende Körpersprache."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 2
+                },
+                "1": {
+                    "count": 1
+                },
+                "0": {
+                    "count": 0
+                }
+            }
+        },
+        {
+            "id": "F&P04",
+            "category": "fpd",
+            "title": "Demonstration des Produkts",
+            "subtitle": "Wie ist das Produkt der Facharbeit vorzuführen?",
+            "selection": "multiple",
+            "requirements": [
+                "Die Demonstration erfolgte direkt am Produkt im Zustand des Abgabetermins und live.",
+                "Die wesentlichen Produktmerkmale/Funktionen wurden aufgezeigt.",
+                "Die Demonstration war gut vorbereitet.",
+                "Die Demonstration ist logisch aufgebaut.",
+                "Die Demonstration ist für die Zuschauer verständlich und nachvollziehbar."
+            ],
+            "stages": {
+                "3": {
+                    "all": true
+                },
+                "2": {
+                    "count": 4
+                },
+                "1": {
+                    "counts": [2,3]
+                },
+                "0": {
+                    "count_less_than": 2
+                }
+            }
+        },
+        {
             "id": "F&P05",
             "category": "fpd",
             "title": "Fachgespräch: Themenkomplex 1",
             "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeitbeantwortet?",
+            "selection": "single",
+            "requirements": [
+                "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen oder mehrere nebensächliche Aspekte ausser Acht, oder ein zentraler Aspekt ist nicht hinreichend differenziert. Die meisten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt meist korrekte Antworten und kann zu Details meist präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen zentralen Aspekt ganz ausser Acht oder ist bezüglich des überwiegenden Teils der zentralen Aspekte nicht hinreichend differenziert. Viele Aussagen sind nicht - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt häufig falsche oder unpräzise Antworten.",
+                "Die Fragen zur Facharbeit können nicht korrekt beantwortet werden."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        },
+        {
+            "id": "F&P06",
+            "category": "fpd",
+            "title": "Fachgespräch: Themenkomplex 2",
+            "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeit beantwortet?",
+            "selection": "single",
+            "requirements": [
+                "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen oder mehrere nebensächliche Aspekte ausser Acht, oder ein zentraler Aspekt ist nicht hinreichend differenziert. Die meisten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt meist korrekte Antworten und kann zu Details meist präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen zentralen Aspekt ganz ausser Acht oder ist bezüglich des überwiegenden Teils der zentralen Aspekte nicht hinreichend differenziert. Viele Aussagen sind nicht - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt häufig falsche oder unpräzise Antworten.",
+                "Die Fragen zur Facharbeit können nicht korrekt beantwortet werden."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        },
+        {
+            "id": "F&P07",
+            "category": "fpd",
+            "title": "Fachgespräch: Themenkomplex 3",
+            "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeit beantwortet?",
+            "selection": "single",
+            "requirements": [
+                "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen oder mehrere nebensächliche Aspekte ausser Acht, oder ein zentraler Aspekt ist nicht hinreichend differenziert. Die meisten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt meist korrekte Antworten und kann zu Details meist präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen zentralen Aspekt ganz ausser Acht oder ist bezüglich des überwiegenden Teils der zentralen Aspekte nicht hinreichend differenziert. Viele Aussagen sind nicht - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt häufig falsche oder unpräzise Antworten.",
+                "Die Fragen zur Facharbeit können nicht korrekt beantwortet werden."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        },
+        {
+            "id": "F&P08",
+            "category": "fpd",
+            "title": "Fachgespräch: Themenkomplex 4",
+            "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeit beantwortet?",
+            "selection": "single",
+            "requirements": [
+                "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen oder mehrere nebensächliche Aspekte ausser Acht, oder ein zentraler Aspekt ist nicht hinreichend differenziert. Die meisten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt meist korrekte Antworten und kann zu Details meist präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen zentralen Aspekt ganz ausser Acht oder ist bezüglich des überwiegenden Teils der zentralen Aspekte nicht hinreichend differenziert. Viele Aussagen sind nicht - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt häufig falsche oder unpräzise Antworten.",
+                "Die Fragen zur Facharbeit können nicht korrekt beantwortet werden."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        },
+        {
+            "id": "F&P09",
+            "category": "fpd",
+            "title": "Fachgespräch: Themenkomplex 5",
+            "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeit beantwortet?",
+            "selection": "single",
+            "requirements": [
+                "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen oder mehrere nebensächliche Aspekte ausser Acht, oder ein zentraler Aspekt ist nicht hinreichend differenziert. Die meisten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt meist korrekte Antworten und kann zu Details meist präzise Auskunft geben.",
+                "Die Beantwortung der Fragestellung lässt einen zentralen Aspekt ganz ausser Acht oder ist bezüglich des überwiegenden Teils der zentralen Aspekte nicht hinreichend differenziert. Viele Aussagen sind nicht - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Der Kandidat gibt häufig falsche oder unpräzise Antworten.",
+                "Die Fragen zur Facharbeit können nicht korrekt beantwortet werden."
+            ],
+            "stages": {
+                "3": {
+                    "must": 1
+                },
+                "2": {
+                    "must": 2
+                },
+                "1": {
+                    "must": 3
+                },
+                "0": {
+                    "must": 4
+                }
+            }
+        },
+        {
+            "id": "F&P10",
+            "category": "fpd",
+            "title": "Fachgespräch: Themenkomplex 6",
+            "subtitle": "Wie professionell werden die Fragen der Experten zur Facharbeit beantwortet?",
             "selection": "single",
             "requirements": [
                 "Die Beantwortung der Fragestellung behandelt alle Aspekte professionell in differenzierter Weise. Alle getätigten Aussagen sind - wo notwendig - mit Beispielen oder logischen Schlussfolgerungen belegt. Die Antworten sind fachlich kompetent und korrekt. Der Kandidat kann auch zu Details präzise Auskunft geben.",
