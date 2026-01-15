@@ -26,4 +26,4 @@ WORKDIR /app/backend
 
 EXPOSE 3000
 
-CMD ["bun", "run", "src/index.js"]
+CMD ["sh", "-c", "bun run src/db/migrate.js && bun run src/index.js"]
