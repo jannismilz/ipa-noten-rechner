@@ -52,4 +52,4 @@
   - [x] Fachgespräch (S. 52-56)
 - [ ] Auswählen zwischen Fachrichtungen (hat Auswirkungen auf Bewertung)
 - [ ] Auswählen von Projektmethode (linear / agil) (hat Auswirkungen auf Bewertung)
-- [ ] KI Nutzung dokumentieren
+- [x] KI Nutzung dokumentieren

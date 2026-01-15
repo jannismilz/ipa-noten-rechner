@@ -65,6 +65,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .header-left,
@@ -94,6 +95,23 @@ body {
 .header-logo h1 {
   font-size: 1.25rem;
   margin: 0;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background: var(--surface-light);
+  border: 1px solid transparent;
+}
+
+.github-link:hover {
+  color: var(--primary);
+  background: var(--border);
 }
 
 .user-info {

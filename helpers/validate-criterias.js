@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// KI: Validator wurde aus der selbstgeschriebenen Spezifikation des Kriterienkatalogs generiert.
+
 const fs = require('fs');
 const path = require('path');
 
