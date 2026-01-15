@@ -95,11 +95,6 @@ export default function Criteria() {
   };
 
   const handleExport = () => {
-    if (isAuthenticated) {
-      alert('Export ist nur im Offline-Modus verfügbar');
-      return;
-    }
-
     const data = storage.exportData();
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -111,11 +106,6 @@ export default function Criteria() {
   };
 
   const handleImport = () => {
-    if (isAuthenticated) {
-      alert('Import ist nur im Offline-Modus verfügbar');
-      return;
-    }
-
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
