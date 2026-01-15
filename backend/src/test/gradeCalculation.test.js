@@ -1,6 +1,8 @@
 import { describe, test, expect } from 'bun:test';
 import { calculateGrade, calculateCategoryScores, calculateFinalGrade } from '../../../shared/gradeCalculation.js';
 
+// KI: Aus dem TESTKONZEPT.md generiert
+
 describe('Grade Calculation Unit Tests', () => {
   describe('calculateGrade - Single Selection', () => {
     test('UT-GC-01: should calculate grade for single selection with correct index', () => {
