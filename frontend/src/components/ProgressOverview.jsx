@@ -9,8 +9,9 @@ export default function ProgressOverview({
   onImport,
   onReset,
   isAuthenticated,
+  projectMethod,
 }) {
-  const categoryScores = calculateCategoryScores(categories, criterias, evaluations);
+  const categoryScores = calculateCategoryScores(categories, criterias, evaluations, projectMethod);
   const finalGrade = calculateFinalGrade(categoryScores);
 
   return (

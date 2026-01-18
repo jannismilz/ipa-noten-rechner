@@ -1,7 +1,23 @@
-export function calculateGrade(criteria, tickedRequirements) {
+function getRequirementText(req) {
+  return typeof req === 'string' ? req : req.text;
+}
+
+export function filterRequirementsByProjectMethod(requirements, projectMethod) {
+  return requirements.filter(req => {
+    if (typeof req === 'string') return true;
+    return !req.projectMethod || req.projectMethod === projectMethod;
+  });
+}
+
+export function calculateGrade(criteria, tickedRequirements, projectMethod) {
+  const filteredRequirements = projectMethod 
+    ? filterRequirementsByProjectMethod(criteria.requirements, projectMethod)
+    : criteria.requirements;
+
   if (criteria.selection === 'single') {
     if (tickedRequirements.length === 0) return null;
-    const selectedIndex = criteria.requirements.indexOf(tickedRequirements[0]);
+    const requirementTexts = filteredRequirements.map(getRequirementText);
+    const selectedIndex = requirementTexts.indexOf(tickedRequirements[0]);
     if (selectedIndex === -1) return null;
 
     for (const stage of ['3', '2', '1', '0']) {
@@ -15,14 +31,14 @@ export function calculateGrade(criteria, tickedRequirements) {
   }
 
   const tickedCount = tickedRequirements.length;
-  const totalRequirements = criteria.requirements.length;
+  const totalRequirements = filteredRequirements.length;
 
   for (const stage of ['3', '2', '1', '0']) {
     const condition = criteria.stages[stage];
     if (!condition) continue;
 
     if (condition.must !== undefined) {
-      const mustRequirement = criteria.requirements[condition.must - 1];
+      const mustRequirement = getRequirementText(filteredRequirements[condition.must - 1]);
       const hasMust = tickedRequirements.includes(mustRequirement);
       
       if (condition.count !== undefined) {
@@ -42,7 +58,7 @@ export function calculateGrade(criteria, tickedRequirements) {
   return 0;
 }
 
-export function calculateCategoryScores(categories, criterias, evaluations) {
+export function calculateCategoryScores(categories, criterias, evaluations, projectMethod) {
   const categoryScores = {};
   const maxPointsPerCriteria = 3;
 
@@ -53,7 +69,7 @@ export function calculateCategoryScores(categories, criterias, evaluations) {
 
     categoryCriterias.forEach(criteria => {
       const ticked = evaluations[criteria.id]?.tickedRequirements || [];
-      const points = calculateGrade(criteria, ticked);
+      const points = calculateGrade(criteria, ticked, projectMethod);
       if (points !== null) {
         totalPoints += points;
       }
@@ -69,7 +85,7 @@ export function calculateCategoryScores(categories, criterias, evaluations) {
       totalPossiblePoints: totalPossiblePoints,
       grade: grade,
       weightedGrade: weightedGrade,
-      progress: calculateCategoryProgress(categoryCriterias, evaluations)
+      progress: calculateCategoryProgress(categoryCriterias, evaluations, projectMethod)
     };
   });
 
@@ -81,14 +97,17 @@ function convertPointsToGrade(points, maxPoints) {
   return Math.round(grade * 100) / 100;
 }
 
-function calculateCategoryProgress(categoryCriterias, evaluations) {
+function calculateCategoryProgress(categoryCriterias, evaluations, projectMethod) {
   let totalCompleted = 0;
   let totalItems = 0;
 
   categoryCriterias.forEach(criteria => {
+    const filteredReqs = projectMethod 
+      ? filterRequirementsByProjectMethod(criteria.requirements, projectMethod)
+      : criteria.requirements;
     const ticked = evaluations[criteria.id]?.tickedRequirements || [];
     totalCompleted += ticked.length;
-    totalItems += criteria.requirements.length;
+    totalItems += filteredReqs.length;
   });
 
   return totalItems > 0 ? Math.round((totalCompleted / totalItems) * 100) : 0;

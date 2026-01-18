@@ -217,6 +217,8 @@ export default function Criteria() {
     return null;
   }
 
+  const projectMethod = isAuthenticated && user ? user.project_method : storage.getProfile().projectMethod;
+
   const groupedCriterias = {};
   criteriaData.categories_with_weigth.forEach(category => {
     groupedCriterias[category.id] = criteriaData.criterias.filter(c => c.category === category.id);
@@ -232,6 +234,7 @@ export default function Criteria() {
         onImport={handleImport}
         onReset={() => setShowResetModal(true)}
         isAuthenticated={isAuthenticated}
+        projectMethod={projectMethod}
       />
 
       <div className="categories-container">
@@ -242,6 +245,7 @@ export default function Criteria() {
             criterias={groupedCriterias[category.id] || []}
             evaluations={evaluations}
             onUpdate={handleUpdate}
+            projectMethod={projectMethod}
           />
         ))}
       </div>

@@ -2,17 +2,25 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import CriteriaItem from './CriteriaItem';
 
-export default function CategorySection({ category, criterias, evaluations, onUpdate }) {
+export default function CategorySection({ category, criterias, evaluations, onUpdate, projectMethod }) {
   const [isOpen, setIsOpen] = useState(true);
+
+  const getFilteredRequirements = (requirements) => {
+    return requirements.filter(req => {
+      if (typeof req === 'string') return true;
+      return !req.projectMethod || req.projectMethod === projectMethod;
+    });
+  };
 
   const calculateCategoryProgress = () => {
     let totalCompleted = 0;
     let totalItems = 0;
 
     criterias.forEach(criteria => {
+      const filteredReqs = getFilteredRequirements(criteria.requirements);
       const ticked = evaluations[criteria.id]?.tickedRequirements || [];
       totalCompleted += ticked.length;
-      totalItems += criteria.requirements.length;
+      totalItems += filteredReqs.length;
     });
 
     return totalItems > 0 ? Math.round((totalCompleted / totalItems) * 100) : 0;
@@ -45,6 +53,7 @@ export default function CategorySection({ category, criterias, evaluations, onUp
               tickedRequirements={evaluations[criteria.id]?.tickedRequirements || []}
               note={evaluations[criteria.id]?.note || ''}
               onUpdate={data => onUpdate(criteria.id, data)}
+              projectMethod={projectMethod}
             />
           ))}
         </div>
