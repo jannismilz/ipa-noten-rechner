@@ -28,8 +28,7 @@ export const optionalAuth = async (req, res, next) => {
     try {
       const decoded = jwt.verify(token, JWT_SECRET);
       req.userId = decoded.userId;
-    } catch (error) {
-      console.error('Invalid token:', error);
+    } catch {
       req.userId = null;
     }
   }
