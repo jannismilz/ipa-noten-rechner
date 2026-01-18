@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { storage } from '../services/storage';
 import { UserCircle, Upload } from 'lucide-react';
@@ -7,6 +7,8 @@ import { UserCircle, Upload } from 'lucide-react';
 export default function Onboarding() {
   const { user, updateProfile, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isEditMode = searchParams.get('edit') === 'true';
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -22,7 +24,7 @@ export default function Onboarding() {
     if (isAuthenticated && user) {
       const isProfileComplete = user.first_name && user.last_name && user.topic && user.submission_date && user.specialty && user.project_method;
 
-      if (isProfileComplete) {
+      if (isProfileComplete && !isEditMode) {
         navigate('/');
         return;
       }
@@ -39,7 +41,7 @@ export default function Onboarding() {
       const localProfile = storage.getProfile();
       const isLocalProfileComplete = localProfile.firstName && localProfile.lastName && localProfile.topic && localProfile.submissionDate && localProfile.specialty && localProfile.projectMethod;
 
-      if (isLocalProfileComplete) {
+      if (isLocalProfileComplete && !isEditMode) {
         navigate('/');
         return;
       }
@@ -53,7 +55,7 @@ export default function Onboarding() {
         projectMethod: localProfile.projectMethod || '',
       });
     }
-  }, [user, isAuthenticated, navigate]);
+  }, [user, isAuthenticated, navigate, isEditMode]);
 
   const handleSubmit = async e => {
     e.preventDefault();

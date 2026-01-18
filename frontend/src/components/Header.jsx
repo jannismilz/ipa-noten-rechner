@@ -61,7 +61,7 @@ export default function Header() {
                   {localProfile.firstName} {localProfile.lastName || ''}
                 </span>
               </div>
-              <button onClick={() => navigate('/onboarding')} className="btn-secondary-small">
+              <button onClick={() => navigate('/onboarding?edit=true')} className="btn-secondary-small">
                 Profil
               </button>
               <button onClick={() => navigate('/login')} className="btn-secondary-small">
