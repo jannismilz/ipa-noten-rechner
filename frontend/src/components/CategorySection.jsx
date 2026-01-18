@@ -12,14 +12,18 @@ export default function CategorySection({ category, criterias, evaluations, onUp
     });
   };
 
+  const getRequirementText = (req) => typeof req === 'string' ? req : req.text;
+
   const calculateCategoryProgress = () => {
     let totalCompleted = 0;
     let totalItems = 0;
 
     criterias.forEach(criteria => {
       const filteredReqs = getFilteredRequirements(criteria.requirements);
+      const validRequirementTexts = filteredReqs.map(getRequirementText);
       const ticked = evaluations[criteria.id]?.tickedRequirements || [];
-      totalCompleted += ticked.length;
+      const validTicked = ticked.filter(t => validRequirementTexts.includes(t));
+      totalCompleted += validTicked.length;
       totalItems += filteredReqs.length;
     });
 

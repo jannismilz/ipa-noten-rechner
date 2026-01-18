@@ -13,6 +13,9 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
 
   const getRequirementText = (req) => typeof req === 'string' ? req : req.text;
 
+  const validRequirementTexts = filteredRequirements.map(getRequirementText);
+  const validTickedRequirements = tickedRequirements.filter(t => validRequirementTexts.includes(t));
+
   const handleRequirementToggle = requirement => {
     const newTicked = tickedRequirements.includes(requirement)
       ? tickedRequirements.filter(r => r !== requirement)
@@ -32,7 +35,7 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
     onUpdate({ tickedRequirements, note: localNote });
   };
 
-  const points = calculateGrade(criteria, tickedRequirements, projectMethod);
+  const points = calculateGrade(criteria, validTickedRequirements, projectMethod);
   const gradeClass = points !== null ? `grade-${points}` : 'grade-none';
 
   return (
@@ -52,7 +55,7 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
             </span>
           )}
           <span className="criteria-progress">
-            {tickedRequirements.length}/{filteredRequirements.length}
+            {validTickedRequirements.length}/{filteredRequirements.length}
           </span>
           {isOpen ? <ChevronUp /> : <ChevronDown />}
         </div>

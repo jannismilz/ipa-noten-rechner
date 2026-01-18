@@ -14,10 +14,12 @@ export function calculateGrade(criteria, tickedRequirements, projectMethod) {
     ? filterRequirementsByProjectMethod(criteria.requirements, projectMethod)
     : criteria.requirements;
 
+  const validRequirementTexts = filteredRequirements.map(getRequirementText);
+  const validTickedRequirements = tickedRequirements.filter(t => validRequirementTexts.includes(t));
+
   if (criteria.selection === 'single') {
-    if (tickedRequirements.length === 0) return null;
-    const requirementTexts = filteredRequirements.map(getRequirementText);
-    const selectedIndex = requirementTexts.indexOf(tickedRequirements[0]);
+    if (validTickedRequirements.length === 0) return null;
+    const selectedIndex = validRequirementTexts.indexOf(validTickedRequirements[0]);
     if (selectedIndex === -1) return null;
 
     for (const stage of ['3', '2', '1', '0']) {
@@ -30,7 +32,7 @@ export function calculateGrade(criteria, tickedRequirements, projectMethod) {
     return null;
   }
 
-  const tickedCount = tickedRequirements.length;
+  const tickedCount = validTickedRequirements.length;
   const totalRequirements = filteredRequirements.length;
 
   for (const stage of ['3', '2', '1', '0']) {
@@ -39,7 +41,7 @@ export function calculateGrade(criteria, tickedRequirements, projectMethod) {
 
     if (condition.must !== undefined) {
       const mustRequirement = getRequirementText(filteredRequirements[condition.must - 1]);
-      const hasMust = tickedRequirements.includes(mustRequirement);
+      const hasMust = validTickedRequirements.includes(mustRequirement);
       
       if (condition.count !== undefined) {
         if (hasMust && tickedCount >= condition.count) return parseInt(stage);
@@ -105,8 +107,10 @@ function calculateCategoryProgress(categoryCriterias, evaluations, projectMethod
     const filteredReqs = projectMethod 
       ? filterRequirementsByProjectMethod(criteria.requirements, projectMethod)
       : criteria.requirements;
+    const validRequirementTexts = filteredReqs.map(getRequirementText);
     const ticked = evaluations[criteria.id]?.tickedRequirements || [];
-    totalCompleted += ticked.length;
+    const validTicked = ticked.filter(t => validRequirementTexts.includes(t));
+    totalCompleted += validTicked.length;
     totalItems += filteredReqs.length;
   });
 
