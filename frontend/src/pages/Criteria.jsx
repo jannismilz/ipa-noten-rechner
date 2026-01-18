@@ -55,14 +55,26 @@ export default function Criteria() {
     if (authLoading) return;
 
     if (isAuthenticated && user) {
-      const isProfileComplete = user.first_name && user.last_name && user.topic && user.submission_date && user.specialty && user.project_method;
+      const isProfileComplete =
+        user.first_name &&
+        user.last_name &&
+        user.topic &&
+        user.submission_date &&
+        user.specialty &&
+        user.project_method;
       if (!isProfileComplete) {
         navigate('/onboarding');
         return;
       }
     } else if (!isAuthenticated) {
       const localProfile = storage.getProfile();
-      const isLocalProfileComplete = localProfile.firstName && localProfile.lastName && localProfile.topic && localProfile.submissionDate && localProfile.specialty && localProfile.projectMethod;
+      const isLocalProfileComplete =
+        localProfile.firstName &&
+        localProfile.lastName &&
+        localProfile.topic &&
+        localProfile.submissionDate &&
+        localProfile.specialty &&
+        localProfile.projectMethod;
       if (!isLocalProfileComplete) {
         navigate('/onboarding');
         return;

@@ -22,7 +22,13 @@ export default function Onboarding() {
 
   useEffect(() => {
     if (isAuthenticated && user) {
-      const isProfileComplete = user.first_name && user.last_name && user.topic && user.submission_date && user.specialty && user.project_method;
+      const isProfileComplete =
+        user.first_name &&
+        user.last_name &&
+        user.topic &&
+        user.submission_date &&
+        user.specialty &&
+        user.project_method;
 
       if (isProfileComplete && !isEditMode) {
         navigate('/');
@@ -39,7 +45,13 @@ export default function Onboarding() {
       });
     } else if (!isAuthenticated) {
       const localProfile = storage.getProfile();
-      const isLocalProfileComplete = localProfile.firstName && localProfile.lastName && localProfile.topic && localProfile.submissionDate && localProfile.specialty && localProfile.projectMethod;
+      const isLocalProfileComplete =
+        localProfile.firstName &&
+        localProfile.lastName &&
+        localProfile.topic &&
+        localProfile.submissionDate &&
+        localProfile.specialty &&
+        localProfile.projectMethod;
 
       if (isLocalProfileComplete && !isEditMode) {
         navigate('/');
@@ -170,13 +182,7 @@ export default function Onboarding() {
 
           <div className="form-group">
             <label htmlFor="specialty">Fachrichtung</label>
-            <select
-              id="specialty"
-              name="specialty"
-              value={formData.specialty}
-              onChange={handleChange}
-              required
-            >
+            <select id="specialty" name="specialty" value={formData.specialty} onChange={handleChange} required>
               <option value="">Bitte wählen...</option>
               <option value="Applikationsentwicklung">Applikationsentwicklung</option>
               <option value="Plattformentwicklung">Plattformentwicklung</option>

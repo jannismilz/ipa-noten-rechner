@@ -121,13 +121,7 @@ export default function Profile() {
 
           <div className="form-group">
             <label htmlFor="specialty">Fachrichtung</label>
-            <select
-              id="specialty"
-              name="specialty"
-              value={formData.specialty}
-              onChange={handleChange}
-              required
-            >
+            <select id="specialty" name="specialty" value={formData.specialty} onChange={handleChange} required>
               <option value="">Bitte wählen...</option>
               <option value="Applikationsentwicklung">Applikationsentwicklung</option>
               <option value="Plattformentwicklung">Plattformentwicklung</option>

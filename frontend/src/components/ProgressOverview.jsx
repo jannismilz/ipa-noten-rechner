@@ -8,7 +8,6 @@ export default function ProgressOverview({
   onExport,
   onImport,
   onReset,
-  isAuthenticated,
   projectMethod,
 }) {
   const categoryScores = calculateCategoryScores(categories, criterias, evaluations, projectMethod);

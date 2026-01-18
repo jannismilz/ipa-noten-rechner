@@ -5,14 +5,14 @@ import CriteriaItem from './CriteriaItem';
 export default function CategorySection({ category, criterias, evaluations, onUpdate, projectMethod }) {
   const [isOpen, setIsOpen] = useState(true);
 
-  const getFilteredRequirements = (requirements) => {
+  const getFilteredRequirements = requirements => {
     return requirements.filter(req => {
       if (typeof req === 'string') return true;
       return !req.projectMethod || req.projectMethod === projectMethod;
     });
   };
 
-  const getRequirementText = (req) => typeof req === 'string' ? req : req.text;
+  const getRequirementText = req => (typeof req === 'string' ? req : req.text);
 
   const calculateCategoryProgress = () => {
     let totalCompleted = 0;

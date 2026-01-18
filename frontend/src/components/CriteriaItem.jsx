@@ -11,7 +11,7 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
     return !req.projectMethod || req.projectMethod === projectMethod;
   });
 
-  const getRequirementText = (req) => typeof req === 'string' ? req : req.text;
+  const getRequirementText = req => (typeof req === 'string' ? req : req.text);
 
   const validRequirementTexts = filteredRequirements.map(getRequirementText);
   const validTickedRequirements = tickedRequirements.filter(t => validRequirementTexts.includes(t));
