@@ -325,10 +325,10 @@
             "requirements": [
                 "Es wurde eine Beschreibung der Testinfrastruktur und des Umfelds bereitgestellt, sodass eine externe Fachperson die Tests mit gleichen Ergebnissen reproduzieren kann.",
                 "Verbesserungspotential wie auch Nacharbeiten wurden identifiziert. Falls weder Verbesserungspotential besteht noch Nacharbeit nötig ist, ist dies nachvollziehbar begründet.",
-                "Linear: Relevante Testszenarien wie auch Testkomponenten (bspw. Funktionen, Daten, Dokumente, Performance, Schnittstellen etc.) sind inkl. der erwarteten Ergebnisse beschrieben.",
-                "Linear: Die Tests wurden basierend auf den Testszenarien durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert.",
-                "Agil: Es existiert eine Definition of Done (DoD), die festlegt, welche Bedingungen erfüllt sein müssen, damit eine User Story oder ein Arbeitspaket als abgeschlossen gilt.",
-                "Agil: Die Tests wurden basierend auf der DoD durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert."
+                { "text": "Relevante Testszenarien wie auch Testkomponenten (bspw. Funktionen, Daten, Dokumente, Performance, Schnittstellen etc.) sind inkl. der erwarteten Ergebnisse beschrieben.", "projectMethod": "Linear" },
+                { "text": "Die Tests wurden basierend auf den Testszenarien durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert.", "projectMethod": "Linear" },
+                { "text": "Es existiert eine Definition of Done (DoD), die festlegt, welche Bedingungen erfüllt sein müssen, damit eine User Story oder ein Arbeitspaket als abgeschlossen gilt.", "projectMethod": "Agil" },
+                { "text": "Die Tests wurden basierend auf der DoD durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert.", "projectMethod": "Agil" }
             ],
             "stages": {
                 "3": {

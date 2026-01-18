@@ -13,6 +13,8 @@ router.get('/profile', authMiddleware, async (req, res) => {
         up.last_name,
         up.topic,
         up.submission_date,
+        up.specialty,
+        up.project_method,
         up.user_id
       FROM user_profiles up
       WHERE up.user_id = ${req.userId}
@@ -30,7 +32,7 @@ router.get('/profile', authMiddleware, async (req, res) => {
 });
 
 router.put('/profile', authMiddleware, async (req, res) => {
-  const { firstName, lastName, topic, submissionDate } = req.body;
+  const { firstName, lastName, topic, submissionDate, specialty, projectMethod } = req.body;
 
   try {
     const [profile] = await sql`
@@ -39,7 +41,9 @@ router.put('/profile', authMiddleware, async (req, res) => {
         first_name = COALESCE(${firstName}, first_name),
         last_name = COALESCE(${lastName}, last_name),
         topic = COALESCE(${topic}, topic),
-        submission_date = COALESCE(${submissionDate}, submission_date)
+        submission_date = COALESCE(${submissionDate}, submission_date),
+        specialty = COALESCE(${specialty}, specialty),
+        project_method = COALESCE(${projectMethod}, project_method)
       WHERE user_id = ${req.userId}
       RETURNING *
     `;

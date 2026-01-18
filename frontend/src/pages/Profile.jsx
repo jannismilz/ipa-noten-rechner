@@ -11,6 +11,8 @@ export default function Profile() {
     lastName: '',
     topic: '',
     submissionDate: '',
+    specialty: '',
+    projectMethod: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -28,6 +30,8 @@ export default function Profile() {
         lastName: user.last_name || '',
         topic: user.topic || '',
         submissionDate: user.submission_date || '',
+        specialty: user.specialty || '',
+        projectMethod: user.project_method || '',
       });
     }
   }, [user, isAuthenticated, navigate]);
@@ -113,6 +117,30 @@ export default function Profile() {
               onChange={handleChange}
               required
             />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="specialty">Fachrichtung</label>
+            <select id="specialty" name="specialty" value={formData.specialty} onChange={handleChange} required>
+              <option value="">Bitte wählen...</option>
+              <option value="Applikationsentwicklung">Applikationsentwicklung</option>
+              <option value="Plattformentwicklung">Plattformentwicklung</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="projectMethod">Projektmethode</label>
+            <select
+              id="projectMethod"
+              name="projectMethod"
+              value={formData.projectMethod}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Bitte wählen...</option>
+              <option value="Agil">Agil</option>
+              <option value="Linear">Linear</option>
+            </select>
           </div>
 
           <button type="submit" className="btn-primary" disabled={loading}>

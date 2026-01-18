@@ -8,9 +8,9 @@ export default function ProgressOverview({
   onExport,
   onImport,
   onReset,
-  isAuthenticated,
+  projectMethod,
 }) {
-  const categoryScores = calculateCategoryScores(categories, criterias, evaluations);
+  const categoryScores = calculateCategoryScores(categories, criterias, evaluations, projectMethod);
   const finalGrade = calculateFinalGrade(categoryScores);
 
   return (
@@ -18,16 +18,12 @@ export default function ProgressOverview({
       <div className="overview-header">
         <h2>Übersicht</h2>
         <div className="overview-actions">
-          {!isAuthenticated && (
-            <>
-              <button onClick={onExport} className="btn-icon" title="Export">
-                <Download size={18} />
-              </button>
-              <button onClick={onImport} className="btn-icon" title="Import">
-                <Upload size={18} />
-              </button>
-            </>
-          )}
+          <button onClick={onExport} className="btn-icon" title="Export">
+            <Download size={18} />
+          </button>
+          <button onClick={onImport} className="btn-icon" title="Import">
+            <Upload size={18} />
+          </button>
           <button onClick={onReset} className="btn-icon btn-danger" title="Alles zurücksetzen">
             <Trash2 size={18} />
           </button>

@@ -2,9 +2,19 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { calculateGrade } from '../../../shared/gradeCalculation.js';
 
-export default function CriteriaItem({ criteria, tickedRequirements, note, onUpdate }) {
+export default function CriteriaItem({ criteria, tickedRequirements, note, onUpdate, projectMethod }) {
   const [isOpen, setIsOpen] = useState(false);
   const [localNote, setLocalNote] = useState(note || '');
+
+  const filteredRequirements = criteria.requirements.filter(req => {
+    if (typeof req === 'string') return true;
+    return !req.projectMethod || req.projectMethod === projectMethod;
+  });
+
+  const getRequirementText = req => (typeof req === 'string' ? req : req.text);
+
+  const validRequirementTexts = filteredRequirements.map(getRequirementText);
+  const validTickedRequirements = tickedRequirements.filter(t => validRequirementTexts.includes(t));
 
   const handleRequirementToggle = requirement => {
     const newTicked = tickedRequirements.includes(requirement)
@@ -25,7 +35,7 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
     onUpdate({ tickedRequirements, note: localNote });
   };
 
-  const points = calculateGrade(criteria, tickedRequirements);
+  const points = calculateGrade(criteria, validTickedRequirements, projectMethod);
   const gradeClass = points !== null ? `grade-${points}` : 'grade-none';
 
   return (
@@ -45,7 +55,7 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
             </span>
           )}
           <span className="criteria-progress">
-            {tickedRequirements.length}/{criteria.requirements.length}
+            {validTickedRequirements.length}/{filteredRequirements.length}
           </span>
           {isOpen ? <ChevronUp /> : <ChevronDown />}
         </div>
@@ -54,19 +64,22 @@ export default function CriteriaItem({ criteria, tickedRequirements, note, onUpd
       {isOpen && (
         <div className="criteria-content">
           <div className="requirements-list">
-            {criteria.requirements.map((requirement, index) => (
-              <div key={index} className="requirement-item">
-                <label>
-                  <input
-                    type={criteria.selection === 'single' ? 'radio' : 'checkbox'}
-                    name={`criteria-${criteria.id}`}
-                    checked={tickedRequirements.includes(requirement)}
-                    onChange={() => handleRequirementToggle(requirement)}
-                  />
-                  <span className="requirement-text">{requirement}</span>
-                </label>
-              </div>
-            ))}
+            {filteredRequirements.map((requirement, index) => {
+              const text = getRequirementText(requirement);
+              return (
+                <div key={index} className="requirement-item">
+                  <label>
+                    <input
+                      type={criteria.selection === 'single' ? 'radio' : 'checkbox'}
+                      name={`criteria-${criteria.id}`}
+                      checked={tickedRequirements.includes(text)}
+                      onChange={() => handleRequirementToggle(text)}
+                    />
+                    <span className="requirement-text">{text}</span>
+                  </label>
+                </div>
+              );
+            })}
           </div>
 
           <div className="note-section">

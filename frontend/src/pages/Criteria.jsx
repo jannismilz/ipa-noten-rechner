@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { api } from '../services/api';
 import { storage } from '../services/storage';
@@ -7,7 +8,8 @@ import CategorySection from '../components/CategorySection';
 import ConfirmModal from '../components/ConfirmModal';
 
 export default function Criteria() {
-  const { token, isAuthenticated } = useAuth();
+  const { token, isAuthenticated, user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const [criteriaData, setCriteriaData] = useState(null);
   const [evaluations, setEvaluations] = useState({});
   const [loading, setLoading] = useState(true);
@@ -50,6 +52,37 @@ export default function Criteria() {
   }, [isAuthenticated, token]);
 
   useEffect(() => {
+    if (authLoading) return;
+
+    if (isAuthenticated && user) {
+      const isProfileComplete =
+        user.first_name &&
+        user.last_name &&
+        user.topic &&
+        user.submission_date &&
+        user.specialty &&
+        user.project_method;
+      if (!isProfileComplete) {
+        navigate('/onboarding');
+        return;
+      }
+    } else if (!isAuthenticated) {
+      const localProfile = storage.getProfile();
+      const isLocalProfileComplete =
+        localProfile.firstName &&
+        localProfile.lastName &&
+        localProfile.topic &&
+        localProfile.submissionDate &&
+        localProfile.specialty &&
+        localProfile.projectMethod;
+      if (!isLocalProfileComplete) {
+        navigate('/onboarding');
+        return;
+      }
+    }
+  }, [authLoading, isAuthenticated, user, navigate]);
+
+  useEffect(() => {
     loadData();
   }, [loadData]);
 
@@ -74,13 +107,40 @@ export default function Criteria() {
   };
 
   const handleExport = () => {
-    if (isAuthenticated) {
-      alert('Export ist nur im Offline-Modus verfügbar');
-      return;
+    const tickedRequirements = {};
+    const notes = {};
+
+    Object.entries(evaluations).forEach(([criteriaId, data]) => {
+      if (data.tickedRequirements && data.tickedRequirements.length > 0) {
+        tickedRequirements[criteriaId] = data.tickedRequirements;
+      }
+      if (data.note) {
+        notes[criteriaId] = data.note;
+      }
+    });
+
+    let profile = {};
+    if (isAuthenticated && user) {
+      profile = {
+        firstName: user.first_name || '',
+        lastName: user.last_name || '',
+        topic: user.topic || '',
+        submissionDate: user.submission_date || '',
+        specialty: user.specialty || '',
+        projectMethod: user.project_method || '',
+      };
+    } else {
+      profile = storage.getProfile();
     }
 
-    const data = storage.exportData();
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const exportData = {
+      tickedRequirements,
+      notes,
+      profile,
+      exportedAt: new Date().toISOString(),
+    };
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -90,11 +150,6 @@ export default function Criteria() {
   };
 
   const handleImport = () => {
-    if (isAuthenticated) {
-      alert('Import ist nur im Offline-Modus verfügbar');
-      return;
-    }
-
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
@@ -104,9 +159,23 @@ export default function Criteria() {
         try {
           const text = await file.text();
           const data = JSON.parse(text);
-          storage.importData(data);
+
+          if (isAuthenticated && token) {
+            const allCriteriaIds = criteriaData?.criterias?.map(c => c.id) || [];
+            for (const criteriaId of allCriteriaIds) {
+              const evalData = {
+                tickedRequirements: data.tickedRequirements?.[criteriaId] || [],
+                note: data.notes?.[criteriaId] || '',
+              };
+              await api.saveEvaluation(token, criteriaId, evalData);
+            }
+          } else {
+            storage.importData(data);
+          }
+
           loadData();
-        } catch {
+        } catch (err) {
+          console.error('Import error:', err);
           alert('Fehler beim Importieren der Datei');
         }
       }
@@ -160,6 +229,8 @@ export default function Criteria() {
     return null;
   }
 
+  const projectMethod = isAuthenticated && user ? user.project_method : storage.getProfile().projectMethod;
+
   const groupedCriterias = {};
   criteriaData.categories_with_weigth.forEach(category => {
     groupedCriterias[category.id] = criteriaData.criterias.filter(c => c.category === category.id);
@@ -175,6 +246,7 @@ export default function Criteria() {
         onImport={handleImport}
         onReset={() => setShowResetModal(true)}
         isAuthenticated={isAuthenticated}
+        projectMethod={projectMethod}
       />
 
       <div className="categories-container">
@@ -185,6 +257,7 @@ export default function Criteria() {
             criterias={groupedCriterias[category.id] || []}
             evaluations={evaluations}
             onUpdate={handleUpdate}
+            projectMethod={projectMethod}
           />
         ))}
       </div>
