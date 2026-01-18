@@ -16,7 +16,9 @@ export async function setupTestDatabase() {
       first_name VARCHAR(100),
       last_name VARCHAR(100),
       topic TEXT,
-      submission_date DATE
+      submission_date DATE,
+      specialty VARCHAR(50),
+      project_method VARCHAR(20)
     )
   `;
 
