@@ -15,8 +15,8 @@ Eine Web-Applikation zur Selbstbewertung anhand des offiziellen [IPA Kriterienka
 
 ```bash
 # Repository klonen
-git clone https://github.com/bbwheroes/324-ruts-ipa_noten_rechner-jannismilz
-cd 324-ruts-ipa_noten_rechner-jannismilz
+git clone https://github.com/jannismilz/ipa-noten-rechner
+cd ipa-noten-rechner
 
 # Dependencies installieren
 npm --prefix ./frontend install ./frontend
@@ -42,8 +42,6 @@ Für detaillierte Anweisungen siehe [CONTRIBUTING.md](./CONTRIBUTING.md).
 |----------|--------------|
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | Setup, Development, API Endpoints |
 | [Kriterienkatalog Spezifikation](./docs/KRITERIENKATALOG.md) | JSON-Format des Kriterienkatalogs |
-| [Testkonzept](./docs/TESTKONZEPT.md) | Teststrategie, Testfälle, Abdeckung |
-| [KI-Nutzung](./docs/KI_NUTZUNG.md) | Dokumentation der KI-Unterstützung |
 | [Backend README](./backend/README.md) | Backend-spezifische Dokumentation |
 
 ## Projektstruktur
